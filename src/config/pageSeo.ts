@@ -1,6 +1,5 @@
 /**
  * Central titles/descriptions for high-traffic routes.
- * After Search Console shows impressions, edit the matching path here and redeploy.
  */
 
 export interface PageSeoEntry {
@@ -10,59 +9,59 @@ export interface PageSeoEntry {
 
 export const PAGE_SEO: Record<string, PageSeoEntry> = {
   '/': {
-    // gscNote: Keep primary keyword "dota 2 cheats" near front; trim if title truncates in SERP.
-    title: 'Dota 2 Cheats & Hacks | Scripts, Map Hack & ESP',
+    title: 'Wardogs cheats | ESP, aimbot, wallhack & radar',
     description:
-      'Dota 2 cheats for PC ranked: scripts, map hack, zoom hack, and skin changer tiers updated every patch at dotacheats.com.',
+      'Wardogs cheats for PC: ESP, aimbot, wallhack-style intel, radar, triggerbot, and loader notes. Read wardogs cheats reviews in the forums, then compare Lite, Pro, and Elite.',
+  },
+  '/products/wardogs-cheats/': {
+    title: 'Wardogs cheats Lite, Pro & Elite | ESP & aimbot tiers',
+    description:
+      'Wardogs ESP, aimbot, and wallhack-style features by tier—Lite for intel, Pro for combat assists, Elite for the full stack. Windows PC only.',
   },
   '/products/dota-2-cheats/': {
-    title: 'Dota 2 Elite Cheats & Utility Products',
+    title: 'Wardogs cheats Lite, Pro & Elite | ESP & aimbot tiers',
     description:
-      'Elite dota 2 cheats plus HWID spoofer, UGC tools, and Skin Changer utilities for Steam ranked on dotacheats.com.',
+      'Wardogs ESP, aimbot, and wallhack-style features by tier—redirected legacy URL maps to the Wardogs catalog. Windows PC only.',
   },
-  '/products/dota-2-cheats/elite/': {
-    title: 'Dota 2 Elite Cheats | Bots & Full Map Hack',
+  '/products/wardogs-cheats/elite/': {
+    title: 'Wardogs Elite cheats | Full ESP & aimbot suite',
     description:
-      'Elite tier: auto farm bot, kill steal, skin changer, full map hack suite, and priority patch delivery.',
-  },
-  '/products/dota-2-cheats/utilities/': {
-    title: 'Dota 2 Utilities | HWID, UGC & Skin Changer',
-    description:
-      'Choose HWID Spoofer, UGC, or Skin Changer—when each utility fits and links to full product pages.',
+      'Elite tier bundles the strongest Wardogs aimbot tuning, ESP density controls, and extra combat tools—check loader status after patches.',
   },
   '/blog/': {
-    title: 'Dota 2 Cheats Guides & Patch Notes',
+    title: 'Wardogs cheat articles | ESP, aimbot & setup',
     description:
-      'Setup guides, Lite vs Pro comparisons, VAC patch checklists, and ranked config tips for dota cheats.',
+      'Articles on Wardogs ESP overlays, aimbot sensitivity, radar use, and safe defaults—written for players comparing features before checkout.',
   },
   '/forum/': {
-    title: 'Dota 2 Community Forum | DotaCheats',
-    description: 'Join Dota players to discuss heroes, builds, patch changes, guides, and community moments.',
+    title: 'Wardogs cheats forum | Setup & feature talk',
+    description:
+      'Forum-style threads on Wardogs aimbot levels, ESP clutter, ban risk, and loader steps—read mixed feedback before you buy.',
   },
   '/faq/': {
-    title: 'FAQ | Dota 2 Cheats, Products & Setup',
+    title: 'FAQ | Wardogs cheats, download & safety',
     description:
-      'Answers on cheat tiers, map hack, scripts, HWID tools, checkout, and blog guides at dotacheats.com.',
+      'Wardogs cheats FAQ: wardogs esp, aimbot, wallhack, triggerbot, loader download, legit checkout, Reddit and Discord noise, and honest notes on risk.',
   },
   '/terms/': {
-    title: 'Terms & Conditions | DotaCheats',
+    title: 'Terms & Conditions | wardogs-cheats.net',
     description:
-      'Purchase terms, license use, and refund policy for DotaCheats products sold through dotacheats.com.',
+      'License terms, acceptable use, and refund rules for Wardogs cheat access sold through the linked checkout.',
   },
   '/privacy/': {
-    title: 'Privacy Policy | DotaCheats',
+    title: 'Privacy Policy | wardogs-cheats.net',
     description:
-      'How dotacheats.com uses analytics, cookies, and contact data when you browse or request support.',
+      'How wardogs-cheats.net uses analytics, cookies, and support email when you browse or request help.',
   },
   '/about/': {
-    title: 'About DotaCheats',
+    title: 'About this Wardogs cheats site',
     description:
-      'What DotaCheats publishes: Dota 2 cheat tiers, utilities, guides, and status notes at dotacheats.com.',
+      'What we publish: Wardogs ESP, aimbot, and wallhack-style feature pages for PC players comparing software options.',
   },
   '/support/': {
-    title: 'Support | DotaCheats',
+    title: 'Support | Wardogs cheats help',
     description:
-      'Get help with loader setup, HWID, and checkout for Dota 2 cheat tiers and utilities.',
+      'Get help with loader install, Wardogs ESP or aimbot tuning, and checkout—include your Windows build and order email.',
   },
 };
 

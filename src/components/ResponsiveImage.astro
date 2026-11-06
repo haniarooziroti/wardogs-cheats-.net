@@ -31,17 +31,23 @@ const {
   desktopOnly = false,
 } = Astro.props;
 
-const isRaster = /\.(png|jpe?g|webp)$/i.test(src);
-const srcSet = responsiveSrcSet(src, widths);
-const imgSrc = desktopOnly
-  ? 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'
-  : defaultWebpSrc(src, widths);
+const placeholderPixel =
+  'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+
+const isHttp = /^https?:\/\//i.test(src);
+const isRaster = isHttp || /\.(png|jpe?g|webp)$/i.test(src);
+const srcSet = isHttp ? undefined : responsiveSrcSet(src, widths);
+const imgSrc = isHttp
+  ? src
+  : desktopOnly
+    ? placeholderPixel
+    : defaultWebpSrc(src, widths);
 const pictureSizes = desktopOnly ? '(min-width: 1024px) 490px, 1px' : sizes;
 const pictureMedia = desktopOnly ? '(min-width: 1024px)' : undefined;
 ---
 
 {
-  isRaster ? (
+  isRaster && !isHttp ? (
     <picture>
       <source type="image/webp" srcset={srcSet} sizes={pictureSizes} media={pictureMedia} />
       <img
@@ -57,6 +63,35 @@ const pictureMedia = desktopOnly ? '(min-width: 1024px)' : undefined;
         class={className}
       />
     </picture>
+  ) : isHttp ? (
+    desktopOnly ? (
+      <picture>
+        <source srcset={src} media="(min-width: 1024px)" sizes="490px" />
+        <img
+          src={placeholderPixel}
+          alt={alt}
+          width={width}
+          height={height}
+          loading={loading}
+          decoding="async"
+          fetchpriority={fetchPriority}
+          sizes={pictureSizes}
+          class={className}
+        />
+      </picture>
+    ) : (
+      <img
+        src={src}
+        alt={alt}
+        width={width}
+        height={height}
+        loading={loading}
+        decoding="async"
+        fetchpriority={fetchPriority}
+        sizes={sizes}
+        class={className}
+      />
+    )
   ) : (
     <img
       src={src}

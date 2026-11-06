@@ -10,7 +10,7 @@ export function withTrailingSlash(path: string): string {
   return hash ? `${normalized}#${hash}` : normalized;
 }
 
-/** Former /cheats/* URLs → current routes (301 targets match astro.config + scripts/redirects.mjs). */
+/** Former /cheats/* and legacy product URLs → current routes. */
 export const LEGACY_PATH_MAP: Record<string, string> = {
   '/cheats': PRODUCT_BASE,
   '/cheats/': PRODUCT_BASE,
@@ -20,8 +20,14 @@ export const LEGACY_PATH_MAP: Record<string, string> = {
   '/cheats/pro/': PRODUCT_BASE,
   '/cheats/elite': `${PRODUCT_BASE}elite/`,
   '/cheats/elite/': `${PRODUCT_BASE}elite/`,
-  '/cheats/compare': '/blog/dota-2-lite-vs-pro/',
-  '/cheats/compare/': '/blog/dota-2-lite-vs-pro/',
+  '/cheats/compare': '/blog/wardogs-lite-vs-pro-esp-aimbot/',
+  '/cheats/compare/': '/blog/wardogs-lite-vs-pro-esp-aimbot/',
+  '/products/dota-2-cheats': PRODUCT_BASE,
+  '/products/dota-2-cheats/': PRODUCT_BASE,
+  '/products/dota-2-cheats/elite': `${PRODUCT_BASE}elite/`,
+  '/products/dota-2-cheats/elite/': `${PRODUCT_BASE}elite/`,
+  '/products/dota-2-cheats/utilities': PRODUCT_BASE,
+  '/products/dota-2-cheats/utilities/': PRODUCT_BASE,
   '/contact': '/support/',
   '/contact/': '/support/',
 };
@@ -47,7 +53,6 @@ export const ROUTES = {
   forum: '/forum/',
   products: PRODUCT_BASE,
   productsElite: `${PRODUCT_BASE}elite/`,
-  productsUtilities: `${PRODUCT_BASE}utilities/`,
   faq: '/faq/',
   terms: '/terms/',
   about: '/about/',
@@ -59,7 +64,6 @@ export function blogPostPath(slug: string): string {
   return `/blog/${slug}/`;
 }
 
-/** @deprecated Use productPath — cheat tier pages live under products. */
 export function cheatPath(slug: string): string {
   return productPath(slug);
 }

@@ -9,11 +9,11 @@ import { t } from '../i18n';
 import { resolvePageSeo } from '../config/seo';
 import { faqPageSchema, organizationSchema, websiteSchema } from '../utils/schema';
 import { getLandingFaqs } from '../data/faq';
-import { webpSrc } from '../utils/responsiveImage';
+import { heroSlides } from '../data/products';
 
 const seo = resolvePageSeo('/');
 const homeFaqs = getLandingFaqs();
-const heroLcpImage = webpSrc('/images/gameplay/dota-2-map-hack.png', 512);
+const heroLcpImage = heroSlides[0]?.src ?? '';
 ---
 
 <BaseLayout
@@ -21,15 +21,19 @@ const heroLcpImage = webpSrc('/images/gameplay/dota-2-map-hack.png', 512);
   description={seo.description}
   jsonLd={[websiteSchema(), organizationSchema(), faqPageSchema(homeFaqs.map((f, i) => ({ num: String(i + 1).padStart(2, '0'), q: f.q, a: f.a.replace(/<[^>]+>/g, '') })))]}
 >
-  <link
-    slot="head"
-    rel="preload"
-    as="image"
-    href={heroLcpImage}
-    type="image/webp"
-    media="(min-width: 1024px)"
-    fetchpriority="high"
-  />
+  {
+    heroLcpImage && (
+      <link
+        slot="head"
+        rel="preload"
+        as="image"
+        href={heroLcpImage}
+        type="image/webp"
+        media="(min-width: 1024px)"
+        fetchpriority="high"
+      />
+    )
+  }
   <HeroSection />
   <FeaturesSection />
   <ProductsSection />

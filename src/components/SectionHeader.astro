@@ -4,11 +4,14 @@ interface Props {
   title: string;
   desc?: string;
   titleId?: string;
+  /** Use h1 only once per page (typically the page hero). Section titles default to h2 for IA/SEO. */
+  titleTag?: 'h1' | 'h2' | 'h3';
   centered?: boolean;
   wide?: boolean;
 }
 
-const { eyebrow, title, desc, titleId, centered = false, wide = false } = Astro.props;
+const { eyebrow, title, desc, titleId, titleTag = 'h2', centered = false, wide = false } = Astro.props;
+const Heading = titleTag;
 ---
 
 <header
@@ -19,6 +22,6 @@ const { eyebrow, title, desc, titleId, centered = false, wide = false } = Astro.
   ]}
 >
   <p class="section-header__eyebrow">{eyebrow}</p>
-  <h1 id={titleId} class="section-header__title">{title}</h1>
+  <Heading id={titleId} class="section-header__title">{title}</Heading>
   {desc ? <p class="section-header__subtitle">{desc}</p> : null}
 </header>

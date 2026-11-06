@@ -3,7 +3,7 @@ export interface SiteConfig {
   domain: string;
   title: string;
   description: string;
-  discord: string;
+  rssFeedTitle: string;
 }
 
 export interface NavLink {
@@ -101,6 +101,7 @@ export interface Translations {
     status: string;
     eyebrow: string;
     titleLine1: string;
+    /** Optional second line after the main Wardogs cheats heading (omit for a single-line h1). */
     titleLine2: string;
     subtitle: string;
     ctaPrimary: string;

@@ -3,6 +3,6 @@ Allow: /
 
 Disallow: /go/
 
-Sitemap: https://dotacheats.com/sitemap.xml
+Sitemap: https://wardogs-cheats.net/sitemap.xml
 
-# RSS: https://dotacheats.com/rss.xml
+# RSS: https://wardogs-cheats.net/rss.xml

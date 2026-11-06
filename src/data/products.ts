@@ -1,6 +1,85 @@
 import { t } from '../i18n';
 import { checkoutForSlug, checkoutPath } from '../config/checkout';
 import type { IconName } from '../components/icons/types';
+import { PRODUCT_BASE } from '../config/site';
+
+/** Optimized WebP assets for Wardogs cheat pages (CDN). */
+const wardogsSeoImages = [
+  {
+    src: 'https://ooszazcwzmwhitdxwtom.supabase.co/storage/v1/object/public/seo-media-library/wardogs/f8fb1df6-697d-4d9b-b239-91326d061bf8/1793915976881-aqqh1y-mr-fitness-wardogs-cheats-are-way-too-powerful-vhfysrbttj8-1058x595-0m55s.webp',
+    alt: 'Wardogs cheats gameplay screenshot showing ESP and radar-style intel overlay',
+    caption: 'Intel overlay',
+    captionDesc: 'Wardogs wallhack-style readout in a live round.',
+  },
+  {
+    src: 'https://ooszazcwzmwhitdxwtom.supabase.co/storage/v1/object/public/seo-media-library/wardogs/f8fb1df6-697d-4d9b-b239-91326d061bf8/1793915968458-0dhxlc-mr-fitness-wardogs-cheats-are-way-too-powerful-vhfysrbttj8-1058x595-0m40s.webp',
+    alt: 'Wardogs aimbot assist preview with smooth crosshair tracking',
+    caption: 'Aim tuning',
+    captionDesc: 'FOV and smoothing tuned for steady Wardogs aim.',
+  },
+  {
+    src: 'https://ooszazcwzmwhitdxwtom.supabase.co/storage/v1/object/public/seo-media-library/wardogs/f8fb1df6-697d-4d9b-b239-91326d061bf8/1793915956483-6hq6ph-mr-fitness-wardogs-cheats-are-way-too-powerful-vhfysrbttj8-1058x595-0m34s.webp',
+    alt: 'Wardogs ESP highlights enemy positions at medium range',
+    caption: 'ESP reads',
+    captionDesc: 'Distance and outline cues for Wardogs fights.',
+  },
+  {
+    src: 'https://ooszazcwzmwhitdxwtom.supabase.co/storage/v1/object/public/seo-media-library/wardogs/f8fb1df6-697d-4d9b-b239-91326d061bf8/1793915876659-1unvo7-mr-fitness-wardogs-cheats-are-way-too-powerful-vhfysrbttj8-1058x595-0m21s.webp',
+    alt: 'Wardogs radar zoom widened for rotate calls',
+    caption: 'Radar zoom',
+    captionDesc: 'Map pull-back paired with Wardogs ESP.',
+  },
+  {
+    src: 'https://ooszazcwzmwhitdxwtom.supabase.co/storage/v1/object/public/seo-media-library/wardogs/f8fb1df6-697d-4d9b-b239-91326d061bf8/1793915763313-nwnol9-mr-fitness-wardogs-cheats-are-way-too-powerful-vhfysrbttj8-1058x595-0m14s.webp',
+    alt: 'Wardogs cheat menu with module toggles for ESP and aim',
+    caption: 'Loader UI',
+    captionDesc: 'Grouped Wardogs cheat modules in one stack.',
+  },
+  {
+    src: 'https://ooszazcwzmwhitdxwtom.supabase.co/storage/v1/object/public/seo-media-library/wardogs/b15955c0-41e9-482d-a072-e4e797bccc2c/1793709858946-nhlldk-hbs-forces-wardogs-wardogs-cheats-destroying-everyone-with-the-best-wardogs-chea.webp',
+    alt: 'Wardogs cheats firefight with overlay emphasis on targets',
+    caption: 'Combat read',
+    captionDesc: 'Wardogs esp and aim assists in a heated exchange.',
+  },
+  {
+    src: 'https://ooszazcwzmwhitdxwtom.supabase.co/storage/v1/object/public/seo-media-library/wardogs/b15955c0-41e9-482d-a072-e4e797bccc2c/1793709837961-92qf25-hbs-forces-wardogs-wardogs-cheats-destroying-everyone-with-the-best-wardogs-chea.webp',
+    alt: 'Wardogs wallhack-style outline on contested angle',
+    caption: 'Angle control',
+    captionDesc: 'Wardogs esp through smoke and cover.',
+  },
+  {
+    src: 'https://ooszazcwzmwhitdxwtom.supabase.co/storage/v1/object/public/seo-media-library/wardogs/b15955c0-41e9-482d-a072-e4e797bccc2c/1793709821192-2d9lsa-hbs-forces-wardogs-wardogs-cheats-destroying-everyone-with-the-best-wardogs-chea.webp',
+    alt: 'Wardogs minimap and esp alignment for callouts',
+    caption: 'Map sync',
+    captionDesc: 'Radar zoom matching Wardogs esp distance.',
+  },
+  {
+    src: 'https://ooszazcwzmwhitdxwtom.supabase.co/storage/v1/object/public/seo-media-library/wardogs/b15955c0-41e9-482d-a072-e4e797bccc2c/1793709803686-3trm9r-hbs-forces-wardogs-wardogs-cheats-destroying-everyone-with-the-best-wardogs-chea.webp',
+    alt: 'Wardogs aim assist curve smoothing close-range duels',
+    caption: 'Close duels',
+    captionDesc: 'Wardogs aimbot smoothing in short ranges.',
+  },
+  {
+    src: 'https://ooszazcwzmwhitdxwtom.supabase.co/storage/v1/object/public/seo-media-library/wardogs/b15955c0-41e9-482d-a072-e4e797bccc2c/1793709783737-r6o4o3-hbs-forces-wardogs-wardogs-cheats-destroying-everyone-with-the-best-wardogs-chea.webp',
+    alt: 'Wardogs trigger timing assist on single-tap weapons',
+    caption: 'Trigger feel',
+    captionDesc: 'Wardogs triggerbot windows kept conservative.',
+  },
+  {
+    src: 'https://ooszazcwzmwhitdxwtom.supabase.co/storage/v1/object/public/seo-media-library/wardogs/b15955c0-41e9-482d-a072-e4e797bccc2c/1793709749145-wsrzfm-niksion-i-got-rich-using-wardogs-cheat-in-season-2-ml1ky2qxita-1035x582-0m19s.webp',
+    alt: 'Wardogs ranked match with cheat overlay and economy HUD',
+    caption: 'Ranked pacing',
+    captionDesc: 'Wardogs cheat stack during competitive play.',
+  },
+] as const;
+
+function slidesAt(...indices: number[]): ProductSlide[] {
+  return indices.map((i) => {
+    const item = wardogsSeoImages[i];
+    if (!item) throw new Error(`wardogsSeoImages missing index ${i}`);
+    return { src: item.src, alt: item.alt, caption: item.caption, captionDesc: item.captionDesc };
+  });
+}
 
 export interface ProductSlide {
   src: string;
@@ -56,62 +135,43 @@ export interface ProductPage {
   relatedBlogSlugs: string[];
 }
 
-/** Guides paired with each product detail page */
+/** Articles paired with each product detail page */
 export const productRelatedBlogSlugs: Record<string, string[]> = {
-  lite: ['dota-2-map-hack-setup', 'dota-2-lite-vs-pro', 'dota-2-zoom-hack-guide', 'vac-patch-day-checklist'],
+  lite: ['wardogs-esp-wallhack-settings', 'wardogs-lite-vs-pro-esp-aimbot', 'wardogs-radar-map-esp-guide'],
   pro: [
-    'dota-2-scripts-ranked-mmr',
-    'dota-2-auto-combo-hero-scripts',
-    'dota-2-lite-vs-pro',
-    'dota-2-stream-proof-setup',
+    'wardogs-aimbot-sensitivity-and-smoothness',
+    'wardogs-lite-vs-pro-esp-aimbot',
+    'wardogs-stream-capture-safety',
   ],
   elite: [
-    'dota-2-elite-tier-guide',
-    'dota-2-cheats-features-guide',
-    'dota-2-map-hack-setup',
-    'vac-patch-day-checklist',
-    'how-to-buy-dota-2-cheats-2026',
-  ],
-  'hwid-spoofer': [
-    'dota-2-hwid-spoofer-after-ban',
-    'valve-anti-cheat-unable-to-verify',
-    'vac-patch-day-checklist',
-    'dota-2-external-cheat-guide',
-  ],
-  ugc: [
-    'valve-anti-cheat-unable-to-verify',
-    'dota-2-hwid-spoofer-after-ban',
-    'how-to-buy-dota-2-cheats-2026',
-  ],
-  'unlock-all': [
-    'dota-2-skin-changer-guide',
-    'dota-2-cheats-features-guide',
-    'dota-2-stream-proof-setup',
+    'wardogs-full-feature-overview-esp-aimbot',
+    'wardogs-esp-wallhack-settings',
+    'wardogs-patch-day-loader-checklist',
   ],
 };
 
-const productBase = '/products/dota-2-cheats/';
+const productBase = PRODUCT_BASE;
 
 const defaultAcquisitionSteps: AcquisitionStep[] = [
   {
     num: '01',
-    title: 'Review current status',
-    desc: 'Check the live banner on dotacheats.com and Discord #status before purchase—especially after a Dota 2 or VAC update.',
+    title: 'Check loader status',
+    desc: 'Read the status strip in the dashboard before you buy—especially right after a Wardogs or anti-cheat patch.',
   },
   {
     num: '02',
-    title: 'Choose your access tier',
-    desc: 'Select Elite dota cheats or the utility that matches your goal. Review the feature list before checkout via our secure checkout.',
+    title: 'Complete checkout',
+    desc: 'Finish payment through the store link. Keep your receipt email for license recovery.',
   },
   {
     num: '03',
-    title: 'Contact the team',
-    desc: 'Open Discord and confirm availability, Steam platform, and payment details with your order email ready.',
+    title: 'Install and test offline',
+    desc: 'Load the build, apply a calm ESP preset and medium aim assist, then verify in a private match before ranked.',
   },
   {
     num: '04',
-    title: 'Follow guided setup',
-    desc: 'Use only the operator portal, patch loader, and setup guide. Test in a lobby, load presets, then queue ranked or Turbo.',
+    title: 'Save profiles',
+    desc: 'Name one ranked profile and one casual profile so you can swap without re-tuning sliders mid-session.',
   },
 ];
 
@@ -123,17 +183,17 @@ function acquisitionFor(productName: string): ProductAcquisition {
 }
 
 const sharedGoodToKnow =
-  'Dota 2 and VAC receive frequent updates. Confirm module availability on the live status panel at dotacheats.com before you purchase or launch. Overlay behavior may differ in lobbies, replays and spectator mode after patches.';
+  'Wardogs and anti-cheat systems change often. Confirm the loader status notice before each session. Overlay draw order can differ between fullscreen and borderless modes after driver updates.';
 
 const sharedLimitations =
-  'Third-party software in Dota 2 can violate Valve Terms of Use and lead to VAC bans or account action. You use this software at your own risk. Compatibility and availability can change after game, VAC, or Windows updates without notice.';
+  'Third-party tools can break terms of service and risk account action. Nothing removes ban risk entirely. You use this software at your own risk. Features and compatibility can change without notice after patches.';
 
-const dotaSystemRequirements: SystemRequirement[] = [
-  { icon: 'reqWindows', text: 'Supported 64-bit edition of Windows 10 or Windows 11.' },
-  { icon: 'reqSteam', text: 'Current Dota 2 client via Steam with latest patches applied.' },
-  { icon: 'reqSettings', text: 'Administrator access for loader installation and patch updates.' },
-  { icon: 'reqWifi', text: 'Stable internet connection for portal access and patch delivery.' },
-  { icon: 'reqCpu', text: 'A system that meets Dota 2 published hardware requirements.' },
+const wardogsSystemRequirements: SystemRequirement[] = [
+  { icon: 'reqWindows', text: 'Windows 10 or 11 (64-bit) with current updates.' },
+  { icon: 'reqSteam', text: 'Official Wardogs client build from your platform store or launcher.' },
+  { icon: 'reqSettings', text: 'Administrator rights for the loader when the installer asks for them.' },
+  { icon: 'reqWifi', text: 'Stable connection for downloads and license checks.' },
+  { icon: 'reqCpu', text: 'Hardware that meets Wardogs minimum specs for stable frame times.' },
 ];
 
 type GalleryKey = keyof typeof galleryRaw;
@@ -141,47 +201,47 @@ type GalleryKey = keyof typeof galleryRaw;
 const gameplay = '/images/gameplay';
 
 const galleryRaw = {
-  gpMapHack: {
-    src: `${gameplay}/dota-2-map-hack.png`,
-    alt: 'Dota 2 map hack showing enemy hero positions and ward locations',
-    caption: 'Map hack awareness',
-    captionDesc: 'Enemy position tracking, ward ESP and rune timers during a ranked mid push.',
+  gpEspWall: {
+    src: `${gameplay}/wardogs-esp-wallhack.png`,
+    alt: 'Wardogs wallhack-style ESP overlay highlighting enemy outlines through terrain',
+    caption: 'ESP & wall intel',
+    captionDesc: 'Readable boxes and team colors for quick callouts without crowding the hud.',
   },
-  gpScripts: {
-    src: `${gameplay}/dota-2-scripts-combo.png`,
-    alt: 'Dota 2 Auto Combo script landing Invoker combo sequence',
-    caption: 'Auto Combo scripts',
-    captionDesc: 'Invoker Tornado → EMP → Meteor chain with Smart Cast prediction active.',
+  gpEspPlayers: {
+    src: `${gameplay}/wardogs-esp-players.png`,
+    alt: 'Wardogs player ESP tags with distance and health readouts',
+    caption: 'Player ESP',
+    captionDesc: 'Name tags, distance, and health cues for duels and trades.',
   },
-  gpZoomHack: {
-    src: `${gameplay}/dota-2-zoom-hack.png`,
-    alt: 'Dota 2 zoom hack extended camera view of entire lane',
-    caption: 'Extended camera zoom',
-    captionDesc: 'Zoom hack showing full lane vision for safer positioning and gank avoidance.',
+  gpAimbot: {
+    src: `${gameplay}/wardogs-aimbot-combo.png`,
+    alt: 'Wardogs aimbot assistance with smoothness and FOV sliders',
+    caption: 'Aim assist tuning',
+    captionDesc: 'FOV caps and smoothing that stay closer to human aim paths.',
   },
-  gpSkinChanger: {
-    src: `${gameplay}/dota-2-skin-changer.png`,
-    alt: 'Dota 2 Skin Changer previewing arcana cosmetic on hero',
-    caption: 'Skin Changer preview',
-    captionDesc: 'Local arcana and immortal preview via Unlock All—client-side only.',
+  gpRadar: {
+    src: `${gameplay}/wardogs-radar-zoom.png`,
+    alt: 'Wardogs minimap radar zoom with wider tactical view',
+    caption: 'Radar & zoom',
+    captionDesc: 'Pull back the tactical view without losing close-range clarity.',
   },
-  gpAutoKill: {
-    src: `${gameplay}/dota-2-auto-kill-steal.png`,
-    alt: 'Dota 2 Auto Kill Steal finishing low HP enemy with Zeus ultimate',
-    caption: 'Auto Kill Steal',
-    captionDesc: 'Lethal threshold detection activating Finger of Death at perfect timing.',
+  gpUi: {
+    src: `${gameplay}/wardogs-ui-overlay.png`,
+    alt: 'Wardogs cheat menu overlay with module toggles',
+    caption: 'Menu & modules',
+    captionDesc: 'Grouped toggles for ESP layers, aimbot, and extras in one stack.',
   },
-  gpFarmBot: {
-    src: `${gameplay}/dota-2-farm-bot.png`,
-    alt: 'Dota 2 Auto Farm Bot clearing jungle camps efficiently',
-    caption: 'Auto Farm Bot',
-    captionDesc: 'Jungle pathing with stack timer and courier manager for max GPM.',
+  gpTrigger: {
+    src: `${gameplay}/wardogs-trigger-assist.png`,
+    alt: 'Wardogs trigger and finish assist timing on target',
+    caption: 'Trigger timing',
+    captionDesc: 'Conservative timing windows instead of full-auto behavior.',
   },
-  gpHeroEsp: {
-    src: `${gameplay}/dota-2-hero-esp.png`,
-    alt: 'Dota 2 hero ESP with name tags and distance readouts',
-    caption: 'Hero ESP overlay',
-    captionDesc: 'Hero name tags, team colors and distance markers through fog of war.',
+  gpRecoil: {
+    src: `${gameplay}/wardogs-recoil-control.png`,
+    alt: 'Wardogs recoil assistance curve preview',
+    caption: 'Recoil assist',
+    captionDesc: 'Soft pull-down curves that pair with medium aimbot smoothing.',
   },
 };
 
@@ -199,41 +259,41 @@ function slide(...keys: GalleryKey[]): ProductSlide[] {
 
 function slugFromHref(href: string): string {
   const segment = href.replace(productBase, '').replace(/^\//, '').replace(/\/$/, '');
-  return segment || 'dota-2-cheats';
+  return segment || 'wardogs-cheats';
 }
 
 const tierAbout: Record<string, ProductPage['about']> = {
   lite: [
     {
       type: 'p',
-      text: 'Dota 2 Lite is built for players who want map awareness first. In ranked, knowing enemy positions, ward placements and rune timings wins more fights than raw mechanics—Lite gives you that edge without script automation.',
+      text: 'Wardogs Lite is built for players who want information first: where opponents are, what they are holding, and when rotations happen. Aim assist stays light so you can focus on game sense and comms.',
     },
-    { type: 'h2', text: 'Ranked-safe by design' },
+    { type: 'h2', text: 'Awareness before aggression' },
     {
       type: 'p',
-      text: 'Lite skips Auto Combo and bot modules entirely. Your gameplay looks natural while map hack, zoom hack and rune timers keep you informed. Stream-proof mode hides overlays from OBS capture for content creators.',
+      text: 'Lite skips heavy combat automation. Wall-style ESP, radar zoom, and player tags stay readable when the hud gets busy. Stream-friendly capture modes help if you record gameplay.',
     },
   ],
   pro: [
     {
       type: 'p',
-      text: 'Dota 2 Pro is the sweet spot for ranked grinders. Auto Combo, Orbwalker and Smart Cast help you win teamfights without obvious bot patterns—when you tune Delay Setting using our portal presets.',
+      text: 'Wardogs Pro adds structured aim assistance—FOV limits, smoothing, separate hip-fire and ADS curves—on top of every Lite overlay. It is aimed at players who want cleaner gunfights without maxed-out snap.',
     },
-    { type: 'h2', text: 'Scripts + awareness combined' },
+    { type: 'h2', text: 'Intel plus measured aim' },
     {
       type: 'p',
-      text: 'Pro inherits every Lite module and adds Auto Combo, Target Selector, Activator and ability radius drawing. You see the fight before it starts and win it with scripts that stay human at default settings.',
+      text: 'Pro keeps Lite radar and ESP while layering aimbot controls you can tune per weapon class. Start with conservative presets from the operator panel, then adjust after a few offline tests.',
     },
   ],
   elite: [
     {
       type: 'p',
-      text: 'Dota 2 Elite is the private build for players who want everything—Auto Farm Bot, Auto Kill Steal, Auto Dagon, Skin Changer, full map hack and direct developer support. Limited slots keep the build maintainable and patch cycles fast.',
+      text: 'Wardogs Elite bundles the full Wardogs cheat stack: dense ESP options, advanced aim assists, recoil curves, trigger timing help, and faster patch priority when queues spike.',
     },
-    { type: 'h2', text: 'Use Elite responsibly' },
+    { type: 'h2', text: 'Use the extra power carefully' },
     {
       type: 'p',
-      text: 'Elite power demands disciplined profiles. Test in lobbies, start with portal conservative presets, and scale up over days—not minutes. Staff in Discord help Elite users tune before their first ranked queue.',
+      text: 'Elite profiles can look obvious if you crank every slider. Test in private matches, keep hotkeys memorable, and save separate presets for casual and ranked moods.',
     },
   ],
 };
@@ -243,75 +303,36 @@ const tierBodies: Record<string, ProductPage['body']> = {
     { type: 'h2', text: 'Included modules' },
     {
       type: 'p',
-      text: 'Hero ESP with distance and name tags, ward and sentry locator, rune spawn timers, zoom hack, and stream-safe overlay hiding. Config presets for ranked and Turbo ship in the portal—load before your first queue.',
+      text: 'Player ESP with distance and health, wall-style outlines, minimap radar zoom, footsteps or audio hints where supported, and capture-safe overlay modes. Presets ship in the dashboard for quick import.',
     },
     { type: 'h2', text: 'Upgrade path' },
     {
       type: 'p',
-      text: 'Lite license holders can upgrade to Pro or Elite through the portal without losing config backups. Compare tiers on the main product page before checkout via our secure checkout.',
+      text: 'Lite keys can upgrade to Pro or Elite through the same portal without losing saved profiles. Compare tiers on the main catalog page before checkout.',
     },
   ],
   pro: [
-    { type: 'h2', text: 'Scripts and automation' },
+    { type: 'h2', text: 'Aim assist and combat tools' },
     {
       type: 'p',
-      text: 'Auto Combo, Orbwalker, Smart Cast with Prediction, Target Selector and Activator for BKB, Hex and Orchid. Delay Setting tunes cast timing so scripts stay natural in ranked. Start with portal presets, not max sliders.',
+      text: 'Aimbot with FOV ring, smoothing sliders, separate ADS tuning, trigger timing windows, and light recoil help. Target selection respects visibility rules you set in the menu so you do not snap through smoke you ignored on purpose.',
     },
-    { type: 'h2', text: 'Recommended pairing' },
+    { type: 'h2', text: 'Who Pro fits' },
     {
       type: 'p',
-      text: 'Pro is the most popular tier at dotacheats.com—enough firepower for high-MMR lobbies without Elite slot limits. Pair with our scripts guide in the blog before your first ranked session.',
+      text: 'Players who already use intel well and want gunfights to feel steadier—not players who need full automation on day one. Read the aimbot smoothing article before your first live queue.',
     },
   ],
   elite: [
-    { type: 'h2', text: 'Full bot and finish suite' },
+    { type: 'h2', text: 'Full stack' },
     {
       type: 'p',
-      text: 'Auto Farm Bot, Lane Control AI, Auto Kill Steal, Auto Dagon, Skin Changer and full map hack with smoke alerts. Use lobby testing before ranked—Elite power requires disciplined profiles, not rage settings.',
+      text: 'Every Lite and Pro module plus expanded ESP filters, recoil curves per weapon family, stronger trigger assists, and operator-priority ticket routing when the loader hiccups after a patch.',
     },
     { type: 'h2', text: 'Availability' },
     {
       type: 'p',
-      text: 'Elite shows as limited slots on the status banner. Open a Discord ticket if checkout is gated—staff confirm slot availability before purchase.',
-    },
-  ],
-};
-
-const utilityBodies: Record<string, ProductPage['body']> = {
-  'hwid-spoofer': [
-    { type: 'h2', text: 'When you need it' },
-    {
-      type: 'p',
-      text: 'Use when fresh Steam accounts fail instantly on one PC but work elsewhere—classic HWID enforcement. Do not use for account-only VAC cases; see [UGC](/products/dota-2-cheats/ugc/) instead.',
-    },
-    { type: 'h2', text: 'Full workflow' },
-    {
-      type: 'p',
-      text: 'Restore point, driver cleanup, spoof application, cold reboot, identifier verification, then conservative cheat profile before ranked. Full checklist ships in the portal and in our HWID blog guide.',
-    },
-  ],
-  'ugc': [
-    { type: 'h2', text: 'What UGC covers' },
-    {
-      type: 'p',
-      text: 'UGC (Unban & Governance Control) is an appeal workspace for Steam restrictions, VAC bans, trade holds and security flags. Build custom workflows, automate dispute steps and track case status from one dashboard—not a guaranteed unban service.',
-    },
-    { type: 'h2', text: 'Realistic expectations' },
-    {
-      type: 'p',
-      text: 'Some VAC bans cannot be reversed. UGC organizes evidence and follow-ups for Valve review. Pair with [HWID Spoofer](/products/dota-2-cheats/hwid-spoofer/) when hardware is flagged, or a new account when reputation is burned.',
-    },
-  ],
-  'unlock-all': [
-    { type: 'h2', text: 'Local preview only' },
-    {
-      type: 'p',
-      text: 'Cosmetics display on your client for testing and content creation. Other players in your lobby see your actual inventory, not preview skins.',
-    },
-    { type: 'h2', text: 'Included with Elite' },
-    {
-      type: 'p',
-      text: 'Skin Changer ships inside the Elite tier. Buy standalone here if you want cosmetic preview without full combat modules.',
+      text: 'Elite slots may be capped when patch volume is high. If checkout pauses, wait for the status message to clear or open a support thread with your receipt email.',
     },
   ],
 };
@@ -321,181 +342,76 @@ const productContent: Record<
   Pick<ProductPage, 'overview' | 'images' | 'fullFeatures' | 'goodToKnow' | 'limitations' | 'systemRequirements'>
 > = {
   lite: {
-    images: slide('gpHeroEsp', 'gpMapHack', 'gpZoomHack'),
+    images: slidesAt(0, 2, 3),
     goodToKnow: sharedGoodToKnow,
     limitations: sharedLimitations,
-    systemRequirements: dotaSystemRequirements,
+    systemRequirements: wardogsSystemRequirements,
     fullFeatures: [
-      'Player ESP & hero boxes',
-      'Ward & sentry locator',
-      'Jungle camp awareness',
-      'Ability cooldown tracking',
-      'Minimap hack overlay',
-      'Streamproof overlay mode',
-      'Distance readouts',
-      'Team color filter',
-      'Rune spawn timers',
-      'Zoom hack',
-      'Turbo preset config',
-      'Ranked preset config',
-      'Cloud config backup',
-      'Patch auto-updater',
+      'Player ESP & outlines',
+      'Health and distance tags',
+      'Wall-style visibility emphasis',
+      'Minimap radar zoom',
+      'Footstep or cue overlay (mode dependent)',
+      'Team color filters',
+      'Capture-friendly overlay mode',
+      'Profile import/export',
+      'Patch updater channel',
     ],
     overview: {
-      title: 'Built around a clear Dota 2 awareness workflow',
+      title: 'Built for Wardogs map clarity',
       paragraphs: [
-        'Dota 2 Lite focuses on hero ESP, ward locator, rune timers and zoom hack—everything you need to track ganks and map control without script automation. Modules are grouped in the portal so you can tune distance, colors, and stream-proof mode before your first queue.',
-        'Lite is the entry path for ranked and Turbo players who want map awareness with minimal report risk. No Auto Combo, no bots—just readable overlays maintained every patch at dotacheats.com.',
+        'Lite centers on Wardogs ESP, player tags, and radar zoom so you read fights faster than the tab scoreboard. You get wall-style intel without the heavier aim modules—good when you still want your aim to feel like yours.',
+        'Presets are labeled for casual and ranked moods. Load one, hide modules you do not need, and add more only when the screen still feels readable.',
       ],
     },
   },
   pro: {
-    images: slide('gpScripts', 'gpMapHack', 'gpHeroEsp'),
+    images: slidesAt(1, 4, 7),
     goodToKnow: sharedGoodToKnow,
     limitations: sharedLimitations,
-    systemRequirements: dotaSystemRequirements,
+    systemRequirements: wardogsSystemRequirements,
     fullFeatures: [
-      'All Lite ESP & map hack modules',
-      'Auto Combo scripts',
-      'Orbwalker',
-      'Smart Cast & Prediction',
-      'Target Selector',
-      'Activator (BKB/Hex/Orchid)',
-      'Auto Heal',
-      'Ability radius drawing',
-      'Delay Setting tuning',
-      'Hero-specific script profiles',
-      'Smoke alert integration',
-      'Ranked-safe default presets',
-      'Lobby test profile',
-      'Cloud config backup',
-      'Patch auto-updater',
-      'Discord operator support',
+      'All Lite ESP & radar features',
+      'Aimbot with FOV & smoothing',
+      'ADS vs hip-fire profiles',
+      'Target stickiness caps',
+      'Recoil assistance (light)',
+      'Trigger timing assist',
+      'Per-weapon profile slots',
+      'Hotkey layer for on/off',
+      'Cloud profile backup',
+      'Patch updater channel',
     ],
     overview: {
-      title: 'Built around a clear Dota 2 scripts workflow',
+      title: 'Built for Wardogs gunfights with guardrails',
       paragraphs: [
-        'Dota 2 Pro adds Auto Combo, Orbwalker, Smart Cast and Activator on top of every Lite module. Hero profiles, delay tuning and activation keys live in one scripts tab—tuned for ranked lobbies when you start with portal presets, not max sliders.',
-        'Pro is the most popular tier: enough firepower for ranked and Turbo without Elite slot limits. Target Selector and Activator keep you efficient mid-fight while scripts stay human at default settings.',
+        'Pro layers structured aim assists on top of Lite intel—FOV rings, smoothing, and separate ADS curves so you can mimic high-skill tracking instead of snapping every angle.',
+        'It is the most common pick for regular ranked players who want both ESP and aim help without Elite-level density.',
       ],
     },
   },
   elite: {
-    images: slide('gpAutoKill', 'gpFarmBot', 'gpSkinChanger'),
+    images: slidesAt(5, 8, 9),
     goodToKnow: sharedGoodToKnow,
     limitations: sharedLimitations,
-    systemRequirements: dotaSystemRequirements,
+    systemRequirements: wardogsSystemRequirements,
     fullFeatures: [
       'All Lite + Pro modules',
-      'Auto Farm Bot',
-      'Lane Control AI',
-      'Stack timer',
-      'Auto Courier Manager',
-      'Auto Kill Steal',
-      'Auto Dagon',
-      'Full map hack suite',
-      'Smoke alert system',
-      'Vision detector',
-      'Skin Changer (Unlock All)',
+      'Expanded ESP filters & noise controls',
+      'Recoil curves per weapon family',
+      'Advanced trigger profiles',
+      'Menu themes & layout presets',
       'Priority patch queue',
-      'Direct dev Discord support',
-      'Elite conservative presets',
-      'Cloud config backup',
-      'Patch auto-updater',
-      'Private slot access',
+      'Operator-direct support lane',
+      'Elite-only conservative presets',
+      'Extra backup slots',
+      'Patch updater channel',
     ],
     overview: {
-      title: 'Built around a full Dota 2 operator workflow',
+      title: 'Built for operators who want the full Wardogs toolkit',
       paragraphs: [
-        'Dota 2 Elite is the private build with Auto Farm Bot, Auto Kill Steal, Auto Dagon, Skin Changer, full map hack and priority patch delivery. Every Lite and Pro module is included—no caps, no upsells inside the loader.',
-        'Elite slots are limited so patch cycles stay fast and builds stay maintainable. Direct dev support in Discord helps you tune conservative profiles before ranked. Check the status banner on dotacheats.com before purchase.',
-      ],
-    },
-  },
-  'hwid-spoofer': {
-    images: slide('gpMapHack', 'gpHeroEsp', 'gpZoomHack'),
-    goodToKnow:
-      'Run the compatibility scan in the portal before spoofing. Create a Windows restore point first. Verify identifiers changed after a cold reboot before launching Dota 2.',
-    limitations:
-      'Spoofing does not help account-only VAC cases. Never stack two spoof tools. Shared or work PCs may not be suitable. You accept all risk from driver-level changes.',
-    systemRequirements: [
-      { icon: 'reqWindows', text: 'Windows 10 or 11 64-bit with administrator access.' },
-      { icon: 'reqRestorePoint', text: 'Ability to create a system restore point before running.' },
-      { icon: 'reqShieldGuide', text: 'Follow the portal setup guide before launching Dota 2 after spoofing.' },
-      { icon: 'reqWifi', text: 'Stable connection for portal verification tools.' },
-    ],
-    fullFeatures: [
-      'Disk serial profile tools',
-      'MAC address rotation',
-      'Restore point checklist',
-      'Compatibility scan',
-      'Driver conflict detection',
-      'Post-spoof verification',
-      'Identifier diff report',
-      'Cold reboot guide',
-      'Portal step-by-step workflow',
-      'Discord recovery support',
-    ],
-    overview: {
-      title: 'Built around a clear hardware recovery workflow',
-      paragraphs: [
-        'The HWID Spoofer helps Dota 2 players recover when VAC flags PC hardware but the Steam account is still clean. Disk and MAC profile tools ship with a restore-point checklist, compatibility scan, and post-spoof verification steps.',
-        'Use this path when fresh accounts fail instantly on one machine but work elsewhere—not for account-only VAC cases. After spoof, load a conservative cheat profile from dotacheats.com before queuing ranked.',
-      ],
-    },
-  },
-  ugc: {
-    images: slide('gpMapHack', 'gpHeroEsp', 'gpZoomHack'),
-    goodToKnow:
-      'Gather order email, platform account details and restriction screenshots before opening a ticket. UGC structures appeals—it does not bypass platform review.',
-    limitations:
-      'UGC does not guarantee account restoration. Results vary by case type. Permanent VAC bans may require a new account path instead of appeal.',
-    systemRequirements: [
-      { icon: 'reqMailOrder', text: 'Order email used at checkout on dotacheats.com or at checkout on dotacheats.com.' },
-      { icon: 'reqShieldAccount', text: 'Account details and ban or restriction notification if available.' },
-      { icon: 'reqWifiPortal', text: 'Internet access for Discord support and case dashboard.' },
-    ],
-    fullFeatures: [
-      'Custom appeal workflows',
-      'Restriction dispute automation',
-      'Case documentation templates',
-      'Status tracking dashboard',
-      'Identity verification guide',
-      'Evidence upload structure',
-      'Timeline tracker',
-      'Follow-up response templates',
-      'Multi-platform support',
-    ],
-    overview: {
-      title: 'Built around account recovery and appeal workflows',
-      paragraphs: [
-        'UGC (Unban & Governance Control) helps you recover restricted gaming, social and marketplace accounts with structured appeal workflows and automation—not instant unban guarantees.',
-        'Build custom dispute paths, track case status and rebuild your presence with smart restriction-management tools. Support walks you through each step via Discord when you need hands-on help.',
-      ],
-    },
-  },
-  'unlock-all': {
-    images: slide('gpSkinChanger', 'gpHeroEsp', 'gpMapHack'),
-    goodToKnow:
-      'Unlock All previews cosmetics locally on your client. Other players in your lobby see your real inventory—not preview skins. Included with Elite tier.',
-    limitations:
-      'Local preview only—does not modify Steam inventory or store state. Other players cannot see previewed arcanas or sets.',
-    systemRequirements: dotaSystemRequirements,
-    fullFeatures: [
-      'Hero skin swap',
-      'Arcana & immortal preview',
-      'Weapon & effect customizer',
-      'Loading screen editor',
-      'Cursor & HUD theme',
-      'Ward & courier replacer',
-      'Favorites list',
-      'Loadout export',
-    ],
-    overview: {
-      title: 'Built around a local cosmetic preview workflow',
-      paragraphs: [
-        'Unlock All lets you browse hero arcanas, immortals and exclusive sets locally in Dota 2—searchable catalog, favorites, and loadout export without modifying live Steam purchases.',
-        'Cosmetics display on your client for testing and content creation. Other players see your actual inventory, not preview skins. Included free with Elite; available standalone for cosmetic preview without combat modules.',
+        'Elite is the full Wardogs cheat package—dense ESP controls, stronger combat assists, and faster help when a patch drops overnight. Every Lite and Pro feature stays included; Elite adds tuning depth, not a different loader.',
+        'Slots sometimes tighten after major patches so builds stay supportable. Check the dashboard banner before you commit.',
       ],
     },
   },
@@ -505,7 +421,8 @@ function buildTierPages(): ProductPage[] {
   return t.cheats.items.map((cheat) => {
     const slug = slugFromHref(cheat.href);
     const content = productContent[slug];
-    const displayName = cheat.name === 'Lite' ? 'Dota 2 Lite' : cheat.name === 'Pro' ? 'Dota 2 Pro' : 'Dota 2 Elite';
+    const displayName =
+      cheat.name === 'Lite' ? 'Wardogs Lite' : cheat.name === 'Pro' ? 'Wardogs Pro' : 'Wardogs Elite';
     return {
       slug,
       kind: 'tier',
@@ -533,38 +450,7 @@ function buildTierPages(): ProductPage[] {
   });
 }
 
-function buildUtilityPages(): ProductPage[] {
-  return t.products.items
-    .filter((p) => p.href !== productBase)
-    .map((product) => {
-      const slug = slugFromHref(product.href);
-      const content = productContent[slug];
-      return {
-        slug,
-        kind: 'utility',
-        badge: product.badge,
-        category: product.category,
-        name: product.title,
-        title: product.title,
-        subtitle: product.subtitle,
-        desc: product.desc,
-        features: product.features,
-        more: product.more,
-        buyUrl: checkoutForSlug(slug),
-        images: content.images,
-        overview: content.overview,
-        acquisition: acquisitionFor(product.title),
-        goodToKnow: content.goodToKnow,
-        limitations: content.limitations,
-        fullFeatures: content.fullFeatures,
-        systemRequirements: content.systemRequirements,
-        body: utilityBodies[slug] ?? [],
-        relatedBlogSlugs: productRelatedBlogSlugs[slug] ?? [],
-      };
-    });
-}
-
-export const productPages: ProductPage[] = [...buildTierPages(), ...buildUtilityPages()];
+export const productPages: ProductPage[] = [...buildTierPages()];
 
 export const cheatPages = productPages.filter((p) => p.kind === 'tier');
 
@@ -584,22 +470,14 @@ export function getAllCheatSlugs() {
   return cheatPages.map((p) => p.slug);
 }
 
-const cheatsHubSlides = slide('gpScripts', 'gpAutoKill', 'gpFarmBot');
-
-export const heroSlides = slide(
-  'gpMapHack',
-  'gpScripts',
-  'gpZoomHack',
-  'gpSkinChanger',
-  'gpAutoKill',
-  'gpFarmBot',
-  'gpHeroEsp',
-);
+/** Home hero: five CDN WebP slides, autoplay via hero-embla */
+export const heroSlides: ProductSlide[] = slidesAt(0, 1, 2, 3, 4);
 
 export const productHub = {
   path: productBase,
   title: t.products.title,
   subtitle: t.products.subtitle,
-  description: 'Elite dota cheats, HWID spoofer, UGC recovery, and cosmetic utilities for Dota 2 on PC.',
-  buyUrl: checkoutPath('dota2'),
+  description:
+    'Wardogs cheats for PC: Lite ESP, Pro aim assists, Elite full stack—compared in one catalog with checkout through the linked store.',
+  buyUrl: checkoutPath('wardogs'),
 };

@@ -1,11 +1,11 @@
 {
-  "name": "DotaCheats",
-  "short_name": "DotaCheats",
-  "description": "Dota 2 cheats with scripts, map hack, zoom hack and skin changer for PC.",
+  "name": "Wardogs cheats",
+  "short_name": "Wardogs",
+  "description": "Wardogs ESP, aimbot, and radar modules for Windows PC.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "background_color": "#0a0d10",
+  "background_color": "#0d0a14",
   "theme_color": "#7f3dee",
   "lang": "en-US",
   "icons": [

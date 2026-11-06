@@ -1,0 +1,32 @@
+/* Wardogs palette — layered backgrounds */
+#hero {
+  background-color: #0d0a14;
+  background-image: linear-gradient(180deg, #0d0a14 0%, #0e0b17 38%, #0f0c18 100%);
+}
+
+.border-y.border-border.bg-muted\/20,
+.workflow-section,
+#features,
+#products,
+#why-us,
+#articles,
+.forum-page {
+  background-color: #0f0c18;
+}
+
+footer.border-t.border-border {
+  background-color: #0f0c19;
+  box-shadow: inset 0 1px 0 0 #0e0b17;
+}
+
+.product-detail-hero,
+.blog-article__layout,
+.section-shell.bg-muted {
+  background-color: #0f0c18;
+}
+
+[data-floating-nav] > div {
+  box-shadow:
+    0 12px 40px #040306,
+    0 0 0 1px #0e0b17;
+}

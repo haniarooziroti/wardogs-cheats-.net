@@ -4,14 +4,17 @@ import sitemap from '@astrojs/sitemap';
 import { sitemapSerialize } from './src/config/sitemap.ts';
 
 export default defineConfig({
-  site: 'https://dotacheats.com',
+  site: 'https://wardogs-cheats.net',
   trailingSlash: 'always',
   redirects: {
-    '/cheats/': '/products/dota-2-cheats/',
-    '/cheats/lite/': '/products/dota-2-cheats/',
-    '/cheats/pro/': '/products/dota-2-cheats/',
-    '/cheats/elite/': '/products/dota-2-cheats/elite/',
-    '/cheats/compare/': '/blog/dota-2-lite-vs-pro/',
+    '/forum/wardogs-cs2-search-terms-honest-thread/': '/forum/wardogs-search-keywords-honest-thread/',
+    '/cheats/': '/products/wardogs-cheats/',
+    '/cheats/lite/': '/products/wardogs-cheats/',
+    '/cheats/pro/': '/products/wardogs-cheats/',
+    '/cheats/elite/': '/products/wardogs-cheats/elite/',
+    '/products/dota-2-cheats/': '/products/wardogs-cheats/',
+    '/products/dota-2-cheats/elite/': '/products/wardogs-cheats/elite/',
+    '/products/dota-2-cheats/utilities/': '/products/wardogs-cheats/',
     '/contact/': '/support/',
   },
   compressHTML: true,

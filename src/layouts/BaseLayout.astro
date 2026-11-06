@@ -1,5 +1,6 @@
 ---
 import "@/styles/starwind.css";
+import "@/styles/wardogs-surfaces.css";
 import { t } from '../i18n';
 import {
   RSS_FEED_PATH,
@@ -74,7 +75,7 @@ const robotsContent = noindex
     <link
       rel="alternate"
       type="application/rss+xml"
-      title={`${t.site.name} Blog RSS`}
+      title={t.site.rssFeedTitle}
       href={RSS_FEED_PATH}
     />
     <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />

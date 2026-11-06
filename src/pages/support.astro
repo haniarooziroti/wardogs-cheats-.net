@@ -14,7 +14,7 @@ const seo = resolvePageSeo('/support/');
   description={seo.description}
   jsonLd={[
     webPageSchema({
-      name: t.support.title,
+      name: `${t.support.title} — Wardogs cheats`,
       description: t.support.subtitle,
       url: '/support/',
     }),
@@ -32,5 +32,5 @@ const seo = resolvePageSeo('/support/');
       ]}
     />
   </div>
-  <ContactSupportSection titleId="support-page-title" showTicketTips />
+  <ContactSupportSection titleId="support-page-title" />
 </BaseLayout>

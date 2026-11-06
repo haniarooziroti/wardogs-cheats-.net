@@ -38,24 +38,17 @@ if (!post) {
 const postPath = `/blog/${post.slug}/`;
 const breadcrumbs = [
   { name: 'Home', path: '/' },
-  { name: 'Blog', path: '/blog/' },
+  { name: 'Articles', path: '/blog/' },
   { name: post.title, path: postPath },
 ];
 
 const related = getRelatedBlogPosts(post.slug, 3);
 
 function linkify(text: string): string {
-  return text
-    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_match, label: string, href: string) => {
-      const normalized = normalizeInternalPath(href);
-      return `<a href="${normalized}">${label}</a>`;
-    })
-    .replace(/(https:\/\/dotacheats\.com[^\s.,;)]*)/g, (_match, url: string) => {
-      const path = url.replace(/^https:\/\/dotacheats\.com/, '');
-      const normalized = normalizeInternalPath(path);
-      const href = normalized.startsWith('http') ? normalized : `https://dotacheats.com${normalized}`;
-      return `<a href="${href}">${url}</a>`;
-    });
+  return text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_match, label: string, href: string) => {
+    const normalized = normalizeInternalPath(href);
+    return `<a href="${normalized}">${label}</a>`;
+  });
 }
 
 function slugify(text: string): string {
@@ -179,8 +172,8 @@ const published = parseBlogDate(post.date);
           </Prose>
 
           <nav class="blog-article__actions" aria-label="Continue reading">
-            <Button as="a" href={checkoutPath('dota2')} variant="primary" aria-label={t.ui.checkoutAria}>
-              Buy Dota 2 Cheats
+            <Button as="a" href={checkoutPath('wardogs')} variant="primary" aria-label={t.ui.checkoutAria}>
+              Buy Wardogs access
               <Icon name="arrowRight" size={17} />
             </Button>
             <Button as="a" href={ROUTES.products} variant="outline">
