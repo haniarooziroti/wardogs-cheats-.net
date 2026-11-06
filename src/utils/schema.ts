@@ -126,7 +126,9 @@ export function itemListSchema(items: { name: string; url: string }[]) {
 
 function offerUrl(path: string): string {
   if (path.startsWith('http://') || path.startsWith('https://')) return path;
-  return canonicalUrl(path);
+  const queryAt = path.indexOf('?');
+  if (queryAt === -1) return canonicalUrl(path);
+  return `${canonicalUrl(path.slice(0, queryAt))}?${path.slice(queryAt + 1)}`;
 }
 
 export function productSchema(input: {
