@@ -12,17 +12,6 @@ if (publicOrigin?.includes('workers.dev')) {
 export default defineConfig({
   site: (publicOrigin ? publicOrigin.replace(/\/$/, '') : CANONICAL_ORIGIN),
   trailingSlash: 'always',
-  redirects: {
-    '/forum/wardogs-cs2-search-terms-honest-thread/': '/forum/wardogs-search-keywords-honest-thread/',
-    '/cheats/': '/products/wardogs-cheats/',
-    '/cheats/lite/': '/products/wardogs-cheats/',
-    '/cheats/pro/': '/products/wardogs-cheats/',
-    '/cheats/elite/': '/products/wardogs-cheats/elite/',
-    '/products/dota-2-cheats/': '/products/wardogs-cheats/',
-    '/products/dota-2-cheats/elite/': '/products/wardogs-cheats/elite/',
-    '/products/dota-2-cheats/utilities/': '/products/wardogs-cheats/',
-    '/contact/': '/support/',
-  },
   compressHTML: true,
   prefetch: {
     prefetchAll: false,

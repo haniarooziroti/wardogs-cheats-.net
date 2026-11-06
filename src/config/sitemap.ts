@@ -16,7 +16,16 @@ function pathnameFromUrl(url: string): string {
 export function sitemapSerialize(item: SitemapItem): SitemapItem | undefined {
   const path = pathnameFromUrl(item.url);
 
-  if (path.includes('/404') || path.startsWith('/go/') || path.includes('/rss.xml')) {
+  if (
+    path.includes('/404') ||
+    path.startsWith('/go/') ||
+    path.includes('/rss.xml') ||
+    path.startsWith('/cheats/') ||
+    path === '/cheats/' ||
+    path.startsWith('/products/dota-2-cheats/') ||
+    path === '/contact/' ||
+    path === '/forum/wardogs-cs2-search-terms-honest-thread/'
+  ) {
     return undefined;
   }
 

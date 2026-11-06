@@ -1,0 +1,30 @@
+# Legacy paths — 301 to current routes. Affiliate /go/ stays 302.
+
+/forum/wardogs-cs2-search-terms-honest-thread  /forum/wardogs-search-keywords-honest-thread/  301
+/forum/wardogs-cs2-search-terms-honest-thread/ /forum/wardogs-search-keywords-honest-thread/  301
+
+/cheats                         /products/wardogs-cheats/  301
+/cheats/                        /products/wardogs-cheats/  301
+/cheats/lite                    /products/wardogs-cheats/  301
+/cheats/lite/                   /products/wardogs-cheats/  301
+/cheats/pro                     /products/wardogs-cheats/  301
+/cheats/pro/                    /products/wardogs-cheats/  301
+/cheats/elite                   /products/wardogs-cheats/elite/  301
+/cheats/elite/                  /products/wardogs-cheats/elite/  301
+/cheats/compare                 /blog/wardogs-lite-vs-pro-esp-aimbot/  301
+/cheats/compare/                /blog/wardogs-lite-vs-pro-esp-aimbot/  301
+
+/products/dota-2-cheats                      /products/wardogs-cheats/  301
+/products/dota-2-cheats/                     /products/wardogs-cheats/  301
+/products/dota-2-cheats/elite                /products/wardogs-cheats/elite/  301
+/products/dota-2-cheats/elite/               /products/wardogs-cheats/elite/  301
+/products/dota-2-cheats/utilities            /products/wardogs-cheats/  301
+/products/dota-2-cheats/utilities/           /products/wardogs-cheats/  301
+/products/dota-2-cheats/account-recovery     /products/wardogs-cheats/  301
+/products/dota-2-cheats/account-recovery/    /products/wardogs-cheats/  301
+
+/contact   /support/  301
+/contact/  /support/  301
+
+/go/wardogs  https://zadeyo.com/go/HANIA?to=%2Fproducts%2Fwardogs  302
+/go/wardogs/ https://zadeyo.com/go/HANIA?to=%2Fproducts%2Fwardogs  302
