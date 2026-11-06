@@ -1,11 +1,11 @@
 import { t } from '../i18n';
-import { SITE_DOMAIN as INDEXNOW_HOST_NAME } from './site';
+import { FIRST_PARTY_OG_IMAGE, SITE_DOMAIN as INDEXNOW_HOST_NAME, SITE_URL } from './site';
 import { getPageSeoEntry } from './pageSeo';
-import { WARDOGS_SHOWCASE_IMAGE_SRC } from './media';
 
-export const SITE_ORIGIN = `https://${t.site.domain}`;
+export const SITE_ORIGIN = SITE_URL;
 
-export const DEFAULT_OG_IMAGE = WARDOGS_SHOWCASE_IMAGE_SRC;
+/** First-party OG image so crawlers never receive a workers.dev or third-party host. */
+export const DEFAULT_OG_IMAGE = FIRST_PARTY_OG_IMAGE;
 
 /** Curated phrases for meta keywords; keep aligned with on-page copy and PAGE_SEO. */
 export const DEFAULT_META_KEYWORDS =

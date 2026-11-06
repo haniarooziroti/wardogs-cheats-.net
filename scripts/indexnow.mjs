@@ -1,10 +1,16 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { getStaticDistRoot } from './dist-root.mjs';
+import { assertPublicSiteOrigin, CANONICAL_HOST } from './canonical-origin.mjs';
+
+assertPublicSiteOrigin();
 
 const dist = getStaticDistRoot();
 const key = process.env.INDEXNOW_KEY?.trim();
-const host = process.env.INDEXNOW_HOST?.trim() || 'wardogs-cheats.net';
+const host = process.env.INDEXNOW_HOST?.trim() || CANONICAL_HOST;
+if (host.includes('workers.dev')) {
+  throw new Error('INDEXNOW_HOST must not contain workers.dev.');
+}
 
 if (!key) {
   console.log('IndexNow: skipped (INDEXNOW_KEY not set).');

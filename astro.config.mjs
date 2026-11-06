@@ -3,8 +3,14 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 import { sitemapSerialize } from './src/config/sitemap.ts';
 
+const CANONICAL_ORIGIN = 'https://wardogs-cheats.net';
+const publicOrigin = process.env.PUBLIC_SITE_ORIGIN?.trim();
+if (publicOrigin?.includes('workers.dev')) {
+  throw new Error('PUBLIC_SITE_ORIGIN must not contain workers.dev. Use https://wardogs-cheats.net.');
+}
+
 export default defineConfig({
-  site: 'https://wardogs-cheats.net',
+  site: (publicOrigin ? publicOrigin.replace(/\/$/, '') : CANONICAL_ORIGIN),
   trailingSlash: 'always',
   redirects: {
     '/forum/wardogs-cs2-search-terms-honest-thread/': '/forum/wardogs-search-keywords-honest-thread/',

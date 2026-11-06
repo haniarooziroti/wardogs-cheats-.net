@@ -1,8 +1,14 @@
 import type { FaqItem } from '../i18n/types';
-import { SITE_DOMAIN, SUPPORT_EMAIL } from '../config/site';
+import { FIRST_PARTY_OG_IMAGE, SITE_DOMAIN, SUPPORT_EMAIL } from '../config/site';
 import { SITE_ORIGIN, absoluteAssetUrl, canonicalUrl, getOrganizationSameAs } from '../config/seo';
 
 const SITE_BRAND = SITE_DOMAIN;
+
+function firstPartyAssetUrl(path: string): string {
+  const absolute = absoluteAssetUrl(path);
+  if (absolute.startsWith(`${SITE_ORIGIN}/`) || absolute === SITE_ORIGIN) return absolute;
+  return absoluteAssetUrl(FIRST_PARTY_OG_IMAGE);
+}
 
 export interface BreadcrumbItem {
   name: string;
@@ -160,7 +166,9 @@ export function productSchema(input: {
       '@type': 'Brand',
       name: SITE_BRAND,
     },
-    ...(input.image ? { image: absoluteAssetUrl(input.image) } : {}),
+    ...(input.image
+      ? { image: firstPartyAssetUrl(input.image) }
+      : { image: firstPartyAssetUrl(FIRST_PARTY_OG_IMAGE) }),
     offers: {
       '@type': 'Offer',
       url: offerUrl(input.offerUrl),
@@ -205,7 +213,7 @@ export function articleSchema(input: {
     headline: input.name,
     description: input.description,
     url: canonicalUrl(input.url),
-    image: absoluteAssetUrl(input.image),
+    image: firstPartyAssetUrl(input.image),
     datePublished: input.datePublished,
     dateModified: input.dateModified ?? input.datePublished,
     inLanguage: 'en-US',

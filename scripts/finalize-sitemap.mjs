@@ -1,6 +1,9 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { findSitemap0Path, getStaticDistRoot } from './dist-root.mjs';
+import { assertPublicSiteOrigin, CANONICAL_ORIGIN } from './canonical-origin.mjs';
+
+assertPublicSiteOrigin();
 
 const dist = getStaticDistRoot();
 const source = findSitemap0Path();
@@ -43,7 +46,7 @@ fs.writeFileSync(path.join(dist, 'sitemap.xml'), formatted, 'utf8');
 const indexXml = `<?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <sitemap>
-    <loc>https://wardogs-cheats.net/sitemap.xml</loc>
+    <loc>${CANONICAL_ORIGIN}/sitemap.xml</loc>
     <lastmod>${new Date().toISOString().slice(0, 10)}</lastmod>
   </sitemap>
 </sitemapindex>
