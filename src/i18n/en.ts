@@ -11,7 +11,7 @@ export const en: Translations = {
     domain: 'wardogs-cheats.net',
     title: 'Wardogs cheats overview: ESP, radar, and aim on PC',
     description:
-      'See how Wardogs cheats work on Windows PC: ESP overlays, radar zoom, and aim assists. Read setup notes, then open the catalog to compare Lite, Pro, and Elite.',
+      'See how Wardogs cheats work on Windows PC: ESP overlays, radar zoom, and aim assists. Read setup notes, then compare Lite, Pro, and Elite in the catalog.',
     rssFeedTitle: 'Wardogs cheat articles RSS',
   },
   nav: [
@@ -24,7 +24,7 @@ export const en: Translations = {
   hero: {
     status: 'Wardogs — loader channel online',
     eyebrow: 'PC · ESP · aim assist',
-    titleLine1: 'Wardogs cheats overview',
+    titleLine1: 'Wardogs cheats overview: ESP, radar, and aim on PC',
     titleLine2: '',
     subtitle:
       'Wardogs wallhack-style ESP, radar zoom, aimbot smoothing, and trigger timing—tuned for readable HUDs before you queue ranked or casual.',
@@ -416,9 +416,9 @@ export const en: Translations = {
       },
       {
         icon: 'clock',
-        title: 'Thread updates',
-        desc: 'Forum posts cover noisy patches and odd behaviors.',
-        linkLabel: 'Open forums',
+        title: 'Editorial notes',
+        desc: 'Staff notes cover noisy patches and odd loader behavior.',
+        linkLabel: 'Open editorial notes',
         href: '/forum/',
       },
     ],
@@ -437,7 +437,7 @@ export const en: Translations = {
       {
         num: '01',
         q: 'Where do I see if Wardogs cheats are online?',
-        a: 'Check the loader dashboard banner and the forum patch threads before you queue—especially after a Wardogs update.',
+        a: 'Check the loader dashboard banner and the editorial patch notes before you queue—especially after a Wardogs update.',
       },
       {
         num: '02',
@@ -462,13 +462,13 @@ export const en: Translations = {
       {
         num: '06',
         q: 'Where are tiers explained?',
-        a: 'Compare Wardogs Lite, Pro, and Elite on the products page, then read forum threads for live feedback.',
+        a: 'Compare Wardogs Lite, Pro, and Elite on the products page, then read the editorial setup notes beside the articles.',
       },
     ],
   },
   footer: {
     tagline:
-      'Wardogs ESP, aimbot, and radar modules for Windows—articles and forums on wardogs-cheats.net.',
+      'Wardogs ESP, aimbot, and radar modules for Windows—articles and editorial notes on wardogs-cheats.net.',
     explore: 'Explore',
     exploreLinks: [
       { href: '/', label: 'Feature overview', ariaLabel: 'Features', scrollTarget: 'features' },
@@ -499,7 +499,7 @@ export const en: Translations = {
         {
           heading: 'What you will find',
           paragraphs: [
-            'Product tiers with module lists, articles on setup order, and forums that mix positive and frustrated feedback. Checkout happens only through the linked store.',
+            'Product tiers with module lists, articles on setup order, and staff-written editorial notes. Checkout happens only through the linked store.',
           ],
         },
         {

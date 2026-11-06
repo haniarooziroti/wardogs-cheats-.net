@@ -52,7 +52,7 @@ const blogPostDrafts: BlogPostFull[] = [
     title: 'Wardogs ESP overlays: keep reads clean in chaotic fights',
     slug: 'wardogs-esp-clarity-and-noise',
     image: wardogsBlogCdnImage(0),
-    desc: 'Tune Wardogs ESP overlays with distance clamps, team colors, and lower fill opacity so wallhack-style reads stay usable when the fight fills with particles.',
+    desc: 'Tune Wardogs ESP overlays with distance clamps, team colors, and lower fill opacity so wallhack-style reads stay usable when fights fill with particles.',
     date: 'Nov 2, 2026',
     readTime: '7 min read',
     body: [
@@ -208,7 +208,7 @@ const blogPostDrafts: BlogPostFull[] = [
     title: 'Ban risk with Wardogs cheats: what actually moves the needle',
     slug: 'wardogs-ban-risk-accounts-and-behavior',
     image: wardogsBlogCdnImage(5),
-    desc: 'Ban risk with Wardogs cheats is about reports, noisy aim paths, and skipping tests after patches. No slider removes enforcement; behavior still decides exposure.',
+    desc: 'Ban risk with Wardogs cheats is about reports, noisy aim paths, and skipping tests after patches. No slider removes enforcement; behavior decides exposure.',
     date: 'Oct 24, 2026',
     readTime: '7 min read',
     body: [
@@ -257,7 +257,7 @@ const blogPostDrafts: BlogPostFull[] = [
     title: 'Patch night checklist for Wardogs cheat builds and loaders',
     slug: 'wardogs-patch-day-loader-checklist',
     image: wardogsBlogCdnImage(7),
-    desc: 'Follow this patch night checklist for Wardogs cheat builds: pause ranked, read the loader banner, update, reload presets, and retest ESP plus aim in a private lobby.',
+    desc: 'Follow this patch night checklist for Wardogs cheat builds: pause ranked, read the loader banner, update, reload presets, retest ESP and aim privately.',
     date: 'Oct 20, 2026',
     readTime: '6 min read',
     body: [
@@ -284,7 +284,7 @@ const blogPostDrafts: BlogPostFull[] = [
     title: 'Wardogs wallhack-style ESP: wall emphasis without clutter',
     slug: 'wardogs-esp-wallhack-settings',
     image: wardogsBlogCdnImage(8),
-    desc: 'Set Wardogs wallhack-style ESP with thinner outlines, distance text, and teammate mute so wall emphasis stays readable instead of painting the whole screen.',
+    desc: 'Set Wardogs wallhack-style ESP with thinner outlines, distance text, and teammate mute so wall emphasis stays readable instead of painting the screen.',
     date: 'Oct 18, 2026',
     readTime: '7 min read',
     body: [
@@ -309,7 +309,7 @@ const blogPostDrafts: BlogPostFull[] = [
     title: 'Wardogs cheats feature map: ESP, aimbot, radar, recoil',
     slug: 'wardogs-full-feature-overview-esp-aimbot',
     image: wardogsBlogCdnImage(9),
-    desc: 'Use this Wardogs cheats feature map to see which ESP, aimbot, radar, and recoil modules sit in Lite, Pro, and Elite before you pick a tier and open checkout.',
+    desc: 'Use this Wardogs cheats feature map to see which ESP, aimbot, radar, and recoil modules sit in Lite, Pro, and Elite before you pick a tier and checkout.',
     date: 'Oct 16, 2026',
     readTime: '9 min read',
     body: [

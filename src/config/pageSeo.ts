@@ -12,7 +12,7 @@ export const PAGE_SEO: Record<string, PageSeoEntry> = {
   '/': {
     title: 'Wardogs cheats overview: ESP, radar, and aim on PC',
     description:
-      'See how Wardogs cheats work on Windows PC: ESP overlays, radar zoom, and aim assists. Read setup notes, then open the catalog to compare Lite, Pro, and Elite.',
+      'See how Wardogs cheats work on Windows PC: ESP overlays, radar zoom, and aim assists. Read setup notes, then compare Lite, Pro, and Elite in the catalog.',
   },
   '/products/wardogs-cheats/': {
     title: 'Buy Wardogs Lite, Pro, and Elite cheat access today',
