@@ -7,6 +7,10 @@ export const SITE_ORIGIN = `https://${t.site.domain}`;
 
 export const DEFAULT_OG_IMAGE = WARDOGS_SHOWCASE_IMAGE_SRC;
 
+/** Curated phrases for meta keywords; keep aligned with on-page copy and PAGE_SEO. */
+export const DEFAULT_META_KEYWORDS =
+  'Wardogs cheats, Wardogs ESP, Wardogs aimbot, Wardogs wallhack, Wardogs radar, Wardogs triggerbot, PC cheat loader, Arc Raiders cheats, Lite Pro Elite, wardogs-cheats.net';
+
 export const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID as string | undefined;
 
 export const TWITTER_SITE = import.meta.env.PUBLIC_TWITTER_SITE as string | undefined;

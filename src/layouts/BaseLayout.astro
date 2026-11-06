@@ -10,6 +10,7 @@ import {
   DEFAULT_OG_IMAGE,
   DEFAULT_OG_IMAGE_HEIGHT,
   DEFAULT_OG_IMAGE_WIDTH,
+  DEFAULT_META_KEYWORDS,
   GA_MEASUREMENT_ID,
   absoluteAssetUrl,
 } from '../config/seo';
@@ -49,15 +50,15 @@ const robotsContent = noindex
 ---
 
 <!doctype html>
-<html lang="en" class="dark fonts-pending">
+<html lang="en" class="fonts-pending">
   <head>
     <meta charset="UTF-8" />
     <script is:inline>
       (function () {
         try {
           var stored = localStorage.getItem('colorTheme') || localStorage.getItem('starwind-theme');
-          if (stored === 'light') document.documentElement.classList.remove('dark');
-          else if (stored === 'dark') document.documentElement.classList.add('dark');
+          if (stored === 'dark') document.documentElement.classList.add('dark');
+          else document.documentElement.classList.remove('dark');
         } catch (e) {}
         document.documentElement.classList.add('fonts-pending');
       })();
@@ -65,6 +66,7 @@ const robotsContent = noindex
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="keywords" content={DEFAULT_META_KEYWORDS} />
     <meta name="author" content={t.site.name} />
     <meta name="robots" content={robotsContent} />
     <meta name="googlebot" content={robotsContent} />

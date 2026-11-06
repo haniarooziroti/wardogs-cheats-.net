@@ -1,7 +1,7 @@
-/* Wardogs palette — layered backgrounds */
+/* Wardogs section backgrounds — light by default; dark when .dark is set */
 #hero {
-  background-color: #0d0a14;
-  background-image: linear-gradient(180deg, #0d0a14 0%, #0e0b17 38%, #0f0c18 100%);
+  background-color: #f5f3fa;
+  background-image: linear-gradient(180deg, #faf8ff 0%, #f3f0fa 42%, #ece8f4 100%);
 }
 
 .border-y.border-border.bg-muted\/20,
@@ -11,21 +11,53 @@
 #why-us,
 #articles,
 .forum-page {
-  background-color: #0f0c18;
+  background-color: #f0edf7;
 }
 
 footer.border-t.border-border {
-  background-color: #0f0c19;
-  box-shadow: inset 0 1px 0 0 #0e0b17;
+  background-color: #ebe6f2;
+  box-shadow: inset 0 1px 0 0 #e4def0;
 }
 
 .product-detail-hero,
 .blog-article__layout,
 .section-shell.bg-muted {
-  background-color: #0f0c18;
+  background-color: #f2eef8;
 }
 
 [data-floating-nav] > div {
+  box-shadow:
+    0 12px 40px rgba(80, 60, 120, 0.12),
+    0 0 0 1px rgba(127, 61, 238, 0.08);
+}
+
+html.dark #hero {
+  background-color: #0d0a14;
+  background-image: linear-gradient(180deg, #0d0a14 0%, #0e0b17 38%, #0f0c18 100%);
+}
+
+html.dark .border-y.border-border.bg-muted\/20,
+html.dark .workflow-section,
+html.dark #features,
+html.dark #products,
+html.dark #why-us,
+html.dark #articles,
+html.dark .forum-page {
+  background-color: #0f0c18;
+}
+
+html.dark footer.border-t.border-border {
+  background-color: #0f0c19;
+  box-shadow: inset 0 1px 0 0 #0e0b17;
+}
+
+html.dark .product-detail-hero,
+html.dark .blog-article__layout,
+html.dark .section-shell.bg-muted {
+  background-color: #0f0c18;
+}
+
+html.dark [data-floating-nav] > div {
   box-shadow:
     0 12px 40px #040306,
     0 0 0 1px #0e0b17;

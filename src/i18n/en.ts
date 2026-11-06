@@ -9,9 +9,9 @@ export const en: Translations = {
   site: {
     name: 'Wardogs cheats',
     domain: 'wardogs-cheats.net',
-    title: 'Wardogs ESP, Aimbot & Wallhack | PC overlays',
+    title: 'Wardogs Cheats 2026 | ESP, Aimbot & Wallhack for PC',
     description:
-      'Wardogs cheats with ESP, aimbot, wallhack-style overlays, radar zoom, trigger timing, and the post-checkout loader—Windows PC, wardogs-cheats.net.',
+      'Buy Wardogs cheats for PC: ESP, wallhack-style intel, aimbot smoothing, radar zoom, and trigger assists. Compare Lite, Pro, and Elite on wardogs-cheats.net, then open checkout in the same tab.',
     rssFeedTitle: 'Wardogs cheat articles RSS',
   },
   nav: [
@@ -589,10 +589,10 @@ export const en: Translations = {
   },
   ui: {
     skipLink: 'Skip to main content',
-    browseCheats: 'Buy access',
-    browseCheatsMobile: 'Open store',
+    browseCheats: 'Try now',
+    browseCheatsMobile: 'Try now',
     homeAria: 'Wardogs cheats home',
-    checkoutAria: 'Open checkout store',
+    checkoutAria: 'Try Wardogs cheats — open checkout',
     discordAria: 'Open Discord community',
     menuOpen: 'Open menu',
     menuClose: 'Close menu',

@@ -9,9 +9,9 @@ export interface PageSeoEntry {
 
 export const PAGE_SEO: Record<string, PageSeoEntry> = {
   '/': {
-    title: 'Wardogs cheats | ESP, aimbot, wallhack & radar',
+    title: 'Wardogs Cheats 2026 | Buy ESP, Aimbot & Wallhack (PC)',
     description:
-      'Wardogs cheats for PC: ESP, aimbot, wallhack-style intel, radar, triggerbot, and loader notes. Read wardogs cheats reviews in the forums, then compare Lite, Pro, and Elite.',
+      'Wardogs cheats for Windows PC: ESP, wallhack-style overlays, aimbot, radar zoom, and trigger timing. Read guides and forum threads on wardogs-cheats.net, compare Lite / Pro / Elite, then continue to checkout in the same tab.',
   },
   '/products/wardogs-cheats/': {
     title: 'Wardogs cheats Lite, Pro & Elite | ESP & aimbot tiers',
