@@ -563,6 +563,12 @@ export const en: Translations = {
           ],
         },
         {
+          heading: 'Affiliate disclosure',
+          paragraphs: [
+            'Some links on wardogs-cheats.net, including /go/wardogs/, send you to an external store. If you buy through those links, we may earn a commission at no extra cost to you. Prices, licenses, and fulfillment are handled by the partner, not by this site.',
+          ],
+        },
+        {
           heading: 'License use',
           paragraphs: [
             'Licenses are personal. Do not share loader files or accounts. HWID rules live in the dashboard.',

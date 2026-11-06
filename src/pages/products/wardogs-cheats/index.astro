@@ -7,6 +7,7 @@ import { cheatTierIcons, productCategoryIcons } from '../../../data/sectionIcons
 import { resolvePageSeo } from '../../../config/seo';
 import { breadcrumbSchema, collectionPageSchema, itemListSchema } from '../../../utils/schema';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import AffiliateDisclosure from '../../../components/AffiliateDisclosure.astro';
 import CatalogCard from '../../../components/CatalogCard.astro';
 import { productPath } from '../../../utils/path';
 
@@ -56,6 +57,7 @@ function cardLabel(product: (typeof productPages)[number]) {
       <div class="mt-6 max-w-3xl space-y-3">
         <h1 class="text-3xl font-bold uppercase md:text-4xl">{t.products.title}</h1>
         <p class="text-lg text-muted-foreground">{t.products.subtitle}</p>
+        <AffiliateDisclosure />
       </div>
 
       <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

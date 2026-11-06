@@ -1,4 +1,6 @@
 ---
+import { affiliateRel } from '../../config/affiliate';
+import AffiliateDisclosure from '../AffiliateDisclosure.astro';
 import type { ProductPage } from '../../data/products';
 import {
   checkoutUrlWithPlan,
@@ -73,6 +75,7 @@ const isSinglePlan = plans.length === 1;
       <Button
         as="a"
         href={checkoutUrlWithPlan(product.buyUrl, defaultPlan.id)}
+        rel={affiliateRel(product.buyUrl)}
         variant="primary"
         size="lg"
         class="w-full rounded-xl"
@@ -81,6 +84,7 @@ const isSinglePlan = plans.length === 1;
         Buy now
         <Icon name="arrowRight" size={17} />
       </Button>
+      <AffiliateDisclosure class="text-left" />
     </div>
   </div>
 </aside>

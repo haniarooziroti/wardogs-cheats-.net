@@ -1,5 +1,6 @@
 ---
 import '../styles/support-section.css';
+import { affiliateRel } from '../config/affiliate';
 import { t } from '../i18n';
 import Icon from './icons/Icon.astro';
 import type { IconName } from './icons/types';
@@ -55,6 +56,7 @@ const channels = c.channels.filter((ch) => !omitChannelTitles.includes(ch.title)
                 <Button
                   as="a"
                   href={channel.href}
+                  rel={affiliateRel(channel.href)}
                   variant="outline"
                   size="sm"
                   class="w-full"
