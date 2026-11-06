@@ -1,12 +1,13 @@
 import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
+import { getStaticDistRoot } from './dist-root.mjs';
 import zlib from 'node:zlib';
 import { resolvePathRedirect } from './redirects.mjs';
 import { resolveCheckoutPathRedirect } from '../src/config/checkout-redirects.mjs';
 
 const CANONICAL_HOST = 'wardogs-cheats.net';
-const distDir = path.resolve('dist');
+const distDir = getStaticDistRoot();
 const port = Number(process.env.PORT) || 3000;
 
 const MIME = {

@@ -1,12 +1,14 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { findSitemap0Path, getStaticDistRoot } from './dist-root.mjs';
 
-const root = process.cwd();
-const dist = path.join(root, 'dist');
-const source = path.join(dist, 'sitemap-0.xml');
+const dist = getStaticDistRoot();
+const source = findSitemap0Path();
 
-if (!fs.existsSync(source)) {
-  console.error('finalize-sitemap: dist/sitemap-0.xml not found — run astro build first.');
+if (!source) {
+  console.error(
+    'finalize-sitemap: sitemap-0.xml not found under dist or dist/client — run astro build first.',
+  );
   process.exit(1);
 }
 
@@ -49,4 +51,4 @@ const indexXml = `<?xml version="1.0" encoding="UTF-8"?>
 fs.writeFileSync(path.join(dist, 'sitemap-index.xml'), indexXml, 'utf8');
 fs.writeFileSync(path.join(dist, 'sitemap-0.xml'), formatted, 'utf8');
 
-console.log(`Sitemap finalized: ${urlCount} URLs → dist/sitemap.xml`);
+console.log(`Sitemap finalized: ${urlCount} URLs → ${path.relative(process.cwd(), path.join(dist, 'sitemap.xml'))}`);

@@ -1,8 +1,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { getStaticDistRoot } from './dist-root.mjs';
 
-const root = process.cwd();
-const dist = path.join(root, 'dist');
+const dist = getStaticDistRoot();
 const key = process.env.INDEXNOW_KEY?.trim();
 const host = process.env.INDEXNOW_HOST?.trim() || 'wardogs-cheats.net';
 
@@ -13,7 +13,7 @@ if (!key) {
 
 const sitemapPath = path.join(dist, 'sitemap.xml');
 if (!fs.existsSync(sitemapPath)) {
-  console.warn('IndexNow: dist/sitemap.xml missing — skipping ping.');
+  console.warn('IndexNow: sitemap.xml missing in static output — skipping ping.');
   process.exit(0);
 }
 
