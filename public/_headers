@@ -27,3 +27,7 @@
 
 /sitemap.xml
   Cache-Control: public, max-age=86400
+
+# Preview host only. Remove this rule once the workers.dev route is disabled.
+https://wardogs-cheats--net.hania-rooziroti.workers.dev/*
+  X-Robots-Tag: noindex, nofollow
