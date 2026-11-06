@@ -9,6 +9,7 @@ import { breadcrumbSchema, collectionPageSchema, itemListSchema } from '../../..
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import AffiliateDisclosure from '../../../components/AffiliateDisclosure.astro';
 import CatalogCard from '../../../components/CatalogCard.astro';
+import ShareButtons from '../../../components/ShareButtons.astro';
 import { productPath } from '../../../utils/path';
 
 const seo = resolvePageSeo('/products/wardogs-cheats/');
@@ -79,6 +80,10 @@ function cardLabel(product: (typeof productPages)[number]) {
             viewLabel={`View ${product.title} details`}
           />
         ))}
+      </div>
+
+      <div class="mt-12">
+        <ShareButtons title={seo.title} path={productHub.path} />
       </div>
     </div>
   </section>
