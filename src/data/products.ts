@@ -2,7 +2,7 @@ import { t } from '../i18n';
 import { checkoutForSlug, checkoutPath } from '../config/checkout';
 import type { IconName } from '../components/icons/types';
 import { PRODUCT_BASE } from '../config/site';
-import { WARDOGS_SHOWCASE_IMAGE_ALT, WARDOGS_SHOWCASE_IMAGE_SRC } from '../config/media';
+import { WARDOGS_CDN_GALLERY, WARDOGS_SHOWCASE_IMAGE_ALT } from '../config/media';
 
 export interface ProductSlide {
   src: string;
@@ -11,16 +11,23 @@ export interface ProductSlide {
   captionDesc: string;
 }
 
-/** Single approved showcase still for hero, tier galleries, and OG-derived paths. */
-const showcaseSlide: ProductSlide = {
-  src: WARDOGS_SHOWCASE_IMAGE_SRC,
-  alt: WARDOGS_SHOWCASE_IMAGE_ALT,
-  caption: 'Wardogs showcase',
-  captionDesc: 'ESP overlay and cheat menu in one frame.',
-};
+const defaultShowcaseCaption = 'Wardogs showcase';
+const defaultShowcaseCaptionDesc = 'ESP overlay and cheat menu in one frame.';
 
-function repeatShowcaseSlides(count: number): ProductSlide[] {
-  return Array.from({ length: count }, () => ({ ...showcaseSlide }));
+function productSlideFromCdn(src: string): ProductSlide {
+  return {
+    src,
+    alt: WARDOGS_SHOWCASE_IMAGE_ALT,
+    caption: defaultShowcaseCaption,
+    captionDesc: defaultShowcaseCaptionDesc,
+  };
+}
+
+/** Three consecutive CDN stills per tier page gallery (cycles if needed). */
+function tierGallerySlides(startIndex: number): ProductSlide[] {
+  return [0, 1, 2].map((offset) =>
+    productSlideFromCdn(WARDOGS_CDN_GALLERY[(startIndex + offset) % WARDOGS_CDN_GALLERY.length]),
+  );
 }
 
 export interface ProductOverview {
@@ -216,7 +223,7 @@ const productContent: Record<
   Pick<ProductPage, 'overview' | 'images' | 'fullFeatures' | 'goodToKnow' | 'limitations' | 'systemRequirements'>
 > = {
   lite: {
-    images: repeatShowcaseSlides(3),
+    images: tierGallerySlides(0),
     goodToKnow: sharedGoodToKnow,
     limitations: sharedLimitations,
     systemRequirements: wardogsSystemRequirements,
@@ -240,7 +247,7 @@ const productContent: Record<
     },
   },
   pro: {
-    images: repeatShowcaseSlides(3),
+    images: tierGallerySlides(3),
     goodToKnow: sharedGoodToKnow,
     limitations: sharedLimitations,
     systemRequirements: wardogsSystemRequirements,
@@ -265,7 +272,7 @@ const productContent: Record<
     },
   },
   elite: {
-    images: repeatShowcaseSlides(3),
+    images: tierGallerySlides(9),
     goodToKnow: sharedGoodToKnow,
     limitations: sharedLimitations,
     systemRequirements: wardogsSystemRequirements,
@@ -344,8 +351,8 @@ export function getAllCheatSlugs() {
   return cheatPages.map((p) => p.slug);
 }
 
-/** Home hero: single showcase still (carousel UI hidden when count is 1). */
-export const heroSlides: ProductSlide[] = [showcaseSlide];
+/** Home hero: Supabase CDN carousel (first five stills). */
+export const heroSlides: ProductSlide[] = WARDOGS_CDN_GALLERY.slice(0, 5).map(productSlideFromCdn);
 
 export const productHub = {
   path: productBase,
