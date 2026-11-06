@@ -572,6 +572,15 @@ export const forumPosts: ForumPost[] = [
   },
 ];
 
+export function editorialNotes(post: ForumPost): string[] {
+  const notes: string[] = [];
+  for (const comment of post.comments) {
+    notes.push(comment.body);
+    for (const reply of comment.replies ?? []) notes.push(reply.body);
+  }
+  return notes;
+}
+
 export function getForumPost(slug: string): ForumPost | undefined {
   return forumPosts.find((post) => post.slug === slug);
 }

@@ -6,10 +6,10 @@ import Icon from '../../components/icons/Icon.astro';
 import { forumCategories, forumPosts } from '../../data/forum';
 import { blogPosts, getBlogPostTimestamp } from '../../data/blog';
 import { resolvePageSeo } from '../../config/seo';
-import { breadcrumbSchema, collectionPageSchema } from '../../utils/schema';
+import { breadcrumbSchema, webPageSchema } from '../../utils/schema';
 
 const seo = resolvePageSeo('/forum/');
-const breadcrumbs = [{ name: 'Home', path: '/' }, { name: 'Forums', path: '/forum/' }];
+const breadcrumbs = [{ name: 'Home', path: '/' }, { name: 'Editorial notes', path: '/forum/' }];
 const categoryKey = (name: string) => name.toLowerCase().replace(/[^a-z0-9]/g, '');
 const sourceTimestamp = (path?: string) => {
   const slug = path?.split('/').filter(Boolean).at(-1);
@@ -18,34 +18,40 @@ const sourceTimestamp = (path?: string) => {
 };
 ---
 
-<BaseLayout title={seo.title} description={seo.description} jsonLd={[
-  collectionPageSchema({ name: 'Wardogs cheat forums', description: seo.description, url: '/forum/' }),
-  breadcrumbSchema(breadcrumbs),
-]}>
+<BaseLayout
+  title={seo.title}
+  description={seo.description}
+  noindex={true}
+  robots="noindex, follow"
+  jsonLd={[
+    webPageSchema({ name: seo.title, description: seo.description, url: '/forum/' }),
+    breadcrumbSchema(breadcrumbs),
+  ]}
+>
   <section class="forum-page py-8 md:py-12">
     <div class="mx-auto max-w-6xl px-5">
       <Breadcrumbs items={breadcrumbs} />
       <header class="forum-hero">
         <div>
-          <p class="section-header__eyebrow">Wardogs forums</p>
-          <h1>Wardogs cheat forums</h1>
-          <p class="forum-hero__copy">Threads on Wardogs ESP, aim assists, loaders, and ranked habits—mixed feedback from people who bought or bounced.</p>
+          <p class="section-header__eyebrow">Editorial notes</p>
+          <h1>{seo.title}</h1>
+          <p class="forum-hero__copy">
+            These pages are staff-written discussion notes on Wardogs ESP, aim assists, loaders, and risk. They are not live user posts, votes, or a community forum.
+          </p>
         </div>
         <a class="forum-create" href="/blog/"><Icon name="navBlog" size={17} /> Read related articles</a>
       </header>
 
       <div class="forum-layout">
-        <main class="forum-main" aria-label="Forum threads">
+        <main class="forum-main" aria-label="Editorial discussions">
           <div class="forum-toolbar">
-            <div class="forum-sort" role="group" aria-label="Post sorting">
-              <button class="is-active" type="button" data-forum-sort="popular" aria-pressed="true">Popular</button>
-              <button type="button" data-forum-sort="latest" aria-pressed="false">Latest</button>
-              <button type="button" data-forum-sort="top" aria-pressed="false">Most discussed</button>
+            <div class="forum-sort" role="group" aria-label="Discussion sorting">
+              <button class="is-active" type="button" data-forum-sort="latest" aria-pressed="true">Latest</button>
+              <button type="button" data-forum-sort="topic" aria-pressed="false">By topic</button>
             </div>
             <label class="forum-search">
               <Icon name="search" size={16} />
-              <input type="search" placeholder="Search threads" aria-label="Search threads" data-forum-search />
-              <span class="sr-only" data-forum-count>{forumPosts.length} threads</span>
+              <input type="search" placeholder="Search notes" aria-label="Search editorial notes" data-forum-search />
             </label>
           </div>
 
@@ -55,68 +61,39 @@ const sourceTimestamp = (path?: string) => {
               <button type="button" data-forum-filter={categoryKey(category.name)} aria-pressed="false"><Icon name={category.icon} size={14} /> {category.name}</button>
             ))}
           </div>
-          <p class="forum-results-count" data-forum-visible-count>{forumPosts.length} forum threads</p>
+          <p class="forum-results-count" data-forum-visible-count>{forumPosts.length} editorial notes</p>
 
           <div class="forum-post-list" aria-live="polite">
             {forumPosts.map((post, index) => (
-              <article class="forum-post-card" data-forum-card data-post-slug={post.slug} data-upvotes={post.upvotes} data-category={categoryKey(post.category)} data-comments={post.commentsCount} data-published={sourceTimestamp(post.sourcePath)} data-order={index}>
-                <div class="forum-vote" aria-label="Discussion voting">
-                  <button class="forum-vote__up" type="button" data-vote-up aria-label="Upvote this thread"><Icon name="chevronDown" size={16} /></button>
-                  <strong data-vote-count>{post.upvotes}</strong>
-                  <button type="button" disabled aria-label="Downvoting is unavailable"><Icon name="chevronDown" size={16} /></button>
-                </div>
+              <article class="forum-post-card" data-forum-card data-category={categoryKey(post.category)} data-published={sourceTimestamp(post.sourcePath)} data-topic={post.category} data-order={index}>
                 <div class="forum-post-card__body">
                   <div class="forum-post-meta">
                     <span class={`forum-community-avatar tone-${post.categoryTone}`}><Icon name="users" size={15} /></span>
-                    <a href="#communities" class="forum-community-name">w/{post.category.toLowerCase().replaceAll(' ', '')}</a>
-                    <span>·</span><span><Icon name="userRound" size={13} /> Forum staff</span><span>Player discussion</span>
+                    <span class="forum-community-name">{post.category}</span>
+                    <span>·</span><span>Editorial note</span>
                   </div>
                   <a class="forum-post-title" href={`/forum/${post.slug}/`}>{post.title}</a>
                   <p class="forum-post-excerpt">{post.excerpt}</p>
                   {post.sourceTitle && <p class="forum-source">Related article: <a href={post.sourcePath}>{post.sourceTitle}</a></p>}
                   <div class="forum-post-actions">
-                    {post.flair && <span class={`forum-flair tone-${post.categoryTone}`}>{post.flair}</span>}
-                    <a href={`/forum/${post.slug}/#comments`}><Icon name="messageCircle" size={15} /> {post.commentsCount} replies</a>
-                    <a href={`/forum/${post.slug}/`}><Icon name="arrowRight" size={15} /> Open thread</a>
+                    <a href={`/forum/${post.slug}/`}><Icon name="arrowRight" size={15} /> Open {post.title}</a>
                   </div>
                 </div>
               </article>
             ))}
           </div>
-          <p class="forum-empty" data-forum-empty hidden>No threads match. Try another search or topic.</p>
-          <nav class="forum-pagination" aria-label="Thread pages" data-forum-pagination hidden>
-            <button type="button" data-page-previous aria-label="Previous page">Previous</button>
-            <div class="forum-pagination__pages" data-page-buttons></div>
-            <button type="button" data-page-next aria-label="Next page">Next</button>
-            <span class="forum-pagination__status" data-page-status aria-live="polite"></span>
-          </nav>
+          <p class="forum-empty" data-forum-empty hidden>No notes match. Try another search or topic.</p>
         </main>
 
         <aside class="forum-sidebar">
           <section class="forum-side-card forum-about" id="community-guidelines">
             <div class="forum-side-card__banner"></div>
             <div class="forum-about__content">
-              <div class="forum-about__title"><span class="forum-community-avatar forum-community-avatar--brand"><img src="/logo.svg" alt="" width="34" height="34" /></span><h2>Wardogs forums</h2></div>
-              <p>Talk setups, ESP noise, aim assist levels, and patch nights—keep receipts private.</p>
-              <div class="forum-stats"><span><b>{forumPosts.length}</b> threads</span><span><b>{forumCategories.length}</b> topics</span></div>
+              <div class="forum-about__title"><span class="forum-community-avatar forum-community-avatar--brand"><img src="/logo.svg" alt="" width="34" height="34" /></span><h2>Editorial notes</h2></div>
+              <p>Staff-written setup notes collated next to Wardogs cheat articles. This is not a live forum and does not collect user posts.</p>
               <a class="forum-join" href="/products/wardogs-cheats/">Compare cheat tiers</a>
             </div>
           </section>
-          <section class="forum-side-card" id="communities">
-            <h2 class="forum-side-heading">Topics</h2>
-            <ul class="forum-community-list">
-              {forumCategories.map((category, index) => (
-                <li><a href={`/forum/?category=${categoryKey(category.name)}`}><span class={`forum-community-avatar tone-${category.tone}`} aria-hidden="true"><Icon name={category.icon} size={15} /></span><span><b>{category.name}</b><small>Browse threads</small></span><Icon name="chevronRight" size={15} /></a></li>
-              ))}
-            </ul>
-            <a class="forum-text-link" href="#communities">Browse topics <Icon name="arrowRight" size={14} /></a>
-          </section>
-          <section class="forum-side-card forum-rules">
-            <h2 class="forum-side-heading">Ground rules</h2>
-            <ol><li>No posting store credentials or payment details</li><li>Assume screenshots can identify you—describe instead</li><li>Call out toxic behavior, not specific players</li></ol>
-            <a href="#community-guidelines">Why these rules exist <Icon name="arrowRight" size={14} /></a>
-          </section>
-          <p class="forum-sidebar-foot">Articles · FAQ · Privacy · Terms<br />© {new Date().getFullYear()} wardogs-cheats.net</p>
         </aside>
       </div>
     </div>
@@ -127,72 +104,35 @@ const sourceTimestamp = (path?: string) => {
     const filterButtons = [...document.querySelectorAll<HTMLButtonElement>('[data-forum-filter]')];
     const searchInput = document.querySelector<HTMLInputElement>('[data-forum-search]');
     const list = document.querySelector<HTMLElement>('.forum-post-list');
-    const pagination = document.querySelector<HTMLElement>('[data-forum-pagination]');
-    const pageButtons = document.querySelector<HTMLElement>('[data-page-buttons]');
-    const pagePrev = document.querySelector<HTMLButtonElement>('[data-page-previous]');
-    const pageNext = document.querySelector<HTMLButtonElement>('[data-page-next]');
-    const pageStatus = document.querySelector<HTMLElement>('[data-page-status]');
     const emptyState = document.querySelector<HTMLElement>('[data-forum-empty]');
     const visibleCount = document.querySelector<HTMLElement>('[data-forum-visible-count]');
-    const PAGE_SIZE = 8;
-    let activeSort: 'popular' | 'latest' | 'top' = 'popular';
+    let activeSort: 'latest' | 'topic' = 'latest';
     let activeFilter = 'all';
     let searchQuery = '';
-    let page = 1;
 
     function applySort(sort: typeof activeSort) {
       const sorted = [...cards];
-      if (sort === 'popular') {
-        sorted.sort((a, b) => Number(b.dataset.upvotes) - Number(a.dataset.upvotes));
-      } else if (sort === 'latest') {
+      if (sort === 'latest') {
         sorted.sort((a, b) => Number(b.dataset.published) - Number(a.dataset.published));
       } else {
-        sorted.sort((a, b) => Number(b.dataset.comments) - Number(a.dataset.comments));
+        sorted.sort((a, b) => (a.dataset.topic ?? '').localeCompare(b.dataset.topic ?? ''));
       }
       sorted.forEach((c, idx) => (c.style.order = String(idx)));
       list?.append(...sorted);
     }
 
-    function visibleCards() {
-      return cards.filter((card) => {
+    function render() {
+      const vis = cards.filter((card) => {
         if (activeFilter !== 'all' && card.dataset.category !== activeFilter) return false;
         const title = card.querySelector('.forum-post-title')?.textContent ?? '';
         const excerpt = card.querySelector('.forum-post-excerpt')?.textContent ?? '';
-        const hay = `${title} ${excerpt}`.toLowerCase();
-        if (searchQuery && !hay.includes(searchQuery)) return false;
-        return true;
+        return !searchQuery || `${title} ${excerpt}`.toLowerCase().includes(searchQuery);
       });
-    }
-
-    function renderPage() {
-      const vis = visibleCards();
-      page = Math.min(page, Math.max(1, Math.ceil(vis.length / PAGE_SIZE)));
-      const start = (page - 1) * PAGE_SIZE;
-      const pageItems = vis.slice(start, start + PAGE_SIZE);
       cards.forEach((c) => {
-        c.hidden = !pageItems.includes(c);
+        c.hidden = !vis.includes(c);
       });
-      if (visibleCount) visibleCount.textContent = `${vis.length} forum threads`;
+      if (visibleCount) visibleCount.textContent = `${vis.length} editorial notes`;
       if (emptyState) emptyState.hidden = vis.length > 0;
-      const pages = Math.max(1, Math.ceil(vis.length / PAGE_SIZE));
-      if (pagination && pageButtons) {
-        pagination.hidden = pages <= 1;
-        pageButtons.innerHTML = '';
-        for (let p = 1; p <= pages; p++) {
-          const b = document.createElement('button');
-          b.type = 'button';
-          b.textContent = String(p);
-          b.setAttribute('aria-pressed', p === page ? 'true' : 'false');
-          b.addEventListener('click', () => {
-            page = p;
-            renderPage();
-          });
-          pageButtons.appendChild(b);
-        }
-      }
-      if (pageStatus) pageStatus.textContent = `Page ${page} of ${pages}`;
-      if (pagePrev) pagePrev.disabled = page <= 1;
-      if (pageNext) pageNext.disabled = page >= pages;
     }
 
     sortButtons.forEach((btn) => {
@@ -203,8 +143,7 @@ const sourceTimestamp = (path?: string) => {
         });
         activeSort = btn.dataset.forumSort as typeof activeSort;
         applySort(activeSort);
-        page = 1;
-        renderPage();
+        render();
       });
     });
     filterButtons.forEach((btn) => {
@@ -214,29 +153,15 @@ const sourceTimestamp = (path?: string) => {
           b.setAttribute('aria-pressed', b === btn ? 'true' : 'false');
         });
         activeFilter = btn.dataset.forumFilter ?? 'all';
-        page = 1;
-        renderPage();
+        render();
       });
     });
     searchInput?.addEventListener('input', () => {
       searchQuery = searchInput.value.trim().toLowerCase();
-      page = 1;
-      renderPage();
-    });
-    pagePrev?.addEventListener('click', () => {
-      page -= 1;
-      renderPage();
-    });
-    pageNext?.addEventListener('click', () => {
-      page += 1;
-      renderPage();
+      render();
     });
 
     applySort(activeSort);
-    renderPage();
-  </script>
-  <script>
-    import { initForumVotes } from '../../scripts/forum-votes.ts';
-    initForumVotes();
+    render();
   </script>
 </BaseLayout>
