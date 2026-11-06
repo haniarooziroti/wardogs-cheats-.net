@@ -59,6 +59,7 @@ function slugify(text: string): string {
     .replace(/^-|-$/g, '');
 }
 const published = parseBlogDate(post.date);
+const modified = parseBlogDate(post.dateModified ?? post.date);
 ---
 
 <BaseLayout
@@ -67,7 +68,7 @@ const published = parseBlogDate(post.date);
   ogType="article"
   ogImageAlt={post.title}
   articlePublishedTime={published}
-  articleModifiedTime={published}
+  articleModifiedTime={modified}
   jsonLd={[
     articleSchema({
       name: post.title,
@@ -75,6 +76,7 @@ const published = parseBlogDate(post.date);
       url: postPath,
       image: post.image,
       datePublished: published,
+      dateModified: modified,
     }),
     breadcrumbSchema(breadcrumbs),
   ]}

@@ -1,5 +1,42 @@
-import type { BlogPostFull } from './types';
+import type { BlogBlock, BlogPostFull } from './types';
 import { wardogsBlogCdnImage } from '../../config/media';
+import { BLOG_EXPANSIONS } from './expansions';
+
+function wordCount(body: BlogBlock[]): number {
+  return body.reduce((sum, block) => {
+    if (block.type === 'p' || block.type === 'h2' || block.type === 'h3') {
+      return sum + block.text.split(/\s+/).filter(Boolean).length;
+    }
+    if (block.type === 'ul') {
+      return sum + block.items.join(' ').split(/\s+/).filter(Boolean).length;
+    }
+    if (block.type === 'table') {
+      return sum + [...block.headers, ...block.rows.flat()].join(' ').split(/\s+/).filter(Boolean).length;
+    }
+    if (block.type === 'cta') {
+      return sum + `${block.title} ${block.text}`.split(/\s+/).filter(Boolean).length;
+    }
+    return sum;
+  }, 0);
+}
+
+function readTimeFromBody(body: BlogBlock[]): string {
+  const minutes = Math.max(1, Math.round(wordCount(body) / 220));
+  return `${minutes} min read`;
+}
+
+function withExpansion(post: BlogPostFull): BlogPostFull {
+  const extra = BLOG_EXPANSIONS[post.slug] ?? [];
+  const cta = post.body.filter((block) => block.type === 'cta');
+  const main = post.body.filter((block) => block.type !== 'cta');
+  const body = extra.length ? [...main, ...extra, ...cta] : post.body;
+  return {
+    ...post,
+    body,
+    dateModified: extra.length ? 'Nov 7, 2026' : post.dateModified,
+    readTime: readTimeFromBody(body),
+  };
+}
 
 const storeCta = {
   type: 'cta' as const,
@@ -8,7 +45,7 @@ const storeCta = {
   href: '/go/wardogs/',
 };
 
-export const blogPosts: BlogPostFull[] = [
+const blogPostDrafts: BlogPostFull[] = [
   {
     featured: true,
     tag: 'ESP',
@@ -298,3 +335,5 @@ export const blogPosts: BlogPostFull[] = [
     ],
   },
 ];
+
+export const blogPosts: BlogPostFull[] = blogPostDrafts.map(withExpansion);
