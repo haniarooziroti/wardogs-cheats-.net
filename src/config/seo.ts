@@ -1,11 +1,11 @@
 import { t } from '../i18n';
 import { SITE_DOMAIN as INDEXNOW_HOST_NAME } from './site';
 import { getPageSeoEntry } from './pageSeo';
+import { WARDOGS_SHOWCASE_IMAGE_SRC } from './media';
 
 export const SITE_ORIGIN = `https://${t.site.domain}`;
 
-export const DEFAULT_OG_IMAGE =
-  'https://ooszazcwzmwhitdxwtom.supabase.co/storage/v1/object/public/seo-media-library/wardogs/f8fb1df6-697d-4d9b-b239-91326d061bf8/1793915976881-aqqh1y-mr-fitness-wardogs-cheats-are-way-too-powerful-vhfysrbttj8-1058x595-0m55s.webp';
+export const DEFAULT_OG_IMAGE = WARDOGS_SHOWCASE_IMAGE_SRC;
 
 export const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID as string | undefined;
 

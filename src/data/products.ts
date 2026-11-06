@@ -2,90 +2,25 @@ import { t } from '../i18n';
 import { checkoutForSlug, checkoutPath } from '../config/checkout';
 import type { IconName } from '../components/icons/types';
 import { PRODUCT_BASE } from '../config/site';
-
-/** Optimized WebP assets for Wardogs cheat pages (CDN). */
-const wardogsSeoImages = [
-  {
-    src: 'https://ooszazcwzmwhitdxwtom.supabase.co/storage/v1/object/public/seo-media-library/wardogs/f8fb1df6-697d-4d9b-b239-91326d061bf8/1793915976881-aqqh1y-mr-fitness-wardogs-cheats-are-way-too-powerful-vhfysrbttj8-1058x595-0m55s.webp',
-    alt: 'Wardogs cheats gameplay screenshot showing ESP and radar-style intel overlay',
-    caption: 'Intel overlay',
-    captionDesc: 'Wardogs wallhack-style readout in a live round.',
-  },
-  {
-    src: 'https://ooszazcwzmwhitdxwtom.supabase.co/storage/v1/object/public/seo-media-library/wardogs/f8fb1df6-697d-4d9b-b239-91326d061bf8/1793915968458-0dhxlc-mr-fitness-wardogs-cheats-are-way-too-powerful-vhfysrbttj8-1058x595-0m40s.webp',
-    alt: 'Wardogs aimbot assist preview with smooth crosshair tracking',
-    caption: 'Aim tuning',
-    captionDesc: 'FOV and smoothing tuned for steady Wardogs aim.',
-  },
-  {
-    src: 'https://ooszazcwzmwhitdxwtom.supabase.co/storage/v1/object/public/seo-media-library/wardogs/f8fb1df6-697d-4d9b-b239-91326d061bf8/1793915956483-6hq6ph-mr-fitness-wardogs-cheats-are-way-too-powerful-vhfysrbttj8-1058x595-0m34s.webp',
-    alt: 'Wardogs ESP highlights enemy positions at medium range',
-    caption: 'ESP reads',
-    captionDesc: 'Distance and outline cues for Wardogs fights.',
-  },
-  {
-    src: 'https://ooszazcwzmwhitdxwtom.supabase.co/storage/v1/object/public/seo-media-library/wardogs/f8fb1df6-697d-4d9b-b239-91326d061bf8/1793915876659-1unvo7-mr-fitness-wardogs-cheats-are-way-too-powerful-vhfysrbttj8-1058x595-0m21s.webp',
-    alt: 'Wardogs radar zoom widened for rotate calls',
-    caption: 'Radar zoom',
-    captionDesc: 'Map pull-back paired with Wardogs ESP.',
-  },
-  {
-    src: 'https://ooszazcwzmwhitdxwtom.supabase.co/storage/v1/object/public/seo-media-library/wardogs/f8fb1df6-697d-4d9b-b239-91326d061bf8/1793915763313-nwnol9-mr-fitness-wardogs-cheats-are-way-too-powerful-vhfysrbttj8-1058x595-0m14s.webp',
-    alt: 'Wardogs cheat menu with module toggles for ESP and aim',
-    caption: 'Loader UI',
-    captionDesc: 'Grouped Wardogs cheat modules in one stack.',
-  },
-  {
-    src: 'https://ooszazcwzmwhitdxwtom.supabase.co/storage/v1/object/public/seo-media-library/wardogs/b15955c0-41e9-482d-a072-e4e797bccc2c/1793709858946-nhlldk-hbs-forces-wardogs-wardogs-cheats-destroying-everyone-with-the-best-wardogs-chea.webp',
-    alt: 'Wardogs cheats firefight with overlay emphasis on targets',
-    caption: 'Combat read',
-    captionDesc: 'Wardogs esp and aim assists in a heated exchange.',
-  },
-  {
-    src: 'https://ooszazcwzmwhitdxwtom.supabase.co/storage/v1/object/public/seo-media-library/wardogs/b15955c0-41e9-482d-a072-e4e797bccc2c/1793709837961-92qf25-hbs-forces-wardogs-wardogs-cheats-destroying-everyone-with-the-best-wardogs-chea.webp',
-    alt: 'Wardogs wallhack-style outline on contested angle',
-    caption: 'Angle control',
-    captionDesc: 'Wardogs esp through smoke and cover.',
-  },
-  {
-    src: 'https://ooszazcwzmwhitdxwtom.supabase.co/storage/v1/object/public/seo-media-library/wardogs/b15955c0-41e9-482d-a072-e4e797bccc2c/1793709821192-2d9lsa-hbs-forces-wardogs-wardogs-cheats-destroying-everyone-with-the-best-wardogs-chea.webp',
-    alt: 'Wardogs minimap and esp alignment for callouts',
-    caption: 'Map sync',
-    captionDesc: 'Radar zoom matching Wardogs esp distance.',
-  },
-  {
-    src: 'https://ooszazcwzmwhitdxwtom.supabase.co/storage/v1/object/public/seo-media-library/wardogs/b15955c0-41e9-482d-a072-e4e797bccc2c/1793709803686-3trm9r-hbs-forces-wardogs-wardogs-cheats-destroying-everyone-with-the-best-wardogs-chea.webp',
-    alt: 'Wardogs aim assist curve smoothing close-range duels',
-    caption: 'Close duels',
-    captionDesc: 'Wardogs aimbot smoothing in short ranges.',
-  },
-  {
-    src: 'https://ooszazcwzmwhitdxwtom.supabase.co/storage/v1/object/public/seo-media-library/wardogs/b15955c0-41e9-482d-a072-e4e797bccc2c/1793709783737-r6o4o3-hbs-forces-wardogs-wardogs-cheats-destroying-everyone-with-the-best-wardogs-chea.webp',
-    alt: 'Wardogs trigger timing assist on single-tap weapons',
-    caption: 'Trigger feel',
-    captionDesc: 'Wardogs triggerbot windows kept conservative.',
-  },
-  {
-    src: 'https://ooszazcwzmwhitdxwtom.supabase.co/storage/v1/object/public/seo-media-library/wardogs/b15955c0-41e9-482d-a072-e4e797bccc2c/1793709749145-wsrzfm-niksion-i-got-rich-using-wardogs-cheat-in-season-2-ml1ky2qxita-1035x582-0m19s.webp',
-    alt: 'Wardogs ranked match with cheat overlay and economy HUD',
-    caption: 'Ranked pacing',
-    captionDesc: 'Wardogs cheat stack during competitive play.',
-  },
-] as const;
-
-function slidesAt(...indices: number[]): ProductSlide[] {
-  return indices.map((i) => {
-    const item = wardogsSeoImages[i];
-    if (!item) throw new Error(`wardogsSeoImages missing index ${i}`);
-    return { src: item.src, alt: item.alt, caption: item.caption, captionDesc: item.captionDesc };
-  });
-}
+import { WARDOGS_SHOWCASE_IMAGE_ALT, WARDOGS_SHOWCASE_IMAGE_SRC } from '../config/media';
 
 export interface ProductSlide {
   src: string;
   alt: string;
   caption: string;
   captionDesc: string;
+}
+
+/** Single approved showcase still for hero, tier galleries, and OG-derived paths. */
+const showcaseSlide: ProductSlide = {
+  src: WARDOGS_SHOWCASE_IMAGE_SRC,
+  alt: WARDOGS_SHOWCASE_IMAGE_ALT,
+  caption: 'Wardogs showcase',
+  captionDesc: 'ESP overlay and cheat menu in one frame.',
+};
+
+function repeatShowcaseSlides(count: number): ProductSlide[] {
+  return Array.from({ length: count }, () => ({ ...showcaseSlide }));
 }
 
 export interface ProductOverview {
@@ -196,67 +131,6 @@ const wardogsSystemRequirements: SystemRequirement[] = [
   { icon: 'reqCpu', text: 'Hardware that meets Wardogs minimum specs for stable frame times.' },
 ];
 
-type GalleryKey = keyof typeof galleryRaw;
-
-const gameplay = '/images/gameplay';
-
-const galleryRaw = {
-  gpEspWall: {
-    src: `${gameplay}/wardogs-esp-wallhack.png`,
-    alt: 'Wardogs wallhack-style ESP overlay highlighting enemy outlines through terrain',
-    caption: 'ESP & wall intel',
-    captionDesc: 'Readable boxes and team colors for quick callouts without crowding the hud.',
-  },
-  gpEspPlayers: {
-    src: `${gameplay}/wardogs-esp-players.png`,
-    alt: 'Wardogs player ESP tags with distance and health readouts',
-    caption: 'Player ESP',
-    captionDesc: 'Name tags, distance, and health cues for duels and trades.',
-  },
-  gpAimbot: {
-    src: `${gameplay}/wardogs-aimbot-combo.png`,
-    alt: 'Wardogs aimbot assistance with smoothness and FOV sliders',
-    caption: 'Aim assist tuning',
-    captionDesc: 'FOV caps and smoothing that stay closer to human aim paths.',
-  },
-  gpRadar: {
-    src: `${gameplay}/wardogs-radar-zoom.png`,
-    alt: 'Wardogs minimap radar zoom with wider tactical view',
-    caption: 'Radar & zoom',
-    captionDesc: 'Pull back the tactical view without losing close-range clarity.',
-  },
-  gpUi: {
-    src: `${gameplay}/wardogs-ui-overlay.png`,
-    alt: 'Wardogs cheat menu overlay with module toggles',
-    caption: 'Menu & modules',
-    captionDesc: 'Grouped toggles for ESP layers, aimbot, and extras in one stack.',
-  },
-  gpTrigger: {
-    src: `${gameplay}/wardogs-trigger-assist.png`,
-    alt: 'Wardogs trigger and finish assist timing on target',
-    caption: 'Trigger timing',
-    captionDesc: 'Conservative timing windows instead of full-auto behavior.',
-  },
-  gpRecoil: {
-    src: `${gameplay}/wardogs-recoil-control.png`,
-    alt: 'Wardogs recoil assistance curve preview',
-    caption: 'Recoil assist',
-    captionDesc: 'Soft pull-down curves that pair with medium aimbot smoothing.',
-  },
-};
-
-function slide(...keys: GalleryKey[]): ProductSlide[] {
-  return keys.map((k) => {
-    const item = galleryRaw[k];
-    return {
-      src: item.src,
-      alt: item.alt,
-      caption: item.caption,
-      captionDesc: item.captionDesc,
-    };
-  });
-}
-
 function slugFromHref(href: string): string {
   const segment = href.replace(productBase, '').replace(/^\//, '').replace(/\/$/, '');
   return segment || 'wardogs-cheats';
@@ -342,7 +216,7 @@ const productContent: Record<
   Pick<ProductPage, 'overview' | 'images' | 'fullFeatures' | 'goodToKnow' | 'limitations' | 'systemRequirements'>
 > = {
   lite: {
-    images: slidesAt(0, 2, 3),
+    images: repeatShowcaseSlides(3),
     goodToKnow: sharedGoodToKnow,
     limitations: sharedLimitations,
     systemRequirements: wardogsSystemRequirements,
@@ -366,7 +240,7 @@ const productContent: Record<
     },
   },
   pro: {
-    images: slidesAt(1, 4, 7),
+    images: repeatShowcaseSlides(3),
     goodToKnow: sharedGoodToKnow,
     limitations: sharedLimitations,
     systemRequirements: wardogsSystemRequirements,
@@ -391,7 +265,7 @@ const productContent: Record<
     },
   },
   elite: {
-    images: slidesAt(5, 8, 9),
+    images: repeatShowcaseSlides(3),
     goodToKnow: sharedGoodToKnow,
     limitations: sharedLimitations,
     systemRequirements: wardogsSystemRequirements,
@@ -470,8 +344,8 @@ export function getAllCheatSlugs() {
   return cheatPages.map((p) => p.slug);
 }
 
-/** Home hero: five CDN WebP slides, autoplay via hero-embla */
-export const heroSlides: ProductSlide[] = slidesAt(0, 1, 2, 3, 4);
+/** Home hero: single showcase still (carousel UI hidden when count is 1). */
+export const heroSlides: ProductSlide[] = [showcaseSlide];
 
 export const productHub = {
   path: productBase,

@@ -84,34 +84,41 @@ async function initHeroCarousels(root: ParentNode = document) {
     const wrapper = carouselRoot.closest('[data-hero-embla-wrap]');
     if (!wrapper) return;
 
-    const autoplay = Autoplay({
-      delay: HERO_AUTOPLAY_MS,
-      stopOnInteraction: true,
-      stopOnMouseEnter: true,
-    });
+    const slideCount = carouselRoot.querySelectorAll('[data-slot="carousel-item"]').length;
+    const multiSlide = slideCount > 1;
+
+    const autoplay = multiSlide
+      ? Autoplay({
+          delay: HERO_AUTOPLAY_MS,
+          stopOnInteraction: true,
+          stopOnMouseEnter: true,
+        })
+      : ({ stop: () => {}, play: () => {} } satisfies AutoplayPlugin);
 
     const instance = createCarousel(carouselRoot, {
-      opts: { loop: true, align: 'start', duration: 20 },
-      plugins: [autoplay],
+      opts: { loop: multiSlide, align: 'start', duration: 20, ...(multiSlide ? {} : { watchDrag: false }) },
+      plugins: multiSlide ? [autoplay] : [],
     });
 
-    bindHeroDots(wrapper as HTMLElement, instance.api as EmblaApi, autoplay);
+    if (multiSlide) {
+      bindHeroDots(wrapper as HTMLElement, instance.api as EmblaApi, autoplay as AutoplayPlugin);
 
-    const pauseWhenHidden = () => {
-      if (document.hidden) autoplay.stop();
-      else autoplay.play();
-    };
-    document.addEventListener('visibilitychange', pauseWhenHidden);
+      const pauseWhenHidden = () => {
+        if (document.hidden) autoplay.stop();
+        else autoplay.play();
+      };
+      document.addEventListener('visibilitychange', pauseWhenHidden);
 
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry) return;
-        if (entry.isIntersecting && !document.hidden) autoplay.play();
-        else autoplay.stop();
-      },
-      { threshold: 0.35 },
-    );
-    io.observe(carouselRoot);
+      const io = new IntersectionObserver(
+        ([entry]) => {
+          if (!entry) return;
+          if (entry.isIntersecting && !document.hidden) autoplay.play();
+          else autoplay.stop();
+        },
+        { threshold: 0.35 },
+      );
+      io.observe(carouselRoot);
+    }
   });
 }
 
