@@ -31,3 +31,18 @@
 # Preview host only. Remove this rule once the workers.dev route is disabled.
 https://wardogs-cheats--net.hania-rooziroti.workers.dev/*
   X-Robots-Tag: noindex, nofollow
+
+/favicon.ico
+  Cache-Control: public, max-age=3600
+
+/favicon-v2.ico
+  Cache-Control: public, max-age=3600
+
+/favicon-v2-32.png
+  Cache-Control: public, max-age=3600
+
+/favicon-v2.svg
+  Cache-Control: public, max-age=3600
+
+/apple-touch-icon-v2.png
+  Cache-Control: public, max-age=3600
