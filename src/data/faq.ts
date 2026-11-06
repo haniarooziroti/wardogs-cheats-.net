@@ -35,7 +35,7 @@ const pro = link('Wardogs Pro', productPath('pro'));
 const productsHub = link('Wardogs products', ROUTES.products);
 const faqPage = link('FAQ page', ROUTES.faq);
 const blog = link('articles', ROUTES.blog);
-const forum = link('forums', ROUTES.forum);
+const forum = link('editorial notes', ROUTES.forum);
 
 export const siteFaqs: SiteFaqItem[] = [
   {
@@ -43,7 +43,7 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'setup',
     icon: 'faqStatus',
     q: 'Where do I see if the Wardogs loader is online?',
-    a: a('Use the dashboard status banner and the forum patch threads before you launch—especially right after a Wardogs update.'),
+    a: a('Use the dashboard status banner and the editorial patch notes before you launch—especially right after a Wardogs update.'),
   },
   {
     id: 'after-buy',
@@ -173,7 +173,7 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'blog',
     icon: 'faqBlogDefault1',
     q: 'Should I read forums or articles first?',
-    a: `${blog} explains setup order; ${forum} shows mixed player feedback. Read both when a build feels unstable.`,
+    a: `${blog} explains setup order; ${forum} are staff-written editorial notes, not live user posts. Read both when a build feels unstable.`,
   },
   {
     id: 'faq-more',
@@ -393,7 +393,7 @@ const defaultBlogFaqs: SiteFaqItem[] = [
     topic: 'blog',
     icon: 'faqBlogDefault2',
     q: 'Where do I get hands-on help?',
-    a: a('Email support with your receipt and Windows build, or read recent forum threads for the same error text.'),
+    a: a('Email support with your receipt and Windows build, or read recent editorial notes for the same error text.'),
   },
   {
     id: 'blog-default-3',
