@@ -155,30 +155,34 @@ export function productSchema(input: {
   offerUrl: string;
   image?: string;
   sku?: string;
+  price?: string;
+  priceCurrency?: string;
 }) {
+  const offer =
+    input.price && input.priceCurrency
+      ? {
+          '@type': 'Offer' as const,
+          url: offerUrl(input.offerUrl),
+          price: input.price,
+          priceCurrency: input.priceCurrency,
+        }
+      : undefined;
+
   return {
     '@context': 'https://schema.org',
     '@type': 'Product',
     name: input.name,
     description: input.description,
+    url: canonicalUrl(input.url),
     sku: input.sku ?? input.url.replace(/\//g, '-'),
     brand: {
       '@type': 'Brand',
-      name: SITE_BRAND,
+      name: 'Wardogs',
     },
     ...(input.image
       ? { image: firstPartyAssetUrl(input.image) }
       : { image: firstPartyAssetUrl(FIRST_PARTY_OG_IMAGE) }),
-    offers: {
-      '@type': 'Offer',
-      url: offerUrl(input.offerUrl),
-      priceCurrency: 'USD',
-      availability: 'https://schema.org/InStock',
-      seller: {
-        '@type': 'Organization',
-        name: SITE_BRAND,
-      },
-    },
+    ...(offer ? { offers: offer } : {}),
   };
 }
 
