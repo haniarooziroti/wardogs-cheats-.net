@@ -55,8 +55,11 @@ function cardLabel(product: (typeof productPages)[number]) {
       <Breadcrumbs items={breadcrumbs} />
 
       <div class="mt-6 max-w-3xl space-y-3">
-        <h1 class="text-3xl font-bold uppercase md:text-4xl">{t.products.title}</h1>
+        <h1 class="text-3xl font-bold uppercase md:text-4xl">{seo.title}</h1>
         <p class="text-lg text-muted-foreground">{t.products.subtitle}</p>
+        <p class="text-sm text-muted-foreground">
+          New here? <a href="/" class="text-primary underline-offset-4 hover:underline">Read the Wardogs cheats overview</a> first.
+        </p>
         <AffiliateDisclosure />
       </div>
 

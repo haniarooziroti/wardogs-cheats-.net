@@ -1,5 +1,6 @@
 /**
  * Central titles/descriptions for high-traffic routes.
+ * Titles: 50–60 characters, complete phrases. Descriptions: 120–155 characters.
  */
 
 export interface PageSeoEntry {
@@ -9,59 +10,64 @@ export interface PageSeoEntry {
 
 export const PAGE_SEO: Record<string, PageSeoEntry> = {
   '/': {
-    title: 'Wardogs Cheats 2026 | Buy ESP, Aimbot & Wallhack (PC)',
+    title: 'Wardogs cheats overview: ESP, radar, and aim on PC',
     description:
-      'Wardogs cheats for Windows PC: ESP, wallhack-style overlays, aimbot, radar zoom, and trigger timing. Read guides and forum threads on wardogs-cheats.net, compare Lite / Pro / Elite, then continue to checkout in the same tab.',
+      'See how Wardogs cheats work on Windows PC: ESP overlays, radar zoom, and aim assists. Read setup notes, then open the catalog to compare Lite, Pro, and Elite.',
   },
   '/products/wardogs-cheats/': {
-    title: 'Wardogs cheats Lite, Pro & Elite | ESP & aimbot tiers',
+    title: 'Buy Wardogs Lite, Pro, and Elite cheat access today',
     description:
-      'Wardogs ESP, aimbot, and wallhack-style features by tier—Lite for intel, Pro for combat assists, Elite for the full stack. Windows PC only.',
+      'Buy Wardogs Lite, Pro, or Elite for Windows PC. Compare ESP, aimbot, and radar modules on this catalog, then continue to partner checkout in the same tab.',
   },
-  '/products/dota-2-cheats/': {
-    title: 'Wardogs cheats Lite, Pro & Elite | ESP & aimbot tiers',
+  '/products/wardogs-cheats/lite/': {
+    title: 'Buy Wardogs Lite ESP and radar cheat for Windows PC',
     description:
-      'Wardogs ESP, aimbot, and wallhack-style features by tier—redirected legacy URL maps to the Wardogs catalog. Windows PC only.',
+      'Buy Wardogs Lite when you want ESP, radar zoom, and player tags without heavy aim automation. Review the module list, then continue to partner checkout.',
+  },
+  '/products/wardogs-cheats/pro/': {
+    title: 'Buy Wardogs Pro aimbot and ESP cheat for Windows PC',
+    description:
+      'Buy Wardogs Pro for FOV-capped aimbot, ADS splits, and all Lite ESP tools on Windows PC. Check the plan price, then continue to partner checkout.',
   },
   '/products/wardogs-cheats/elite/': {
-    title: 'Wardogs Elite cheats | Full ESP & aimbot suite',
+    title: 'Buy Wardogs Elite full ESP and aimbot suite for PC',
     description:
-      'Elite tier bundles the strongest Wardogs aimbot tuning, ESP density controls, and extra combat tools—check loader status after patches.',
+      'Buy Wardogs Elite for expanded ESP filters, recoil curves, and the full Lite plus Pro stack on Windows PC. Confirm the plan, then open partner checkout.',
   },
   '/blog/': {
-    title: 'Wardogs cheat articles | ESP, aimbot & setup',
+    title: 'Wardogs cheat setup articles for ESP, aim, and radar',
     description:
-      'Articles on Wardogs ESP overlays, aimbot sensitivity, radar use, and safe defaults—written for players comparing features before checkout.',
+      'Read Wardogs cheat setup articles on ESP density, aimbot smoothing, radar zoom, loader order, and patch nights before you pick a tier or open checkout.',
   },
   '/forum/': {
-    title: 'Wardogs cheats forum | Setup & feature talk',
+    title: 'Wardogs cheat editorial notes on ESP, aim, and risk',
     description:
-      'Forum-style threads on Wardogs aimbot levels, ESP clutter, ban risk, and loader steps—read mixed feedback before you buy.',
+      'Editorial notes on Wardogs cheat setup: ESP clutter, aim assist levels, loader steps, and ban-risk habits. These pages are not a live user forum.',
   },
   '/faq/': {
-    title: 'FAQ | Wardogs cheats, download & safety',
+    title: 'Wardogs cheats FAQ: loader setup, ESP, and PC safety',
     description:
-      'Wardogs cheats FAQ: wardogs esp, aimbot, wallhack, triggerbot, loader download, legit checkout, Reddit and Discord noise, and honest notes on risk.',
+      'Wardogs cheats FAQ covering loader install, ESP and aimbot modules, Windows support, partner checkout, and honest notes on account risk after patches.',
   },
   '/terms/': {
-    title: 'Terms & Conditions | wardogs-cheats.net',
+    title: 'Terms for using Wardogs cheats on wardogs-cheats.net',
     description:
-      'License terms, acceptable use, and refund rules for Wardogs cheat access sold through the linked checkout.',
+      'License terms, acceptable use, affiliate checkout notes, and refund rules for Wardogs cheat access sold through the linked partner store on this site.',
   },
   '/privacy/': {
-    title: 'Privacy Policy | wardogs-cheats.net',
+    title: 'Privacy policy for visitors of the Wardogs cheats site',
     description:
-      'How wardogs-cheats.net uses analytics, cookies, and support email when you browse or request help.',
+      'How wardogs-cheats.net uses analytics, cookies, and support email when you browse pages or request help. Payments are handled by the partner checkout.',
   },
   '/about/': {
-    title: 'About this Wardogs cheats site',
+    title: 'About the Wardogs cheats guides published on this site',
     description:
-      'What we publish: Wardogs ESP, aimbot, and wallhack-style feature pages for PC players comparing software options.',
+      'What this site publishes: Wardogs cheats guides on ESP, aimbot, and radar for PC players comparing Lite, Pro, and Elite before opening partner checkout.',
   },
   '/support/': {
-    title: 'Support | Wardogs cheats help',
+    title: 'Wardogs cheats support for loader install and setup',
     description:
-      'Get help with loader install, Wardogs ESP or aimbot tuning, and checkout—include your Windows build and order email.',
+      'Get help with Wardogs cheats loader install, ESP or aimbot tuning, and checkout. Email support@wardogs-cheats.net with your Windows build and receipt.',
   },
 };
 

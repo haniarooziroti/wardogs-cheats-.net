@@ -3,7 +3,6 @@ import '../../styles/blog-pages.css';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { t } from '../../i18n';
 import { getAllBlogSlugs, getBlogPost, getRelatedBlogPosts } from '../../data/blog';
-import { pageTitle } from '../../config/seo';
 import {
   articleSchema,
   breadcrumbSchema,
@@ -62,7 +61,7 @@ const published = parseBlogDate(post.date);
 ---
 
 <BaseLayout
-  title={pageTitle(post.title)}
+  title={post.title}
   description={post.desc}
   ogType="article"
   ogImageAlt={post.title}
@@ -177,7 +176,7 @@ const published = parseBlogDate(post.date);
               <Icon name="arrowRight" size={17} />
             </Button>
             <Button as="a" href={ROUTES.products} variant="outline">
-              View products
+              Browse Lite, Pro, and Elite
             </Button>
             <Button as="a" href={ROUTES.blog} variant="outline">
               More articles

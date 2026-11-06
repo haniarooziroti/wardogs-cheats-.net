@@ -1,4 +1,5 @@
 ---
+import { resolvePageSeo } from '../../config/seo';
 import type { ProductPage } from '../../data/products';
 import Icon from '../icons/Icon.astro';
 import { Badge } from '@/components/starwind/badge';
@@ -8,6 +9,7 @@ interface Props {
 }
 
 const { product } = Astro.props;
+const seo = resolvePageSeo(`${Astro.url.pathname.endsWith('/') ? Astro.url.pathname : `${Astro.url.pathname}/`}`);
 ---
 
 <header class="product-detail-header space-y-4">
@@ -21,6 +23,6 @@ const { product } = Astro.props;
       Risk aware
     </Badge>
   </div>
-  <h1 class="max-w-3xl text-3xl font-bold normal-case leading-tight md:text-4xl">{product.title}</h1>
+  <h1 class="max-w-3xl text-3xl font-bold normal-case leading-tight md:text-4xl">{seo.title}</h1>
   <p class="max-w-2xl text-lg leading-relaxed text-muted-foreground">{product.subtitle || product.desc}</p>
 </header>

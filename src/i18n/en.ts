@@ -9,9 +9,9 @@ export const en: Translations = {
   site: {
     name: 'Wardogs cheats',
     domain: 'wardogs-cheats.net',
-    title: 'Wardogs Cheats 2026 | ESP, Aimbot & Wallhack for PC',
+    title: 'Wardogs cheats overview: ESP, radar, and aim on PC',
     description:
-      'Buy Wardogs cheats for PC: ESP, wallhack-style intel, aimbot smoothing, radar zoom, and trigger assists. Compare Lite, Pro, and Elite on wardogs-cheats.net, then open checkout in the same tab.',
+      'See how Wardogs cheats work on Windows PC: ESP overlays, radar zoom, and aim assists. Read setup notes, then open the catalog to compare Lite, Pro, and Elite.',
     rssFeedTitle: 'Wardogs cheat articles RSS',
   },
   nav: [
@@ -24,19 +24,19 @@ export const en: Translations = {
   hero: {
     status: 'Wardogs — loader channel online',
     eyebrow: 'PC · ESP · aim assist',
-    titleLine1: 'Wardogs cheats',
+    titleLine1: 'Wardogs cheats overview',
     titleLine2: '',
     subtitle:
       'Wardogs wallhack-style ESP, radar zoom, aimbot smoothing, and trigger timing—tuned for readable HUDs before you queue ranked or casual.',
-    ctaPrimary: 'See products',
+    ctaPrimary: 'Compare Wardogs cheat tiers',
     ctaDiscord: 'Join Discord',
     modesLabel: 'Modes',
     modes: ['Duos', 'Trios', 'Ranked', 'Casual'],
     metrics: [
-      { label: 'Reviews', strong: '100+' },
-      { label: 'Patch speed', strong: '<24h' },
       { label: 'Windows', strong: '10/11' },
-      { label: 'Live help', strong: '24/7' },
+      { label: 'Arch', strong: '64-bit' },
+      { label: 'Overlay', strong: 'External' },
+      { label: 'Help', strong: 'Email' },
     ],
   },
   features: {
@@ -102,7 +102,7 @@ export const en: Translations = {
     eyebrow: 'Why us',
     title: 'Patches first, loud claims never',
     subtitle:
-      'Most sellers spam vague buzzwords. Here you get Wardogs cheats broken down by tier—ESP, aimbot, radar—with notes from real wardogs cheats reviews and support.',
+      'Most sellers spam vague buzzwords. Here you get Wardogs cheats broken down by tier—ESP, aimbot, radar—with setup articles and editorial notes before checkout.',
     usLabel: 'This build',
     otherLabel: 'Typical listing',
     rows: [
@@ -133,19 +133,19 @@ export const en: Translations = {
     ],
     metrics: [
       {
-        value: '<24h',
-        title: 'Patch window',
-        desc: 'Typical time to publish a compatible build after major Wardogs drops—check the banner each day.',
+        value: 'Banner',
+        title: 'Loader status',
+        desc: 'Read the dashboard banner after Wardogs patches instead of assuming yesterday’s build still matches.',
       },
       {
-        value: '24/7',
-        title: 'Help desk',
-        desc: 'Someone on shift for loader install, aim assist tuning, and access recovery.',
+        value: 'Email',
+        title: 'Support inbox',
+        desc: 'Write support@wardogs-cheats.net with your receipt, Windows build, and the exact loader error text.',
       },
       {
-        value: '100+',
-        title: 'Written reviews',
-        desc: 'Wardogs cheats reviews here run from satisfied to frustrated—read forums and articles before you buy.',
+        value: 'Guides',
+        title: 'Setup articles',
+        desc: 'ESP, aimbot, and loader articles on this site explain settings and limits before you open checkout.',
       },
     ],
   },
@@ -155,7 +155,7 @@ export const en: Translations = {
     titleHighlight: 'three steps',
     intro:
       'Buy through the store link, pull the current loader, import a conservative preset, then test in a private Wardogs lobby before you queue.',
-    ctaPrimary: 'View products',
+    ctaPrimary: 'Open the Wardogs cheat catalog',
     ctaSecondary: 'Read FAQ',
     ctaPrimaryHref: productBase,
     ctaSecondaryHref: '/faq/',
@@ -236,8 +236,8 @@ export const en: Translations = {
   },
   products: {
     eyebrow: 'Catalog',
-    title: 'Wardogs cheats catalog',
-    subtitle: 'Lite, Pro, and Elite share one loader—tiers unlock different Wardogs cheat modules.',
+    title: 'Buy Wardogs cheat tiers',
+    subtitle: 'Lite, Pro, and Elite share one loader—tiers unlock different Wardogs cheat modules. Prefer an overview first? Read the Wardogs cheats overview on the homepage.',
     viewAll: 'Open catalog',
     get: 'Get',
     explore: 'Explore',
@@ -247,7 +247,7 @@ export const en: Translations = {
     eyebrow: 'Articles',
     title: 'Wardogs cheat articles',
     subtitle: 'Short reads on ESP density, aim assist levels, and radar habits—no fluff, no mystery.',
-    latestTitle: 'Wardogs cheat articles — latest guides',
+    latestTitle: 'Wardogs cheat setup articles for ESP, aim, and radar',
     latestSubtitle: 'Filter by topic or sort by date to match what you are troubleshooting.',
     filterAll: 'All topics',
     sortLabel: 'Sort',
@@ -375,7 +375,7 @@ export const en: Translations = {
     titleBefore: 'From status check to',
     titleHighlight: 'saved preset',
     subtitle: 'Keep the loop short: read, install, test privately, then save.',
-    ctaLabel: 'View products',
+    ctaLabel: 'Browse Lite, Pro, and Elite',
     ctaHref: productBase,
     ctaSecondary: 'Forum threads',
     ctaSecondaryHref: '/forum/',
@@ -397,7 +397,7 @@ export const en: Translations = {
   },
   support: {
     eyebrow: 'Help',
-    title: 'Support for Wardogs cheats',
+    title: 'Wardogs cheats support for loader install and setup',
     subtitle: 'Tell us what broke, what you changed, and what error text you saw.',
     channels: [
       {
@@ -486,7 +486,7 @@ export const en: Translations = {
   },
   legalPages: {
     about: {
-      title: 'About Wardogs cheats',
+      title: 'About the Wardogs cheats guides published on this site',
       description: 'Wardogs cheat articles and tier pages for PC players comparing ESP and aimbot options.',
       sections: [
         {
@@ -511,7 +511,7 @@ export const en: Translations = {
       ],
     },
     privacy: {
-      title: 'Privacy Policy — Wardogs cheats',
+      title: 'Privacy policy for visitors of the Wardogs cheats site',
       description: 'How wardogs-cheats.net handles analytics, cookies, and email when you browse or write in.',
       sections: [
         {
@@ -541,7 +541,7 @@ export const en: Translations = {
       ],
     },
     terms: {
-      title: 'Terms & Conditions — Wardogs cheats',
+      title: 'Terms for using Wardogs cheats on wardogs-cheats.net',
       description: 'Using wardogs-cheats.net and purchasing through the linked store.',
       sections: [
         {

@@ -21,7 +21,7 @@ const faqs = getAllFaqs();
   description={seo.description}
   jsonLd={[
     webPageSchema({
-      name: 'Wardogs cheats FAQ — ESP, aimbot & tiers',
+      name: seo.title,
       description:
         'Answers on Wardogs cheat tiers, ESP overlays, aim assists, Windows support, checkout, and ban risk.',
       url: '/faq/',
@@ -36,7 +36,7 @@ const faqs = getAllFaqs();
       <div class="mt-6">
         <SectionHeader
           eyebrow="Help center"
-          title="Wardogs cheats FAQ — tiers, loader & safety"
+          title={seo.title}
           desc="Everything about Wardogs Lite, Pro, and Elite, plus loader setup and safety—in one place."
           titleId="faq-page-title"
           titleTag="h1"
