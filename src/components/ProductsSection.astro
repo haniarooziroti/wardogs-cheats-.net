@@ -62,8 +62,8 @@ function cardLabel(product: (typeof productPages)[number]) {
                       icon={cardIcon(product)}
                       badge={product.badge}
                       variant={product.variant}
-                      buyLabel="Buy now"
-                      viewLabel="View details"
+                      buyLabel={`Buy ${product.title}`}
+                      viewLabel={`View ${product.title} details`}
                       maxFeatures={5}
                     />
                   </CarouselItem>
