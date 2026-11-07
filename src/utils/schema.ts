@@ -1,8 +1,17 @@
 import type { FaqItem } from '../i18n/types';
-import { SITE_DOMAIN, SUPPORT_EMAIL } from '../config/site';
+import { SUPPORT_EMAIL } from '../config/site';
 import { SITE_ORIGIN, absoluteAssetUrl, canonicalUrl, getOrganizationSameAs } from '../config/seo';
 
-const SITE_BRAND = SITE_DOMAIN;
+/** Brand name for Organization schema (not the hostname). */
+export const ORGANIZATION_NAME = 'Wardogs';
+
+const SCHEMA_LOGO_PATH = '/apple-touch-icon-v2.png';
+
+const SITE_BRAND = ORGANIZATION_NAME;
+
+function organizationLogoUrl(): string {
+  return absoluteAssetUrl(SCHEMA_LOGO_PATH);
+}
 
 function schemaImageUrl(path: string): string {
   return absoluteAssetUrl(path);
@@ -46,7 +55,7 @@ export function organizationSchema() {
     '@type': 'Organization',
     name: SITE_BRAND,
     url: `${SITE_ORIGIN}/`,
-    logo: `${SITE_ORIGIN}/logo.svg`,
+    logo: organizationLogoUrl(),
     email: SUPPORT_EMAIL,
     ...(sameAs.length > 0 ? { sameAs } : {}),
     contactPoint: [
@@ -202,14 +211,14 @@ export function articleSchema(input: {
     inLanguage: 'en-US',
     author: {
       '@type': 'Organization',
-      name: SITE_BRAND,
+      name: ORGANIZATION_NAME,
     },
     publisher: {
       '@type': 'Organization',
-      name: SITE_BRAND,
+      name: ORGANIZATION_NAME,
       logo: {
         '@type': 'ImageObject',
-        url: `${SITE_ORIGIN}/logo.svg`,
+        url: organizationLogoUrl(),
       },
     },
     mainEntityOfPage: {
