@@ -13,6 +13,8 @@ export const en: Translations = {
     description:
       'See how Wardogs cheats work on Windows PC: ESP overlays, aimbot smoothing, and wallhack-style reads. Then compare Lite, Pro, and Elite in the catalog.',
     rssFeedTitle: 'Wardogs cheat articles RSS',
+    logoAlt:
+      'Wardogs Cheats logo: white geometric shield with a stylized wolf head in profile',
   },
   nav: [
     { href: `${productBase}`, label: 'Products' },

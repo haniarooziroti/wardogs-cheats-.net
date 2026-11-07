@@ -4,6 +4,7 @@ export interface SiteConfig {
   title: string;
   description: string;
   rssFeedTitle: string;
+  logoAlt: string;
 }
 
 export interface NavLink {

@@ -5,6 +5,7 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Icon from '../../components/icons/Icon.astro';
 import { forumCategories, forumPosts } from '../../data/forum';
 import { blogPosts, getBlogPostTimestamp } from '../../data/blog';
+import { t } from '../../i18n';
 import { resolvePageSeo } from '../../config/seo';
 import { breadcrumbSchema, webPageSchema } from '../../utils/schema';
 
@@ -89,7 +90,7 @@ const sourceTimestamp = (path?: string) => {
           <section class="forum-side-card forum-about" id="community-guidelines">
             <div class="forum-side-card__banner"></div>
             <div class="forum-about__content">
-              <div class="forum-about__title"><span class="forum-community-avatar forum-community-avatar--brand"><img src="/logo.svg" alt="Wardogs cheats" width="34" height="34" /></span><h2>How these staff notes are written</h2></div>
+              <div class="forum-about__title"><span class="forum-community-avatar forum-community-avatar--brand"><img src="/logo-v2-64.png" alt={t.site.logoAlt} width="34" height="34" /></span><h2>How these staff notes are written</h2></div>
               <p>Staff-written setup notes collated next to Wardogs cheat articles. This is not a live forum and does not collect user posts.</p>
               <a class="forum-join" href="/products/wardogs-cheats/">Compare cheat tiers</a>
             </div>

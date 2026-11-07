@@ -47,6 +47,12 @@ https://wardogs-cheats--net.hania-rooziroti.workers.dev/*
 /apple-touch-icon-v2.png
   Cache-Control: public, max-age=3600
 
+/logo-v2-64.png
+  Cache-Control: public, max-age=3600
+
+/brand-logo-source.png
+  Cache-Control: public, max-age=3600
+
 # HTML responses only. Do not set Content-Type on /* — that would override CSS, JS, images, and XML.
 /
   Content-Type: text/html; charset=utf-8
