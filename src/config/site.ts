@@ -16,4 +16,4 @@ export const SITE_URL = resolvePublicOrigin();
 export const PRODUCT_BASE = '/products/wardogs-cheats/';
 export const TITLE_PREFIX = 'Wardogs cheats';
 export const SUPPORT_EMAIL = `support@${SITE_DOMAIN}`;
-export const FIRST_PARTY_OG_IMAGE = '/images/wardogs-showcase.png';
+export const FIRST_PARTY_OG_IMAGE = '/images/og/home-1200.webp';

@@ -1,13 +1,11 @@
 import type { FaqItem } from '../i18n/types';
-import { FIRST_PARTY_OG_IMAGE, SITE_DOMAIN, SUPPORT_EMAIL } from '../config/site';
+import { SITE_DOMAIN, SUPPORT_EMAIL } from '../config/site';
 import { SITE_ORIGIN, absoluteAssetUrl, canonicalUrl, getOrganizationSameAs } from '../config/seo';
 
 const SITE_BRAND = SITE_DOMAIN;
 
-function firstPartyAssetUrl(path: string): string {
-  const absolute = absoluteAssetUrl(path);
-  if (absolute.startsWith(`${SITE_ORIGIN}/`) || absolute === SITE_ORIGIN) return absolute;
-  return absoluteAssetUrl(FIRST_PARTY_OG_IMAGE);
+function schemaImageUrl(path: string): string {
+  return absoluteAssetUrl(path);
 }
 
 export interface BreadcrumbItem {
@@ -162,9 +160,7 @@ export function productSchema(input: {
       '@type': 'Brand',
       name: 'Wardogs',
     },
-    ...(input.image
-      ? { image: firstPartyAssetUrl(input.image) }
-      : { image: firstPartyAssetUrl(FIRST_PARTY_OG_IMAGE) }),
+    ...(input.image ? { image: schemaImageUrl(input.image) } : {}),
     ...(offer ? { offers: offer } : {}),
   };
 }
@@ -200,7 +196,7 @@ export function articleSchema(input: {
     headline: input.name,
     description: input.description,
     url: canonicalUrl(input.url),
-    image: firstPartyAssetUrl(input.image),
+    image: schemaImageUrl(input.image),
     datePublished: input.datePublished,
     dateModified: input.dateModified ?? input.datePublished,
     inLanguage: 'en-US',

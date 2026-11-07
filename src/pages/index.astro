@@ -11,11 +11,11 @@ import { resolvePageSeo } from '../config/seo';
 import { faqPageSchema, organizationSchema, websiteSchema } from '../utils/schema';
 import { getLandingFaqs } from '../data/faq';
 import { heroSlides } from '../data/products';
+import { HERO_IMAGE_WIDTHS, lcpPreloadHref } from '../utils/responsiveImage';
 
 const seo = resolvePageSeo('/');
 const homeFaqs = getLandingFaqs();
-const heroLcpImage = heroSlides[0]?.src ?? '';
-const heroLcpImageType = heroLcpImage.endsWith('.webp') ? 'image/webp' : 'image/png';
+const heroLcpImage = heroSlides[0]?.src ? lcpPreloadHref(heroSlides[0].src, HERO_IMAGE_WIDTHS) : '';
 ---
 
 <BaseLayout
@@ -30,7 +30,7 @@ const heroLcpImageType = heroLcpImage.endsWith('.webp') ? 'image/webp' : 'image/
         rel="preload"
         as="image"
         href={heroLcpImage}
-        type={heroLcpImageType}
+        type="image/webp"
         media="(min-width: 1024px)"
         fetchpriority="high"
       />

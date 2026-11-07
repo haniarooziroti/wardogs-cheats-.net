@@ -7,13 +7,13 @@ import {
   TWITTER_CREATOR,
   TWITTER_SITE,
   canonicalUrl,
-  DEFAULT_OG_IMAGE,
   DEFAULT_OG_IMAGE_HEIGHT,
   DEFAULT_OG_IMAGE_WIDTH,
   DEFAULT_META_KEYWORDS,
   GA_MEASUREMENT_ID,
   absoluteAssetUrl,
 } from '../config/seo';
+import { resolveOgImagePath } from '../config/media';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import JsonLd from '../components/JsonLd.astro';
@@ -35,7 +35,7 @@ interface Props {
 const {
   title = t.site.title,
   description = t.site.description,
-  ogImage = DEFAULT_OG_IMAGE,
+  ogImage: ogImageProp,
   ogImageAlt = title,
   ogType = 'website',
   articlePublishedTime,
@@ -45,6 +45,10 @@ const {
   jsonLd,
 } = Astro.props;
 
+const pathname = Astro.url.pathname;
+const blogSlug = pathname.match(/^\/blog\/([^/]+)\/?$/)?.[1];
+const pathForOg = pathname === '/' ? '/' : pathname.endsWith('/') ? pathname : `${pathname}/`;
+const ogImage = ogImageProp ?? resolveOgImagePath(pathForOg, blogSlug);
 const canonical = canonicalUrl(Astro.url.pathname);
 const ogImageUrl = absoluteAssetUrl(ogImage);
 const robotsContent =

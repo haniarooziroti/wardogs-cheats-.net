@@ -1,26 +1,59 @@
-/** Wardogs promotional stills (Supabase CDN WebP). Used for hero, tiers, blog cards, and default OG. */
-export const WARDOGS_CDN_GALLERY = [
-  'https://ooszazcwzmwhitdxwtom.supabase.co/storage/v1/object/public/seo-media-library/wardogs/f8fb1df6-697d-4d9b-b239-91326d061bf8/1793915976881-aqqh1y-mr-fitness-wardogs-cheats-are-way-too-powerful-vhfysrbttj8-1058x595-0m55s.webp',
-  'https://ooszazcwzmwhitdxwtom.supabase.co/storage/v1/object/public/seo-media-library/wardogs/f8fb1df6-697d-4d9b-b239-91326d061bf8/1793915956483-6hq6ph-mr-fitness-wardogs-cheats-are-way-too-powerful-vhfysrbttj8-1058x595-0m34s.webp',
-  'https://ooszazcwzmwhitdxwtom.supabase.co/storage/v1/object/public/seo-media-library/wardogs/f8fb1df6-697d-4d9b-b239-91326d061bf8/1793915807550-wh6jqq-mr-fitness-wardogs-cheats-are-way-too-powerful-vhfysrbttj8-1058x595-0m21s.webp',
-  'https://ooszazcwzmwhitdxwtom.supabase.co/storage/v1/object/public/seo-media-library/wardogs/f8fb1df6-697d-4d9b-b239-91326d061bf8/1793915774746-gj39gi-mr-fitness-wardogs-cheats-are-way-too-powerful-vhfysrbttj8-1058x595-0m20s.webp',
-  'https://ooszazcwzmwhitdxwtom.supabase.co/storage/v1/object/public/seo-media-library/wardogs/f8fb1df6-697d-4d9b-b239-91326d061bf8/1793915763313-nwnol9-mr-fitness-wardogs-cheats-are-way-too-powerful-vhfysrbttj8-1058x595-0m14s.webp',
-  'https://ooszazcwzmwhitdxwtom.supabase.co/storage/v1/object/public/seo-media-library/wardogs/b15955c0-41e9-482d-a072-e4e797bccc2c/1793709858946-nhlldk-hbs-forces-wardogs-wardogs-cheats-destroying-everyone-with-the-best-wardogs-chea.webp',
-  'https://ooszazcwzmwhitdxwtom.supabase.co/storage/v1/object/public/seo-media-library/wardogs/b15955c0-41e9-482d-a072-e4e797bccc2c/1793709837961-92qf25-hbs-forces-wardogs-wardogs-cheats-destroying-everyone-with-the-best-wardogs-chea.webp',
-  'https://ooszazcwzmwhitdxwtom.supabase.co/storage/v1/object/public/seo-media-library/wardogs/b15955c0-41e9-482d-a072-e4e797bccc2c/1793709821192-2d9lsa-hbs-forces-wardogs-wardogs-cheats-destroying-everyone-with-the-best-wardogs-chea.webp',
-  'https://ooszazcwzmwhitdxwtom.supabase.co/storage/v1/object/public/seo-media-library/wardogs/b15955c0-41e9-482d-a072-e4e797bccc2c/1793709803686-3trm9r-hbs-forces-wardogs-wardogs-cheats-destroying-everyone-with-the-best-wardogs-chea.webp',
-  'https://ooszazcwzmwhitdxwtom.supabase.co/storage/v1/object/public/seo-media-library/wardogs/b15955c0-41e9-482d-a072-e4e797bccc2c/1793709783737-r6o4o3-hbs-forces-wardogs-wardogs-cheats-destroying-everyone-with-the-best-wardogs-chea.webp',
-  'https://ooszazcwzmwhitdxwtom.supabase.co/storage/v1/object/public/seo-media-library/wardogs/b15955c0-41e9-482d-a072-e4e797bccc2c/1793709761537-nvh85q-niksion-i-got-rich-using-wardogs-cheat-in-season-2-ml1ky2qxita-1035x582-0m15s.webp',
-  'https://ooszazcwzmwhitdxwtom.supabase.co/storage/v1/object/public/seo-media-library/wardogs/b15955c0-41e9-482d-a072-e4e797bccc2c/1793709728181-pk1c1j-niksion-i-got-rich-using-wardogs-cheat-in-season-2-ml1ky2qxita-1035x582-0m36s.webp',
+/** First-party gameplay stills for hero, tier galleries, and product screenshots. */
+export const WARDOGS_GALLERY = [
+  '/images/gameplay/wardogs-esp-players.png',
+  '/images/gameplay/wardogs-ui-overlay.png',
+  '/images/gameplay/wardogs-radar-zoom.png',
+  '/images/gameplay/wardogs-esp-wallhack.png',
+  '/images/gameplay/wardogs-aimbot-combo.png',
+  '/images/gameplay/wardogs-trigger-assist.png',
+  '/images/gameplay/wardogs-recoil-control.png',
+  '/images/gameplay/wardogs-esp-players.png',
+  '/images/gameplay/wardogs-ui-overlay.png',
+  '/images/gameplay/wardogs-radar-zoom.png',
+  '/images/gameplay/wardogs-esp-wallhack.png',
+  '/images/gameplay/wardogs-aimbot-combo.png',
 ] as const;
+
+/** Default LCP / fallback still (first-party). */
+export const WARDOGS_SHOWCASE_IMAGE_SRC = WARDOGS_GALLERY[0];
 
 export const WARDOGS_SHOWCASE_IMAGE_ALT =
   'Wardogs cheats gameplay screenshot showing ESP overlay and cheat menu';
 
-/** Default OG / shared fallback: first CDN still */
-export const WARDOGS_SHOWCASE_IMAGE_SRC = WARDOGS_CDN_GALLERY[0];
+/** Blog hero/card image by post slug (PNG source; WebP variants live alongside). */
+export function wardogsBlogImage(slug: string): string {
+  return `/images/blog/${slug}.png`;
+}
 
-/** Blog listing / post header image by stable index (0–9 for the ten articles). */
-export function wardogsBlogCdnImage(index: number): string {
-  return WARDOGS_CDN_GALLERY[index % WARDOGS_CDN_GALLERY.length];
+/** Gallery still by index (hero carousel and tier screenshots). */
+export function wardogsGalleryImage(index: number): string {
+  return WARDOGS_GALLERY[index % WARDOGS_GALLERY.length]!;
+}
+
+/** OG social images (1200×630 WebP), one per indexable URL or slug. */
+export const OG_IMAGE_WIDTH = 1200;
+export const OG_IMAGE_HEIGHT = 630;
+
+export const PAGE_OG_PATHS: Record<string, string> = {
+  '/': '/images/og/home-1200.webp',
+  '/about/': '/images/og/about-1200.webp',
+  '/blog/': '/images/og/blog-index-1200.webp',
+  '/faq/': '/images/og/faq-1200.webp',
+  '/privacy/': '/images/og/privacy-1200.webp',
+  '/support/': '/images/og/support-1200.webp',
+  '/terms/': '/images/og/terms-1200.webp',
+  '/products/wardogs-cheats/': '/images/og/products-catalog-1200.webp',
+  '/products/wardogs-cheats/lite/': '/images/og/product-lite-1200.webp',
+  '/products/wardogs-cheats/pro/': '/images/og/product-pro-1200.webp',
+  '/products/wardogs-cheats/elite/': '/images/og/product-elite-1200.webp',
+};
+
+export function ogImageForBlogSlug(slug: string): string {
+  return `/images/og/blog-${slug}-1200.webp`;
+}
+
+export function resolveOgImagePath(pathname: string, blogSlug?: string): string {
+  if (blogSlug) return ogImageForBlogSlug(blogSlug);
+  const normalized = pathname.endsWith('/') ? pathname : `${pathname}/`;
+  return PAGE_OG_PATHS[normalized] ?? PAGE_OG_PATHS['/']!;
 }

@@ -9,7 +9,7 @@ import {
 import { t } from '../../i18n';
 import { resolvePageSeo } from '../../config/seo';
 import { breadcrumbSchema, collectionPageSchema } from '../../utils/schema';
-import { CARD_IMAGE_WIDTHS, webpSrc } from '../../utils/responsiveImage';
+import { CARD_IMAGE_WIDTHS, lcpPreloadHref } from '../../utils/responsiveImage';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import BlogCard from '../../components/BlogCard.astro';
 import BlogSortSelect from '../../components/BlogSortSelect.astro';
@@ -28,7 +28,7 @@ const breadcrumbs = [
 const featured = getFeaturedBlogPost();
 const gridPosts = getNonFeaturedBlogPosts();
 const tags = getBlogTags();
-const lcpImage = webpSrc(featured?.image ?? blogPosts[0]!.image, CARD_IMAGE_WIDTHS[0]);
+const lcpImage = lcpPreloadHref(featured?.image ?? blogPosts[0]!.image, CARD_IMAGE_WIDTHS);
 
 const tagIcon = (tag: string): IconName => blogTagIcons[tag] ?? 'tag';
 ---

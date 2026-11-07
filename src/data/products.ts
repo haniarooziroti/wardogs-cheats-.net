@@ -2,7 +2,7 @@ import { t } from '../i18n';
 import { checkoutForSlug, checkoutPath } from '../config/checkout';
 import type { IconName } from '../components/icons/types';
 import { PRODUCT_BASE } from '../config/site';
-import { WARDOGS_CDN_GALLERY, WARDOGS_SHOWCASE_IMAGE_ALT } from '../config/media';
+import { WARDOGS_GALLERY, WARDOGS_SHOWCASE_IMAGE_ALT } from '../config/media';
 
 export interface ProductSlide {
   src: string;
@@ -29,7 +29,7 @@ const showcaseNotes = [
   },
 ] as const;
 
-function productSlideFromCdn(src: string, noteIndex: number): ProductSlide {
+function productSlideFromLocal(src: string, noteIndex: number): ProductSlide {
   const note = showcaseNotes[noteIndex % showcaseNotes.length]!;
   return {
     src,
@@ -39,10 +39,10 @@ function productSlideFromCdn(src: string, noteIndex: number): ProductSlide {
   };
 }
 
-/** Three consecutive CDN stills per tier page gallery (cycles if needed). */
+/** Three consecutive gameplay stills per tier page gallery (cycles if needed). */
 function tierGallerySlides(startIndex: number): ProductSlide[] {
   return [0, 1, 2].map((offset) =>
-    productSlideFromCdn(WARDOGS_CDN_GALLERY[(startIndex + offset) % WARDOGS_CDN_GALLERY.length], offset),
+    productSlideFromLocal(WARDOGS_GALLERY[(startIndex + offset) % WARDOGS_GALLERY.length]!, offset),
   );
 }
 
@@ -367,8 +367,10 @@ export function getAllCheatSlugs() {
   return cheatPages.map((p) => p.slug);
 }
 
-/** Home hero: Supabase CDN carousel (first five stills). */
-export const heroSlides: ProductSlide[] = WARDOGS_CDN_GALLERY.slice(0, 5).map(productSlideFromCdn);
+/** Home hero carousel (first five gameplay stills). */
+export const heroSlides: ProductSlide[] = WARDOGS_GALLERY.slice(0, 5).map((src, i) =>
+  productSlideFromLocal(src, i),
+);
 
 export const productHub = {
   path: productBase,
