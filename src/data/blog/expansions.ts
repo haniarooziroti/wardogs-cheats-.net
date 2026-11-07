@@ -23,7 +23,7 @@ export const BLOG_EXPANSIONS: Record<string, BlogBlock[]> = {
       type: 'p',
       text: 'If ESP “paints the whole screen,” you probably raised fill before distance. Drop fill to near zero, keep a thin outline, then bring distance in. If tags jitter when you ADS, disable world-space text and keep screen-space labels. After a Wardogs client patch, reload the preset instead of stacking yesterday’s export on top of a new default.',
     },
-    { type: 'h2', text: 'Risks and limits' },
+    { type: 'h2', text: 'ESP risks and overlay limits' },
     {
       type: 'p',
       text: 'ESP does not make you safer. Thick wall emphasis and long-range tags make clips look scripted even when your aim is untouched. Private matches are for checking FPS and occlusion, not for proving you are undetectable. If the loader banner says wait, wait—stale ESP after a patch is a common way to crash the overlay or show boxes that no longer match player bones.',
@@ -50,7 +50,7 @@ export const BLOG_EXPANSIONS: Record<string, BlogBlock[]> = {
       type: 'p',
       text: 'Recoil tables and hitboxes move. If shots float high, do not raise strength—reload the cloud preset from the last known-good export and retest hip fire only. If ADS feels sticky on shotguns but fine on rifles, you mixed weapon-class slots. Clone the rifle profile instead of editing the global curve.',
     },
-    { type: 'h2', text: 'Risks and limits' },
+    { type: 'h2', text: 'Aim assist risks and replay limits' },
     {
       type: 'p',
       text: 'Wide FOV plus low smoothing is the combination people notice in replays. Nothing in the menu removes reports or automated review. If teammates say your crosshair looks twitchy, believe them before you add more assist. Aim tools can also tank frame time on weak CPUs; if FPS dips only when a target is in FOV, lower bone count or disable extra magnets.',
@@ -77,7 +77,7 @@ export const BLOG_EXPANSIONS: Record<string, BlogBlock[]> = {
       type: 'p',
       text: 'Dots that lag behind movement usually mean the overlay is attached to the wrong monitor or a stretched resolution. Reset to native 16:9, then re-enable radar. If the minimap doubles after a patch, you imported two presets; delete the duplicate layer rather than lowering opacity on both.',
     },
-    { type: 'h2', text: 'Risks and limits' },
+    { type: 'h2', text: 'Radar risks and map-read limits' },
     {
       type: 'p',
       text: 'Radar zoom does not show intent. A pack on the map can still hold. Calling rotates from radar alone gets squads killed when ESP is muted. After anti-cheat or client updates, confirm the radar still tracks the live minimap before you trust it in ranked. Stale radar is worse than no radar.',
@@ -104,7 +104,7 @@ export const BLOG_EXPANSIONS: Record<string, BlogBlock[]> = {
       type: 'p',
       text: 'Upgrades go through the same partner checkout and dashboard. You do not need a second loader. If Lite already solves your deaths-to-third-parties, adding Pro will not fix positioning. If Pro still feels like you are fighting the stick, you widened FOV too early—not because you needed Elite.',
     },
-    { type: 'h2', text: 'Risks and limits' },
+    { type: 'h2', text: 'Tier-choice risks and license limits' },
     {
       type: 'p',
       text: 'Paying for more modules increases how obvious a session can look, not how “safe” it is. License recovery still needs the receipt email. Features can vanish or change after a patch regardless of tier. Compare modules on the [catalog](/products/wardogs-cheats/) and ignore anyone selling a “undetected forever” add-on in DMs.',
@@ -131,7 +131,7 @@ export const BLOG_EXPANSIONS: Record<string, BlogBlock[]> = {
       type: 'p',
       text: 'If the loader sits on a spinner, read the banner before restarting ten times. After a Wardogs patch the build may be paused on purpose. If Windows blocks the file, check that you downloaded from the store flow tied to your license, not a copied link. Overlay missing in fullscreen often means you need borderless for that GPU driver—test both before you file a ticket.',
     },
-    { type: 'h2', text: 'Risks and limits' },
+    { type: 'h2', text: 'Loader install risks and recovery limits' },
     {
       type: 'p',
       text: 'A clean install does not reduce ban risk. It only reduces crashes and stale modules. Keep the receipt. Do not share the loader. If FPS dies, cut duplicate ESP layers before lowering resolution. Email support@wardogs-cheats.net with Windows build, the exact error text, and whether you already reloaded the preset.',
@@ -185,7 +185,7 @@ export const BLOG_EXPANSIONS: Record<string, BlogBlock[]> = {
       type: 'p',
       text: 'Leaks after a driver update are common. Re-test; do not assume last month’s “safe” scene still holds. If only recordings leak but the stream looks clean, you are encoding a different path than the live preview. Fix the recording encoder first. Fullscreen exclusive can bypass some overlays and pass others—test both window modes.',
     },
-    { type: 'h2', text: 'Risks and limits' },
+    { type: 'h2', text: 'Capture-mode risks and stream limits' },
     {
       type: 'p',
       text: 'Capture-friendly mode is a best-effort overlay switch, not a cloaking device. Platform VODs, Discord streams, and phone cameras pointed at the monitor are outside that switch. If you cannot verify a local file, do not go live. Streaming with assists on is a choice that increases who can report what they saw.',
@@ -212,7 +212,7 @@ export const BLOG_EXPANSIONS: Record<string, BlogBlock[]> = {
       type: 'p',
       text: 'A long spinner after a major Wardogs drop often means the channel is paused. Restarting in a loop will not compile a new build. If you crash on attach, send support the build hash, Windows version, and whether fullscreen or borderless failed. Elite tickets may route sooner; everyone still waits on a compatible build.',
     },
-    { type: 'h2', text: 'Risks and limits' },
+    { type: 'h2', text: 'Patch-night risks and stale-build limits' },
     {
       type: 'p',
       text: 'Playing through a red banner is how people run modules that no longer match the live client. That can look worse in replays and can crash the overlay. There is no promised patch window on this site. Check the dashboard every session. If checkout is paused, wait—do not hunt a third-party “hotfix.”',
@@ -239,7 +239,7 @@ export const BLOG_EXPANSIONS: Record<string, BlogBlock[]> = {
       type: 'p',
       text: 'If walls look painted, you doubled a preset or left world-space fill on. Delete the extra layer. If boxes float off models after a patch, the skeleton changed—reload the current preset instead of nudging offset sliders all night. 1080p often needs thinner outlines than 1440p; do not copy a 4K showcase config.',
     },
-    { type: 'h2', text: 'Risks and limits' },
+    { type: 'h2', text: 'Wall-ESP risks and spectator limits' },
     {
       type: 'p',
       text: 'Wallhack-style emphasis is easy to spot on stream and in spectator. Pair it with the [capture notes](/blog/wardogs-stream-capture-safety/) if you record. ESP will not tell you who is swinging. After patches, stale occlusion looks like seeing people through objects that the live client no longer agrees with—another reason to test offline first.',
@@ -266,7 +266,7 @@ export const BLOG_EXPANSIONS: Record<string, BlogBlock[]> = {
       type: 'p',
       text: 'You still need the [first-hour loader order](/blog/wardogs-loader-first-hour-checklist/) and a private match. Profiles do not migrate magic settings between PCs without an export. If a module disappears after a patch, it was compatibility, not a hidden downgrade. Read the banner; do not assume the feature map on this page is a live inventory.',
     },
-    { type: 'h2', text: 'Risks and limits' },
+    { type: 'h2', text: 'Feature-map risks and commercial limits' },
     {
       type: 'p',
       text: 'This is a commercial overview of software that can conflict with anti-cheat. Prices shown on product pages come from the listed plans in this repo. Availability is not guaranteed. No aggregate rating is published here because this site does not host verified reviews. Use the module table, then decide whether the risk is acceptable for you.',

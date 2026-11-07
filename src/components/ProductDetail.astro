@@ -74,6 +74,8 @@ const seo = resolvePageSeo(Astro.url.pathname);
   id="faq"
   items={productFaqs}
   titleId={`catalog-faq-${product.slug}`}
+  title={`FAQ for ${product.name} on this catalog page`}
+  subtitle={`Plans, setup, and safety notes that apply to ${product.name} before you open the partner checkout.`}
   class="border-t border-border bg-background"
 />
 <div class="mx-auto max-w-6xl px-5 pb-16">

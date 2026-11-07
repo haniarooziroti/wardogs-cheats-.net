@@ -66,7 +66,7 @@ const relatedPosts = [
                 notes.length > 0 && (
                   <section class="forum-comments" aria-labelledby="notes-title">
                     <div class="forum-comments__heading">
-                      <h2 id="notes-title">Editorial notes</h2>
+                      <h2 id="notes-title">Staff notes on this topic</h2>
                     </div>
                     {notes.map((note) => (
                       <article class="forum-comment">
@@ -84,13 +84,13 @@ const relatedPosts = [
         <aside class="forum-sidebar">
           <section class="forum-side-card forum-about">
             <div class="forum-about__content">
-              <h2>{post.category}</h2>
+              <h2>Notes in the {post.category} topic</h2>
               <p>Editorial notes grouped by topic for easier reading next to Wardogs cheat articles.</p>
               <a class="forum-join" href="/forum/">Back to editorial notes</a>
             </div>
           </section>
           <section class="forum-side-card forum-related-card" aria-labelledby="forum-related-title">
-            <h2 class="forum-side-heading" id="forum-related-title">More notes</h2>
+            <h2 class="forum-side-heading" id="forum-related-title">Related editorial notes</h2>
             <ul class="forum-related-list">
               {
                 relatedPosts.map((item) => (

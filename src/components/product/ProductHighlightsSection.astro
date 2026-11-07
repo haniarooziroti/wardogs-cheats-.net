@@ -20,7 +20,7 @@ const { product } = Astro.props;
   <div class="mx-auto max-w-6xl px-5">
     <SectionHeader
       eyebrow="At a glance"
-      title="Key capabilities"
+      title={`${product.name} capabilities at a glance`}
       desc={`What ${product.name} focuses on before you open the full module list.`}
       titleId="product-highlights-title"
     />

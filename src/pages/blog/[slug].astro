@@ -196,6 +196,8 @@ const modified = parseBlogDate(post.dateModified ?? post.date);
   <SiteFaqSection
     items={getBlogFaqs(post.tag, post.slug)}
     titleId={`blog-faq-${post.slug}`}
+    title={`FAQ next to this ${post.tag} Wardogs article`}
+    subtitle={`Setup, safety, and loader notes that sit with this article—open the full FAQ for every topic.`}
     class="border-t border-border bg-muted/20"
   />
 </BaseLayout>

@@ -11,22 +11,38 @@ export interface ProductSlide {
   captionDesc: string;
 }
 
-const defaultShowcaseCaption = 'Wardogs showcase';
-const defaultShowcaseCaptionDesc = 'ESP overlay and cheat menu in one frame.';
+const showcaseNotes = [
+  {
+    caption: 'ESP boxes in a live fight',
+    captionDesc:
+      'Distance tags and player boxes sit on the match view so you can read angles without a second window.',
+  },
+  {
+    caption: 'Operator menu beside the overlay',
+    captionDesc:
+      'ESP, aim, and radar toggles stay in one menu so you can mute a module without restarting the loader.',
+  },
+  {
+    caption: 'Radar used with world-space ESP',
+    captionDesc:
+      'Minimap zoom should match what ESP shows in front of you—if they disagree, tighten distance before adding glow.',
+  },
+] as const;
 
-function productSlideFromCdn(src: string): ProductSlide {
+function productSlideFromCdn(src: string, noteIndex: number): ProductSlide {
+  const note = showcaseNotes[noteIndex % showcaseNotes.length]!;
   return {
     src,
     alt: WARDOGS_SHOWCASE_IMAGE_ALT,
-    caption: defaultShowcaseCaption,
-    captionDesc: defaultShowcaseCaptionDesc,
+    caption: note.caption,
+    captionDesc: note.captionDesc,
   };
 }
 
 /** Three consecutive CDN stills per tier page gallery (cycles if needed). */
 function tierGallerySlides(startIndex: number): ProductSlide[] {
   return [0, 1, 2].map((offset) =>
-    productSlideFromCdn(WARDOGS_CDN_GALLERY[(startIndex + offset) % WARDOGS_CDN_GALLERY.length]),
+    productSlideFromCdn(WARDOGS_CDN_GALLERY[(startIndex + offset) % WARDOGS_CDN_GALLERY.length], offset),
   );
 }
 
@@ -181,12 +197,12 @@ const tierAbout: Record<string, ProductPage['about']> = {
 
 const tierBodies: Record<string, ProductPage['body']> = {
   lite: [
-    { type: 'h2', text: 'Included modules' },
+    { type: 'h2', text: 'What Lite puts on the overlay' },
     {
       type: 'p',
       text: 'Player ESP with distance and health, wall-style outlines, minimap radar zoom, footsteps or audio hints where supported, and capture-safe overlay modes. Presets ship in the dashboard for quick import.',
     },
-    { type: 'h2', text: 'Upgrade path' },
+    { type: 'h2', text: 'Moving from Lite to Pro or Elite' },
     {
       type: 'p',
       text: 'Lite keys can upgrade to Pro or Elite through the same portal without losing saved profiles. Compare tiers on the main catalog page before checkout.',
@@ -205,12 +221,12 @@ const tierBodies: Record<string, ProductPage['body']> = {
     },
   ],
   elite: [
-    { type: 'h2', text: 'Full stack' },
+    { type: 'h2', text: 'What Elite adds on top of Pro' },
     {
       type: 'p',
       text: 'Every Lite and Pro module plus expanded ESP filters, recoil curves per weapon family, stronger trigger assists, and operator-priority ticket routing when the loader hiccups after a patch.',
     },
-    { type: 'h2', text: 'Availability' },
+    { type: 'h2', text: 'When Elite checkout can pause' },
     {
       type: 'p',
       text: 'Elite slots may be capped when patch volume is high. If checkout pauses, wait for the status message to clear or open a support thread with your receipt email.',

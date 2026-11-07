@@ -9,9 +9,9 @@ export const en: Translations = {
   site: {
     name: 'Wardogs cheats',
     domain: 'wardogs-cheats.net',
-    title: 'Wardogs cheats overview: ESP, radar, and aim on PC',
+    title: 'Wardogs Cheats: ESP, Aimbot and Wallhack for PC',
     description:
-      'See how Wardogs cheats work on Windows PC: ESP overlays, radar zoom, and aim assists. Read setup notes, then compare Lite, Pro, and Elite in the catalog.',
+      'See how Wardogs cheats work on Windows PC: ESP overlays, aimbot smoothing, and wallhack-style reads. Then compare Lite, Pro, and Elite in the catalog.',
     rssFeedTitle: 'Wardogs cheat articles RSS',
   },
   nav: [
@@ -24,7 +24,7 @@ export const en: Translations = {
   hero: {
     status: 'Wardogs — loader channel online',
     eyebrow: 'PC · ESP · aim assist',
-    titleLine1: 'Wardogs cheats overview: ESP, radar, and aim on PC',
+    titleLine1: 'Wardogs Cheats: ESP, Aimbot and Wallhack for PC',
     titleLine2: '',
     subtitle:
       'Wardogs wallhack-style ESP, radar zoom, aimbot smoothing, and trigger timing—tuned for readable HUDs before you queue ranked or casual.',
@@ -135,7 +135,7 @@ export const en: Translations = {
       {
         value: 'Banner',
         title: 'Loader status',
-        desc: 'Read the dashboard banner after Wardogs patches instead of assuming yesterday’s build still matches.',
+        desc: 'A yellow or spinning loader strip means wait—only a green status is a go-ahead after a client update.',
       },
       {
         value: 'Email',
@@ -162,7 +162,7 @@ export const en: Translations = {
     steps: [
       {
         step: 'Step 1',
-        title: 'Finish checkout',
+        title: 'Buy a Lite, Pro, or Elite license',
         desc: 'Complete payment on the store page, save your receipt email, and wait for license activation.',
       },
       {
@@ -380,8 +380,8 @@ export const en: Translations = {
     ctaSecondary: 'Forum threads',
     ctaSecondaryHref: '/forum/',
     items: [
-      { num: '01', phase: 'Before install', title: 'Read the banner', desc: 'Loader status matters after Wardogs patches—do not queue blind.' },
-      { num: '02', phase: 'Purchase', title: 'Finish store checkout', desc: 'Use the official link; keep receipts for access recovery.' },
+      { num: '01', phase: 'Before install', title: 'Confirm the loader is green', desc: 'Skip ranked until the dashboard status is green after a Wardogs or anti-cheat patch.' },
+      { num: '02', phase: 'Purchase', title: 'Pay through the partner store', desc: 'Use the official checkout link and keep the receipt email for license recovery.' },
       { num: '03', phase: 'Local test', title: 'Private lobby pass', desc: 'Verify ESP load, FPS, and aim assist feel before ranked.' },
       { num: '04', phase: 'Save', title: 'Name your profile', desc: 'Lock a ranked preset and a casual one so swaps stay fast.' },
     ],
@@ -503,7 +503,7 @@ export const en: Translations = {
           ],
         },
         {
-          heading: 'Support',
+          heading: 'How to reach us',
           paragraphs: [
             'Email support@wardogs-cheats.net with receipts, Windows build numbers, and clear error text. We do not ask for passwords.',
           ],
@@ -565,7 +565,7 @@ export const en: Translations = {
         {
           heading: 'Affiliate disclosure',
           paragraphs: [
-            'Some links on wardogs-cheats.net, including /go/wardogs/, send you to an external store. If you buy through those links, we may earn a commission at no extra cost to you. Prices, licenses, and fulfillment are handled by the partner, not by this site.',
+            'Checkout paths on this site, including /go/wardogs/, open the partner store in the same tab. A purchase through those links may pay this site a commission. The partner sets prices, delivers licenses, and handles refunds—not wardogs-cheats.net.',
           ],
         },
         {

@@ -7,9 +7,10 @@ import type { IconName } from '../icons/types';
 
 interface Props {
   requirements: SystemRequirement[];
+  productName?: string;
 }
 
-const { requirements } = Astro.props;
+const { requirements, productName } = Astro.props;
 
 const reqLabels: Record<string, string> = {
   reqWindows: 'Windows',
@@ -39,7 +40,7 @@ const reqLabel = (icon: IconName) =>
   <div class="mx-auto max-w-6xl px-5">
     <SectionHeader
       eyebrow="Compatibility"
-      title="System requirements"
+      title={productName ? `System requirements for ${productName}` : 'System requirements for this Wardogs tier'}
       desc="Confirm your rig and Steam setup before checkout or loader install."
       titleId="product-requirements-title"
     />

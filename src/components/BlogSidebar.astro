@@ -55,7 +55,7 @@ const productLinks: { label: string; href: string; icon: IconName }[] = [
       <section class="blog-sidebar__block" aria-labelledby="blog-sidebar-toc-title">
         <h2 id="blog-sidebar-toc-title" class="blog-sidebar__heading">
           <Icon name="layers" size={14} class="text-primary" aria-hidden="true" />
-          <span class="blog-sidebar__heading-text">In this article</span>
+          <span class="blog-sidebar__heading-text">Sections in this article</span>
           {tocCount > 0 && (
             <Badge variant="secondary" size="sm" class="h-5 shrink-0 rounded-full px-1.5 tabular-nums text-[10px]">
               {tocCount}
@@ -87,7 +87,7 @@ const productLinks: { label: string; href: string; icon: IconName }[] = [
       <section class="blog-sidebar__block" aria-labelledby="blog-sidebar-related-title">
         <h2 id="blog-sidebar-related-title" class="blog-sidebar__heading">
           <Icon name="navBlog" size={14} class="text-primary" aria-hidden="true" />
-          Related articles
+          More Wardogs cheat articles
         </h2>
         <ul class="blog-sidebar__list">
           {related.map((item) => (
@@ -106,7 +106,7 @@ const productLinks: { label: string; href: string; icon: IconName }[] = [
   <section class="blog-sidebar__block blog-sidebar__block--shop" aria-labelledby="blog-sidebar-products-title">
     <h2 id="blog-sidebar-products-title" class="blog-sidebar__heading">
       <Icon name="navProducts" size={14} class="text-primary" aria-hidden="true" />
-      Our products
+      Wardogs cheat tiers to compare
     </h2>
     <ul class="blog-sidebar__list">
       {productLinks.map((link) => (

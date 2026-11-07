@@ -13,6 +13,8 @@ interface Props {
   id?: string;
   titleId?: string;
   class?: string;
+  title?: string;
+  subtitle?: string;
   /** Full /faq/ experience — all topics chip bar */
   variant?: 'full' | 'contextual';
   filterTopics?: FaqTopic[];
@@ -23,6 +25,8 @@ const {
   id,
   titleId = 'faq-heading',
   class: className,
+  title: titleOverride,
+  subtitle: subtitleOverride,
   variant = 'contextual',
   filterTopics: filterTopicsProp,
 } = Astro.props;
@@ -37,8 +41,8 @@ const showFilters = filterTopics.length > 1;
   id={id}
   items={items}
   eyebrow={copy.eyebrow}
-  title={copy.title}
-  subtitle={copy.subtitle}
+  title={titleOverride ?? copy.title}
+  subtitle={subtitleOverride ?? copy.subtitle}
   titleId={titleId}
   showFilters={showFilters}
   filterTopics={filterTopics}

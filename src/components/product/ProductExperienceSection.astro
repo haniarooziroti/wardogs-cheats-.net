@@ -23,7 +23,7 @@ const calloutLabels = ['A', 'B', 'C', 'D', 'E', 'F'];
     <header class="product-experience__header">
       <p class="product-experience__eyebrow">Experience</p>
       <h2 id="product-experience-title" class="product-experience__title">
-        In the client · After you buy
+        {productName} in the client after you buy
       </h2>
       <p class="product-experience__subtitle">
         Use the screenshots above for {productName}—below is what each layer means and how access works
@@ -33,7 +33,7 @@ const calloutLabels = ['A', 'B', 'C', 'D', 'E', 'F'];
 
     <div class="product-experience__grid">
       <div class="product-experience__column product-experience__column--preview">
-        <h3 class="product-experience__column-head" id="product-experience-preview-label">In-game layers</h3>
+        <p class="product-experience__column-head" id="product-experience-preview-label">In-game layers</p>
         <ul class="product-experience__callouts list-none p-0" aria-labelledby="product-experience-preview-label">
           {
             images.map((slide, index) => (
@@ -43,7 +43,7 @@ const calloutLabels = ['A', 'B', 'C', 'D', 'E', 'F'];
                 </span>
                 <div class="product-experience__callout-body">
                   <span class="product-experience__callout-tag">Layer {calloutLabels[index] ?? index + 1}</span>
-                  <h3 class="product-experience__callout-title">{slide.caption}</h3>
+                  <p class="product-experience__callout-title">{slide.caption}</p>
                   <p class="product-experience__callout-desc">{slide.captionDesc}</p>
                 </div>
               </li>
@@ -62,9 +62,9 @@ const calloutLabels = ['A', 'B', 'C', 'D', 'E', 'F'];
         class="product-experience__column product-experience__column--access"
         aria-labelledby="product-experience-access-title"
       >
-        <h3 class="product-experience__column-head" id="product-experience-access-title">
+        <p class="product-experience__column-head" id="product-experience-access-title">
           {acquisition.title}
-        </h3>
+        </p>
         <div class="product-experience__access-body">
           <ol class="product-experience__steps list-none p-0">
             {
@@ -75,7 +75,7 @@ const calloutLabels = ['A', 'B', 'C', 'D', 'E', 'F'];
                   </span>
                   <div class="product-experience__step-copy">
                     <p class="product-experience__step-num">{step.num}</p>
-                    <h4 class="product-experience__step-title">{step.title}</h4>
+                    <p class="product-experience__step-title">{step.title}</p>
                     <p class="product-experience__step-desc">{step.desc}</p>
                   </div>
                 </li>

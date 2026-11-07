@@ -703,8 +703,8 @@ html:not(.dark) .deployment-cta-secondary:hover {
   color: var(--muted-foreground);
 }
 
-#why-us .why-compare-feature-row h3,
-#why-us .why-compare-feature-row:hover h3 {
+#why-us .why-compare-feature-row .why-compare-feature-title,
+#why-us .why-compare-feature-row:hover .why-compare-feature-title {
   color: var(--foreground);
 }
 

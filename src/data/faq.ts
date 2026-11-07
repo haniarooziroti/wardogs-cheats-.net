@@ -268,7 +268,7 @@ export function getAllFaqs(): SiteFaqItem[] {
 
 export const SITE_FAQ_SECTION_COPY = {
   eyebrow: 'All topics',
-  title: 'Browse by category',
+  title: 'Browse Wardogs cheats FAQ by topic',
   subtitle: 'Filter plans, Wardogs ESP, aim assists, safety, and setup answers.',
 } as const;
 
