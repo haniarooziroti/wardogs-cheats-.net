@@ -26,7 +26,7 @@ export const forumPosts: ForumPost[] = [
     excerpt:
       'Wardogs aimbot settings start with a small FOV and high smoothing. Wide snap looks obvious in clips and raises report risk after every client patch.',
     sourceTitle: 'Wardogs aimbot smoothing article',
-    sourcePath: '/blog/wardogs-aimbot-sensitivity-and-smoothness/',
+    sourcePath: '/blog/wardogs-aimbot-tuning/',
     body: [
       'Higher aim assist levels usually mean wider FOV rings, faster snap speed, or more aggressive trigger windows. None of that removes reports or automated review—ban risk is about behavior, timing, and how obviously you snap under pressure.',
       'Most calm setups start with a small FOV, medium smoothing, and separate ADS curves. If your crosshair still looks like it teleports between shoulders, lower snap before you touch anything else.',
@@ -46,7 +46,7 @@ export const forumPosts: ForumPost[] = [
     excerpt:
       'Wardogs loader first login works when you install runtimes, sign in, import a calm preset, and test in a private match before ranked.',
     sourceTitle: 'First hour checklist',
-    sourcePath: '/blog/wardogs-loader-first-hour-checklist/',
+    sourcePath: '/blog/wardogs-loader-hour/',
     body: [
       'Install as admin only if Windows asks, log into the portal with your license email, import the conservative starter preset, disable modules you cannot explain, then private match before ranked.',
       'If anything crashes twice, stop queueing. Note the build hash from the about screen—support needs that string, not “latest”.',
@@ -66,7 +66,7 @@ export const forumPosts: ForumPost[] = [
     excerpt:
       'Wardogs ESP distance caps work better when teammate outlines are muted first. Match radar zoom to the ranges you call, then tighten enemy draw distance.',
     sourceTitle: 'ESP clarity article',
-    sourcePath: '/blog/wardogs-esp-clarity-and-noise/',
+    sourcePath: '/blog/wardogs-esp-clarity/',
     body: [
       'Most readable Wardogs ESP stacks start with distance caps and muted teammate outlines unless you duo queue and need revive cues.',
       'Match radar zoom tiers to the distances you actually call out—if radar says rotate and ESP says duel, tighten ESP first.',
@@ -86,7 +86,7 @@ export const forumPosts: ForumPost[] = [
     excerpt:
       'Wardogs Lite vs Pro is an intel versus aim choice. Stay on Lite for ESP if mechanics are stable; pick Pro when entry fights need FOV-capped assists.',
     sourceTitle: 'Lite vs Pro comparison',
-    sourcePath: '/blog/wardogs-lite-vs-pro-esp-aimbot/',
+    sourcePath: '/blog/wardogs-lite-vs-pro/',
     body: [
       'Lite covers Wardogs ESP, player tags, radar zoom, and light aim assists. Pro adds structured FOV, smoothing splits, and trigger timing windows.',
       'If your mechanics are already stable, Lite might be enough. If fights feel lost on entry damage, Pro’s aim stack shows up faster than stacking more ESP.',
@@ -105,7 +105,7 @@ export const forumPosts: ForumPost[] = [
     excerpt:
       'Wardogs patch night often leaves the loader on verifying while a matching build ships. Wait for a green banner and reinstall only after a new hash posts.',
     sourceTitle: 'Patch checklist',
-    sourcePath: '/blog/wardogs-patch-day-loader-checklist/',
+    sourcePath: '/blog/wardogs-patch-checklist/',
     body: [
       'After big Wardogs patches, loaders may sit on “verifying” while the team pushes a matching module set. Do not hammer login—that locks some accounts temporarily.',
       'Uninstall + reinstall only after you confirm a fresh build is posted. Reinstalling an old build just repeats the same mismatch.',
@@ -125,7 +125,7 @@ export const forumPosts: ForumPost[] = [
     excerpt:
       'Wardogs stream mode is only proven by a local recording, not the live preview. Re-test capture after GPU updates and after moving HDMI or scene inputs.',
     sourceTitle: 'Capture safety article',
-    sourcePath: '/blog/wardogs-stream-capture-safety/',
+    sourcePath: '/blog/wardogs-stream-capture/',
     body: [
       'Enable capture-friendly overlay mode, then record locally for thirty seconds. Scrub the file—not the live preview—to confirm ESP is absent.',
       'GPU driver updates sometimes change which surface OBS grabs; re-run the test after every driver install.',
@@ -144,7 +144,7 @@ export const forumPosts: ForumPost[] = [
     excerpt:
       'Wardogs Elite cheats add denser ESP filters, deeper recoil curves, and faster loader help. Weekend players can skip them; nightly ranked queues may not.',
     sourceTitle: 'Feature overview',
-    sourcePath: '/blog/wardogs-full-feature-overview-esp-aimbot/',
+    sourcePath: '/blog/wardogs-feature-map/',
     body: [
       'Elite wraps every Lite/Pro module, adds denser ESP filters, deeper recoil curves, and faster responses when the loader breaks.',
       'If you only play weekends, you might never touch Elite-only sliders. If you grind ranked nightly, the time saved on patch nights can matter.',
@@ -163,7 +163,7 @@ export const forumPosts: ForumPost[] = [
     excerpt:
       'Wardogs radar zoom presets work when you label Scout, Pressure, and Close and swap on circle stage. If ESP disagrees, shorten ESP first.',
     sourceTitle: 'Radar + ESP article',
-    sourcePath: '/blog/wardogs-radar-map-esp-guide/',
+    sourcePath: '/blog/wardogs-radar-esp/',
     body: [
       'Label presets plainly: Scout, Pressure, Close. Swap when circle stage changes, not when you panic.',
       'If ESP distances disagree with radar, shrink ESP max distance before you widen radar—macro view should not contradict micro callouts.',
@@ -182,7 +182,7 @@ export const forumPosts: ForumPost[] = [
     excerpt:
       'Wardogs ban risk is about reports, loud aim paths, and skipping tests after patches. No slider removes enforcement; calm presets only look less obvious.',
     sourceTitle: 'Ban risk article',
-    sourcePath: '/blog/wardogs-ban-risk-accounts-and-behavior/',
+    sourcePath: '/blog/wardogs-ban-risk/',
     body: [
       'No setting deletes risk. Loud aim paths, obvious snaps, and ignoring patch banners contribute as much as the tool itself.',
       'Private matches after updates are cheaper than account resurrections.',
@@ -202,7 +202,7 @@ export const forumPosts: ForumPost[] = [
     excerpt:
       'Wardogs cheats trigger delay changes shot timing after overlap; recoil curves change vertical pull. Tune rifle recoil first, then add small burst delays.',
     sourceTitle: 'Feature overview',
-    sourcePath: '/blog/wardogs-full-feature-overview-esp-aimbot/',
+    sourcePath: '/blog/wardogs-feature-map/',
     body: [
       'Trigger spacing changes how fast shots fire after crosshair overlap; recoil curves change vertical pull. Neither replaces crosshair placement.',
       'Most players tune recoil first on AR patterns, then add small trigger delays for burst weapons.',
@@ -221,7 +221,7 @@ export const forumPosts: ForumPost[] = [
     excerpt:
       'Wardogs wall ESP outlines steal peripheral vision on 1080p when fill is high. Lower fill first, then shorten draw distance or use Elite noise filters.',
     sourceTitle: 'Wall ESP article',
-    sourcePath: '/blog/wardogs-esp-wallhack-settings/',
+    sourcePath: '/blog/wardogs-esp-wallhack/',
     body: [
       'Lower fill before outline thickness. On smaller screens, thick outlines steal peripheral vision.',
       'If Elite filters are available, use noise reduction; otherwise mimic with shorter draw distance and softer teammate colors.',
@@ -240,7 +240,7 @@ export const forumPosts: ForumPost[] = [
     excerpt:
       'Wardogs cheats search mixes this site, old Reddit threads, and reseller spam. The only loader that matches a receipt is the one after partner checkout.',
     sourceTitle: 'Feature overview',
-    sourcePath: '/blog/wardogs-full-feature-overview-esp-aimbot/',
+    sourcePath: '/blog/wardogs-feature-map/',
     body: [
       'Search pulls this site, old wardogs cheats reddit threads, random Discords, and reseller spam. The only wardogs cheats download that matches your receipt is the loader linked after checkout—everything else is someone else’s risk.',
       'Feature names map to what buyers ask for: Wardogs esp and wallhack for reads, Wardogs radar hack for map pull-back, Wardogs aimbot and triggerbot for combat. Wardogs skin changer availability shifts by patch—check the module list the day you install.',

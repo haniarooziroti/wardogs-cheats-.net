@@ -34,16 +34,16 @@ const gameplayFiles = [
 ];
 
 const blogSlugs = [
-  'wardogs-esp-clarity-and-noise',
-  'wardogs-aimbot-sensitivity-and-smoothness',
-  'wardogs-radar-map-esp-guide',
-  'wardogs-lite-vs-pro-esp-aimbot',
-  'wardogs-loader-first-hour-checklist',
-  'wardogs-ban-risk-accounts-and-behavior',
-  'wardogs-stream-capture-safety',
-  'wardogs-patch-day-loader-checklist',
-  'wardogs-esp-wallhack-settings',
-  'wardogs-full-feature-overview-esp-aimbot',
+  'wardogs-esp-clarity',
+  'wardogs-aimbot-tuning',
+  'wardogs-radar-esp',
+  'wardogs-lite-vs-pro',
+  'wardogs-loader-hour',
+  'wardogs-ban-risk',
+  'wardogs-stream-capture',
+  'wardogs-patch-checklist',
+  'wardogs-esp-wallhack',
+  'wardogs-feature-map',
 ];
 
 async function savePng(url, dest) {

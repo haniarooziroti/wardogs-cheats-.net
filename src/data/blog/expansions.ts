@@ -2,7 +2,7 @@ import type { BlogBlock } from './types';
 
 /** Extra setup, settings, troubleshooting, and risk notes for thin posts. */
 export const BLOG_EXPANSIONS: Record<string, BlogBlock[]> = {
-  'wardogs-esp-clarity-and-noise': [
+  'wardogs-esp-clarity': [
     { type: 'h2', text: 'A setup order that keeps ESP readable' },
     {
       type: 'p',
@@ -29,7 +29,7 @@ export const BLOG_EXPANSIONS: Record<string, BlogBlock[]> = {
       text: 'ESP does not make you safer. Thick wall emphasis and long-range tags make clips look scripted even when your aim is untouched. Private matches are for checking FPS and occlusion, not for proving you are undetectable. If the loader banner says wait, wait—stale ESP after a patch is a common way to crash the overlay or show boxes that no longer match player bones.',
     },
   ],
-  'wardogs-aimbot-sensitivity-and-smoothness': [
+  'wardogs-aimbot-tuning': [
     { type: 'h2', text: 'First-run aim setup' },
     {
       type: 'p',
@@ -56,11 +56,11 @@ export const BLOG_EXPANSIONS: Record<string, BlogBlock[]> = {
       text: 'Wide FOV plus low smoothing is the combination people notice in replays. Nothing in the menu removes reports or automated review. If teammates say your crosshair looks twitchy, believe them before you add more assist. Aim tools can also tank frame time on weak CPUs; if FPS dips only when a target is in FOV, lower bone count or disable extra magnets.',
     },
   ],
-  'wardogs-radar-map-esp-guide': [
+  'wardogs-radar-esp': [
     { type: 'h2', text: 'How to set radar zoom without lying to yourself' },
     {
       type: 'p',
-      text: 'Save three labeled zoom steps in the loader: sweep, rotate, and choke. Bind them to keys you already use for map pings. Radar should answer pack movement; [Wardogs ESP](/blog/wardogs-esp-clarity-and-noise/) should answer the angle in front of you. If those two disagree, shrink ESP distance first.',
+      text: 'Save three labeled zoom steps in the loader: sweep, rotate, and choke. Bind them to keys you already use for map pings. Radar should answer pack movement; [Wardogs ESP](/blog/wardogs-esp-clarity/) should answer the angle in front of you. If those two disagree, shrink ESP distance first.',
     },
     { type: 'h2', text: 'Settings checklist' },
     {
@@ -83,7 +83,7 @@ export const BLOG_EXPANSIONS: Record<string, BlogBlock[]> = {
       text: 'Radar zoom does not show intent. A pack on the map can still hold. Calling rotates from radar alone gets squads killed when ESP is muted. After anti-cheat or client updates, confirm the radar still tracks the live minimap before you trust it in ranked. Stale radar is worse than no radar.',
     },
   ],
-  'wardogs-lite-vs-pro-esp-aimbot': [
+  'wardogs-lite-vs-pro': [
     { type: 'h2', text: 'Setup path for each tier' },
     {
       type: 'p',
@@ -110,7 +110,7 @@ export const BLOG_EXPANSIONS: Record<string, BlogBlock[]> = {
       text: 'Paying for more modules increases how obvious a session can look, not how “safe” it is. License recovery still needs the receipt email. Features can vanish or change after a patch regardless of tier. Compare modules on the [catalog](/products/wardogs-cheats/) and ignore anyone selling a “undetected forever” add-on in DMs.',
     },
   ],
-  'wardogs-loader-first-hour-checklist': [
+  'wardogs-loader-hour': [
     { type: 'h2', text: 'Install without painting yourself into a corner' },
     {
       type: 'p',
@@ -137,11 +137,11 @@ export const BLOG_EXPANSIONS: Record<string, BlogBlock[]> = {
       text: 'A clean install does not reduce ban risk. It only reduces crashes and stale modules. Keep the receipt. Do not share the loader. If FPS dies, cut duplicate ESP layers before lowering resolution. Email support@wardogs-cheats.net with Windows build, the exact error text, and whether you already reloaded the preset.',
     },
   ],
-  'wardogs-ban-risk-accounts-and-behavior': [
+  'wardogs-ban-risk': [
     { type: 'h2', text: 'What you can actually control' },
     {
       type: 'p',
-      text: 'You can control how loud the overlay looks, whether you test after patches, and whether you stream the assist. You cannot control reports, replay systems, or anti-cheat calendars. Treat every public match as reviewable. If you need a reminder of module scope, read the [feature map](/blog/wardogs-full-feature-overview-esp-aimbot/).',
+      text: 'You can control how loud the overlay looks, whether you test after patches, and whether you stream the assist. You cannot control reports, replay systems, or anti-cheat calendars. Treat every public match as reviewable. If you need a reminder of module scope, read the [feature map](/blog/wardogs-feature-map/).',
     },
     { type: 'h2', text: 'Behavior checklist' },
     {
@@ -164,7 +164,7 @@ export const BLOG_EXPANSIONS: Record<string, BlogBlock[]> = {
       text: 'Third-party tools can break terms of service. This site does not have a review count, a detection guarantee, or a 24/7 live desk. The honest version: quieter settings and patch discipline change how you look in a demo. They do not make the software allowed.',
     },
   ],
-  'wardogs-stream-capture-safety': [
+  'wardogs-stream-capture': [
     { type: 'h2', text: 'Test capture before you go live' },
     {
       type: 'p',
@@ -191,7 +191,7 @@ export const BLOG_EXPANSIONS: Record<string, BlogBlock[]> = {
       text: 'Capture-friendly mode is a best-effort overlay switch, not a cloaking device. Platform VODs, Discord streams, and phone cameras pointed at the monitor are outside that switch. If you cannot verify a local file, do not go live. Streaming with assists on is a choice that increases who can report what they saw.',
     },
   ],
-  'wardogs-patch-day-loader-checklist': [
+  'wardogs-patch-checklist': [
     { type: 'h2', text: 'Order of operations on patch night' },
     {
       type: 'p',
@@ -218,7 +218,7 @@ export const BLOG_EXPANSIONS: Record<string, BlogBlock[]> = {
       text: 'Playing through a red banner is how people run modules that no longer match the live client. That can look worse in replays and can crash the overlay. There is no promised patch window on this site. Check the dashboard every session. If checkout is paused, wait—do not hunt a third-party “hotfix.”',
     },
   ],
-  'wardogs-esp-wallhack-settings': [
+  'wardogs-esp-wallhack': [
     { type: 'h2', text: 'Wall emphasis without turning the map into a highlighter' },
     {
       type: 'p',
@@ -242,10 +242,10 @@ export const BLOG_EXPANSIONS: Record<string, BlogBlock[]> = {
     { type: 'h2', text: 'Wall-ESP risks and spectator limits' },
     {
       type: 'p',
-      text: 'Wallhack-style emphasis is easy to spot on stream and in spectator. Pair it with the [capture notes](/blog/wardogs-stream-capture-safety/) if you record. ESP will not tell you who is swinging. After patches, stale occlusion looks like seeing people through objects that the live client no longer agrees with—another reason to test offline first.',
+      text: 'Wallhack-style emphasis is easy to spot on stream and in spectator. Pair it with the [capture notes](/blog/wardogs-stream-capture/) if you record. ESP will not tell you who is swinging. After patches, stale occlusion looks like seeing people through objects that the live client no longer agrees with—another reason to test offline first.',
     },
   ],
-  'wardogs-full-feature-overview-esp-aimbot': [
+  'wardogs-feature-map': [
     { type: 'h2', text: 'How to use this map before you pay' },
     {
       type: 'p',
@@ -264,7 +264,7 @@ export const BLOG_EXPANSIONS: Record<string, BlogBlock[]> = {
     { type: 'h2', text: 'After you buy' },
     {
       type: 'p',
-      text: 'You still need the [first-hour loader order](/blog/wardogs-loader-first-hour-checklist/) and a private match. Profiles do not migrate magic settings between PCs without an export. If a module disappears after a patch, it was compatibility, not a hidden downgrade. Read the banner; do not assume the feature map on this page is a live inventory.',
+      text: 'You still need the [first-hour loader order](/blog/wardogs-loader-hour/) and a private match. Profiles do not migrate magic settings between PCs without an export. If a module disappears after a patch, it was compatibility, not a hidden downgrade. Read the banner; do not assume the feature map on this page is a live inventory.',
     },
     { type: 'h2', text: 'Feature-map risks and commercial limits' },
     {

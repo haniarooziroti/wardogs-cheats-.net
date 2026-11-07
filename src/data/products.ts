@@ -95,16 +95,16 @@ export interface ProductPage {
 
 /** Articles paired with each product detail page */
 export const productRelatedBlogSlugs: Record<string, string[]> = {
-  lite: ['wardogs-esp-wallhack-settings', 'wardogs-lite-vs-pro-esp-aimbot', 'wardogs-radar-map-esp-guide'],
+  lite: ['wardogs-esp-wallhack', 'wardogs-lite-vs-pro', 'wardogs-radar-esp'],
   pro: [
-    'wardogs-aimbot-sensitivity-and-smoothness',
-    'wardogs-lite-vs-pro-esp-aimbot',
-    'wardogs-stream-capture-safety',
+    'wardogs-aimbot-tuning',
+    'wardogs-lite-vs-pro',
+    'wardogs-stream-capture',
   ],
   elite: [
-    'wardogs-full-feature-overview-esp-aimbot',
-    'wardogs-esp-wallhack-settings',
-    'wardogs-patch-day-loader-checklist',
+    'wardogs-feature-map',
+    'wardogs-esp-wallhack',
+    'wardogs-patch-checklist',
   ],
 };
 

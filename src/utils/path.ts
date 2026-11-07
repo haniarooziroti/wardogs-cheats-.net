@@ -1,4 +1,5 @@
 import { PRODUCT_BASE } from '../config/site';
+import { LEGACY_BLOG_SLUG_REDIRECTS } from '../data/blog/slug-redirects';
 
 /** Normalize internal paths to match trailingSlash: 'always' and canonical URLs. */
 export function withTrailingSlash(path: string): string {
@@ -20,8 +21,8 @@ export const LEGACY_PATH_MAP: Record<string, string> = {
   '/cheats/pro/': PRODUCT_BASE,
   '/cheats/elite': `${PRODUCT_BASE}elite/`,
   '/cheats/elite/': `${PRODUCT_BASE}elite/`,
-  '/cheats/compare': '/blog/wardogs-lite-vs-pro-esp-aimbot/',
-  '/cheats/compare/': '/blog/wardogs-lite-vs-pro-esp-aimbot/',
+  '/cheats/compare': '/blog/wardogs-lite-vs-pro/',
+  '/cheats/compare/': '/blog/wardogs-lite-vs-pro/',
   '/products/dota-2-cheats': PRODUCT_BASE,
   '/products/dota-2-cheats/': PRODUCT_BASE,
   '/products/dota-2-cheats/elite': `${PRODUCT_BASE}elite/`,
@@ -43,6 +44,12 @@ export function normalizeInternalPath(href: string): string {
 
   let pathname = rawPath.startsWith('/') ? rawPath : `/${rawPath}`;
   pathname = LEGACY_PATH_MAP[pathname] ?? pathname;
+
+  const blogMatch = pathname.match(/^\/blog\/([^/#?]+)\/?$/);
+  if (blogMatch) {
+    const legacy = LEGACY_BLOG_SLUG_REDIRECTS[blogMatch[1]];
+    if (legacy) pathname = `/blog/${legacy}/`;
+  }
 
   return withTrailingSlash(pathname) + hash;
 }

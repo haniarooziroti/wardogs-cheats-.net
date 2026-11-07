@@ -57,6 +57,8 @@ export interface BlogPost {
   date: string;
   dateModified?: string;
   readTime: string;
+  /** Short CTA for card footers (avoids long “Read {title}” overlap). */
+  readCta: string;
 }
 
 export interface FaqItem {

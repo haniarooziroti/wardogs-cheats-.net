@@ -1,6 +1,7 @@
 import type { BlogBlock, BlogPostFull } from './types';
 import { wardogsBlogImage } from '../../config/media';
 import { BLOG_EXPANSIONS } from './expansions';
+import { BLOG_READ_CTA } from './read-cta';
 
 function wordCount(body: BlogBlock[]): number {
   return body.reduce((sum, block) => {
@@ -32,6 +33,7 @@ function withExpansion(post: BlogPostFull): BlogPostFull {
   const body = extra.length ? [...main, ...extra, ...cta] : post.body;
   return {
     ...post,
+    readCta: post.readCta ?? BLOG_READ_CTA[post.slug] ?? 'Read article',
     body,
     dateModified: extra.length ? 'Nov 7, 2026' : post.dateModified,
     readTime: readTimeFromBody(body),
@@ -45,13 +47,15 @@ const storeCta = {
   href: '/go/wardogs/',
 };
 
-const blogPostDrafts: BlogPostFull[] = [
+type BlogPostDraft = Omit<BlogPostFull, 'readCta'> & { readCta?: string };
+
+const blogPostDrafts: BlogPostDraft[] = [
   {
     featured: true,
     tag: 'ESP',
     title: 'Wardogs ESP overlays: keep reads clean in chaotic fights',
-    slug: 'wardogs-esp-clarity-and-noise',
-    image: wardogsBlogImage('wardogs-esp-clarity-and-noise'),
+    slug: 'wardogs-esp-clarity',
+    image: wardogsBlogImage('wardogs-esp-clarity'),
     desc: 'Tune Wardogs ESP overlays with distance clamps, team colors, and lower fill opacity so wallhack-style reads stay usable when fights fill with particles.',
     date: 'Nov 2, 2026',
     readTime: '7 min read',
@@ -85,8 +89,8 @@ const blogPostDrafts: BlogPostFull[] = [
   {
     tag: 'Aim',
     title: 'Wardogs aimbot smoothing: why FOV matters more than snap',
-    slug: 'wardogs-aimbot-sensitivity-and-smoothness',
-    image: wardogsBlogImage('wardogs-aimbot-sensitivity-and-smoothness'),
+    slug: 'wardogs-aimbot-tuning',
+    image: wardogsBlogImage('wardogs-aimbot-tuning'),
     desc: 'Set Wardogs aimbot smoothing with a small FOV first, raise smoothness until tracking looks human, then test ADS versus hip before you widen snap.',
     date: 'Nov 1, 2026',
     readTime: '8 min read',
@@ -112,7 +116,7 @@ const blogPostDrafts: BlogPostFull[] = [
       { type: 'h2', text: 'Pair with intel' },
       {
         type: 'p',
-        text: 'Run aim assists alongside the ESP notes in our [wall ESP article](/blog/wardogs-esp-wallhack-settings/) so you aim at threats you actually called.',
+        text: 'Run aim assists alongside the ESP notes in our [wall ESP article](/blog/wardogs-esp-wallhack/) so you aim at threats you actually called.',
       },
       storeCta,
     ],
@@ -120,8 +124,8 @@ const blogPostDrafts: BlogPostFull[] = [
   {
     tag: 'Radar',
     title: 'Radar zoom habits that pair with Wardogs ESP overlays',
-    slug: 'wardogs-radar-map-esp-guide',
-    image: wardogsBlogImage('wardogs-radar-map-esp-guide'),
+    slug: 'wardogs-radar-esp',
+    image: wardogsBlogImage('wardogs-radar-esp'),
     desc: 'Pair radar zoom with Wardogs ESP by saving early, mid, and late map presets, then tightening ESP distance so rotate calls match what you actually see.',
     date: 'Oct 30, 2026',
     readTime: '6 min read',
@@ -146,8 +150,8 @@ const blogPostDrafts: BlogPostFull[] = [
   {
     tag: 'Compare',
     title: 'Wardogs Lite vs Pro: ESP only or stacked aim assists',
-    slug: 'wardogs-lite-vs-pro-esp-aimbot',
-    image: wardogsBlogImage('wardogs-lite-vs-pro-esp-aimbot'),
+    slug: 'wardogs-lite-vs-pro',
+    image: wardogsBlogImage('wardogs-lite-vs-pro'),
     desc: 'Compare Wardogs Lite versus Pro when you want ESP-only intel or stacked aim assists. Use the module table, then pick a tier before you open checkout.',
     date: 'Oct 28, 2026',
     readTime: '5 min read',
@@ -167,7 +171,7 @@ const blogPostDrafts: BlogPostFull[] = [
       },
       {
         type: 'p',
-        text: 'Still unsure? Read [full feature overview](/blog/wardogs-full-feature-overview-esp-aimbot/) before you check out.',
+        text: 'Still unsure? Read [full feature overview](/blog/wardogs-feature-map/) before you check out.',
       },
       storeCta,
     ],
@@ -175,8 +179,8 @@ const blogPostDrafts: BlogPostFull[] = [
   {
     tag: 'Setup',
     title: 'First hour with the Wardogs loader: order of operations',
-    slug: 'wardogs-loader-first-hour-checklist',
-    image: wardogsBlogImage('wardogs-loader-first-hour-checklist'),
+    slug: 'wardogs-loader-hour',
+    image: wardogsBlogImage('wardogs-loader-hour'),
     desc: 'Walk the first hour with the Wardogs loader: install, sign in, import a calm preset, mute extra modules, check FPS in a private match, then queue later.',
     date: 'Oct 26, 2026',
     readTime: '6 min read',
@@ -198,7 +202,7 @@ const blogPostDrafts: BlogPostFull[] = [
       { type: 'h2', text: 'Patch nights' },
       {
         type: 'p',
-        text: 'Bookmark [patch checklist](/blog/wardogs-patch-day-loader-checklist/) and follow it literally when the client updates.',
+        text: 'Bookmark [patch checklist](/blog/wardogs-patch-checklist/) and follow it literally when the client updates.',
       },
       storeCta,
     ],
@@ -206,8 +210,8 @@ const blogPostDrafts: BlogPostFull[] = [
   {
     tag: 'Safety',
     title: 'Ban risk with Wardogs cheats: what actually moves the needle',
-    slug: 'wardogs-ban-risk-accounts-and-behavior',
-    image: wardogsBlogImage('wardogs-ban-risk-accounts-and-behavior'),
+    slug: 'wardogs-ban-risk',
+    image: wardogsBlogImage('wardogs-ban-risk'),
     desc: 'Ban risk with Wardogs cheats is about reports, noisy aim paths, and skipping tests after patches. No slider removes enforcement; behavior decides exposure.',
     date: 'Oct 24, 2026',
     readTime: '7 min read',
@@ -227,7 +231,7 @@ const blogPostDrafts: BlogPostFull[] = [
       },
       {
         type: 'p',
-        text: 'If you need the full module map for a sober purchase decision, pair this with [features overview](/blog/wardogs-full-feature-overview-esp-aimbot/).',
+        text: 'If you need the full module map for a sober purchase decision, pair this with [features overview](/blog/wardogs-feature-map/).',
       },
       storeCta,
     ],
@@ -235,8 +239,8 @@ const blogPostDrafts: BlogPostFull[] = [
   {
     tag: 'Stream',
     title: 'Capture cards and Wardogs overlays: test before you stream',
-    slug: 'wardogs-stream-capture-safety',
-    image: wardogsBlogImage('wardogs-stream-capture-safety'),
+    slug: 'wardogs-stream-capture',
+    image: wardogsBlogImage('wardogs-stream-capture'),
     desc: 'Test capture cards and Wardogs overlays locally first. Record a short clip, confirm ESP stays off the capture path, then change scenes before you go live.',
     date: 'Oct 22, 2026',
     readTime: '5 min read',
@@ -255,8 +259,8 @@ const blogPostDrafts: BlogPostFull[] = [
   {
     tag: 'Patch',
     title: 'Patch night checklist for Wardogs cheat builds and loaders',
-    slug: 'wardogs-patch-day-loader-checklist',
-    image: wardogsBlogImage('wardogs-patch-day-loader-checklist'),
+    slug: 'wardogs-patch-checklist',
+    image: wardogsBlogImage('wardogs-patch-checklist'),
     desc: 'Follow this patch night checklist for Wardogs cheat builds: pause ranked, read the loader banner, update, reload presets, retest ESP and aim privately.',
     date: 'Oct 20, 2026',
     readTime: '6 min read',
@@ -282,8 +286,8 @@ const blogPostDrafts: BlogPostFull[] = [
   {
     tag: 'ESP',
     title: 'Wardogs wallhack-style ESP: wall emphasis without clutter',
-    slug: 'wardogs-esp-wallhack-settings',
-    image: wardogsBlogImage('wardogs-esp-wallhack-settings'),
+    slug: 'wardogs-esp-wallhack',
+    image: wardogsBlogImage('wardogs-esp-wallhack'),
     desc: 'Set Wardogs wallhack-style ESP with thinner outlines, distance text, and teammate mute so wall emphasis stays readable instead of painting the screen.',
     date: 'Oct 18, 2026',
     readTime: '7 min read',
@@ -307,8 +311,8 @@ const blogPostDrafts: BlogPostFull[] = [
   {
     tag: 'Features',
     title: 'Wardogs cheats feature map: ESP, aimbot, radar, recoil',
-    slug: 'wardogs-full-feature-overview-esp-aimbot',
-    image: wardogsBlogImage('wardogs-full-feature-overview-esp-aimbot'),
+    slug: 'wardogs-feature-map',
+    image: wardogsBlogImage('wardogs-feature-map'),
     desc: 'Use this Wardogs cheats feature map to see which ESP, aimbot, radar, and recoil modules sit in Lite, Pro, and Elite before you pick a tier and checkout.',
     date: 'Oct 16, 2026',
     readTime: '9 min read',

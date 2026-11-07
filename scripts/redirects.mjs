@@ -1,5 +1,7 @@
+import { LEGACY_BLOG_SLUG_REDIRECTS } from './blog-slug-redirects.mjs';
+
 /** Static path redirects (301). Keys are pathname without query/hash. */
-export const PATH_REDIRECTS = new Map([
+const PATH_REDIRECT_ENTRIES = [
   ['/blog', '/blog/'],
   ['/about', '/about/'],
   ['/contact', '/support/'],
@@ -16,8 +18,8 @@ export const PATH_REDIRECTS = new Map([
   ['/cheats/pro/', '/products/wardogs-cheats/'],
   ['/cheats/elite', '/products/wardogs-cheats/elite/'],
   ['/cheats/elite/', '/products/wardogs-cheats/elite/'],
-  ['/cheats/compare', '/blog/wardogs-lite-vs-pro-esp-aimbot/'],
-  ['/cheats/compare/', '/blog/wardogs-lite-vs-pro-esp-aimbot/'],
+  ['/cheats/compare', '/blog/wardogs-lite-vs-pro/'],
+  ['/cheats/compare/', '/blog/wardogs-lite-vs-pro/'],
   ['/products/dota-2-cheats', '/products/wardogs-cheats/'],
   ['/products/dota-2-cheats/', '/products/wardogs-cheats/'],
   ['/products/dota-2-cheats/elite', '/products/wardogs-cheats/elite/'],
@@ -28,7 +30,14 @@ export const PATH_REDIRECTS = new Map([
   ['/products/dota-2-cheats/account-recovery/', '/products/wardogs-cheats/'],
   ['/forum/wardogs-cs2-search-terms-honest-thread', '/forum/wardogs-search-keywords-honest-thread/'],
   ['/forum/wardogs-cs2-search-terms-honest-thread/', '/forum/wardogs-search-keywords-honest-thread/'],
-]);
+];
+
+for (const [legacySlug, slug] of Object.entries(LEGACY_BLOG_SLUG_REDIRECTS)) {
+  const target = `/blog/${slug}/`;
+  PATH_REDIRECT_ENTRIES.push([`/blog/${legacySlug}`, target], [`/blog/${legacySlug}/`, target]);
+}
+
+export const PATH_REDIRECTS = new Map(PATH_REDIRECT_ENTRIES);
 
 /** Paths that should not receive a forced trailing slash. */
 export const TRAILING_SLASH_SKIP = /\.[a-z0-9]+$/i;

@@ -9,7 +9,7 @@ const ogDir = path.join(root, 'public', 'images', 'og');
 const ogJobs = [
   { out: 'home-1200.webp', src: 'public/images/gameplay/wardogs-esp-players.png' },
   { out: 'about-1200.webp', src: 'public/images/gameplay/wardogs-ui-overlay.png' },
-  { out: 'blog-index-1200.webp', src: 'public/images/blog/wardogs-esp-clarity-and-noise.png' },
+  { out: 'blog-index-1200.webp', src: 'public/images/blog/wardogs-esp-clarity.png' },
   { out: 'faq-1200.webp', src: 'public/images/gameplay/wardogs-radar-zoom.png' },
   { out: 'privacy-1200.webp', src: 'public/images/gameplay/wardogs-trigger-assist.png' },
   { out: 'support-1200.webp', src: 'public/images/gameplay/wardogs-recoil-control.png' },
